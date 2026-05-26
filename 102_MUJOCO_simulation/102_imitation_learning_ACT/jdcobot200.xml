@@ -1,0 +1,115 @@
+<mujoco model="jdcobot200">
+  <compiler angle="radian" meshdir="assets/" autolimits="true" />
+
+  <default>
+    <default class="sts3215">
+      <geom contype="1" conaffinity="1" group="3"/>
+      <joint damping="0.60" frictionloss="0.052" armature="0.028"/>
+      <position kp="200.0" kv="5.0" forcerange="-2.94 2.94"/>
+    </default>
+    
+    <default class="visual">
+      <geom type="mesh" contype="1" conaffinity="1" group="2"/>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="ac1" content_type="model/stl" file="ac1.stl"/>
+    <mesh name="base_top" content_type="model/stl" file="base_top.stl"/>
+    <mesh name="main" content_type="model/stl" file="main.stl"/>
+    <mesh name="base_link" content_type="model/stl" file="base_link.stl"/>
+    <mesh name="base_body" content_type="model/stl" file="base_body.stl"/>
+    <mesh name="base_joint" content_type="model/stl" file="base_joint.stl"/>
+    <mesh name="ac2" content_type="model/stl" file="ac2.stl"/>
+    <mesh name="shoulder_link" content_type="model/stl" file="shoulder_link.stl"/>
+    <mesh name="arm_link" content_type="model/stl" file="arm_link.stl"/>
+    <mesh name="ac1__2" content_type="model/stl" file="ac1__2.stl"/>
+    <mesh name="main__2" content_type="model/stl" file="main__2.stl"/>
+    <mesh name="ac2__2" content_type="model/stl" file="ac2__2.stl"/>
+    <mesh name="wrist_link" content_type="model/stl" file="wrist_link.stl"/>
+    <mesh name="gripper_base" content_type="model/stl" file="gripper_base.stl"/>
+    <mesh name="gripper_left" content_type="model/stl" file="gripper_left.stl"/>
+    <mesh name="gripper_left__2" content_type="model/stl" file="gripper_left__2.stl"/>
+    <mesh name="gripper_right_part" content_type="model/stl" file="gripper_right_part.stl"/>
+    <mesh name="gripper_right" content_type="model/stl" file="gripper_right.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_link" pos="0 0 0.17">
+      <inertial pos="0.123224 -0.0970027 -0.14596" quat="0.00426572 0.709574 0.00784638 0.704575" mass="0.328957" diaginertia="0.00067816 0.000521325 0.000500394"/>
+      <geom pos="0.135837 -0.096747 -0.136921" quat="1.32679e-06 0 0 1" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+      <geom pos="0.135837 -0.0976744 -0.120821" quat="1 0 0 -8.823e-09" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_top"/>
+      <geom pos="0.135837 -0.096747 -0.136921" quat="1.32679e-06 0 0 1" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+      <geom pos="0.123337 -0.096747 -0.170821" quat="1 0 0 -8.823e-09" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_link"/>
+      <geom pos="0.135837 -0.096747 -0.170821" quat="1 0 0 -8.823e-09" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_body"/>
+      
+      <body name="shoulder_link" pos="0.123337 -0.096747 -0.118321" quat="1.76038e-12 -1.32679e-06 -1 1.32679e-06">
+        <inertial pos="-0.000218622 -3.17138e-07 -0.0271572" quat="0.542797 0.453178 0.453186 0.542793" mass="0.0338978" diaginertia="1.09642e-05 1.0493e-05 9.08893e-06"/>
+        <joint name="shoulder_joint" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+        <geom quat="1.7604e-12 1.32679e-06 1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_joint"/>
+        <geom pos="-0.00075 -2.06e-10 -0.05671" quat="0.707105 6.23879e-09 0.707108 -6.23881e-09" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2"/>
+        <geom pos="0 0 -0.0233" quat="1.76037e-12 1.32679e-06 1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="shoulder_link"/>
+        <geom pos="-0.00015 -2.17e-10 -0.05671" quat="0.707105 6.23879e-09 0.707108 -6.23881e-09" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+        <geom pos="-0.00015 3e-12 -0.05671" quat="0.707105 6.23879e-09 0.707108 -6.23881e-09" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+        
+        <body name="elbow_arm" pos="-0.01845 3.26e-10 -0.06921" quat="0.707105 6.23879e-09 0.707108 -6.23881e-09">
+          <inertial pos="0.0913283 0.00171015 0.0190643" quat="-0.038387 0.708153 0.0913181 0.699076" mass="0.193596" diaginertia="0.000415441 0.000379598 0.000105992"/>
+          <joint name="elbow_joint" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+          <geom pos="0.053 0.012 0.02" quat="0.707105 0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="arm_link"/>
+          <geom pos="0.12315 8.02902e-05 0.0191" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1__2"/>
+          <geom pos="0.12315 8.02902e-05 0.0191" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main__2"/>
+          <geom pos="0.228739 0.214734 -0.00900162" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2__2"/>
+          
+          <body name="wrist_arm" pos="0.13565 8.02902e-05 0.0005">
+            <inertial pos="0.0913283 0.00171015 0.0190643" quat="-0.038387 0.708153 0.0913181 0.699076" mass="0.193596" diaginertia="0.000415441 0.000379598 0.000105992"/>
+            <joint name="wrist_arm_joint" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+            <geom pos="0.053 0.012 0.02" quat="0.707105 0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="arm_link"/>
+            <geom pos="0.12315 8.02902e-05 0.0191" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1__2"/>
+            <geom pos="0.12315 8.02902e-05 0.0191" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main__2"/>
+            <geom pos="0.228739 0.214734 -0.00900162" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2__2"/>
+            
+            <body name="wrist_link" pos="0.13565 8.02902e-05 0.0005">
+              <inertial pos="0 0 0.01" mass="0.02" diaginertia="1e-05 1e-05 1e-05"/>
+              <joint name="wrist_joint" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+              <geom pos="0.0404 0 0.0076" quat="9.38184e-07 0.707105 -9.38187e-07 0.707108" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+              <geom pos="0.0392 0 0.0076" quat="9.38184e-07 0.707105 -9.38187e-07 0.707108" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+              <geom pos="0.055 -0.012 0.0201" quat="0.707105 -0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="wrist_link"/>
+              
+              <body name="gripper_link" pos="0.059 0 0.0201" quat="9.38184e-07 0.707105 -9.38187e-07 0.707108">
+                <inertial pos="-0.000141417 -0.00249707 0.0316973" quat="0.633838 0.343195 -0.429306 0.544209" mass="0.0977803" diaginertia="0.000123357 0.000112644 2.14518e-05"/>
+                <joint name="gripper_base_joint" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+                <geom pos="0 -0.0185 0.0300671" quat="0.707105 -0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_base"/>
+                <geom pos="0 0.0007 0.0300671" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1__2"/>
+                <geom pos="0 0.0007 0.0300671" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main__2"/>
+                <geom pos="-0.0287016 -0.214554 0.135656" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2__2"/>
+                
+                <body name="gripper_left" pos="-0.0125 0.0193 0.0300671" quat="9.38184e-07 -9.38187e-07 0.707108 -0.707105">
+                  <inertial pos="0 0 0.02" mass="0.015" diaginertia="5e-06 5e-06 5e-06"/>
+                  <joint name="ripper_link" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+                  <geom pos="0 0 0.0453" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_left"/>
+                  <geom pos="0 0 0.0453" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_left__2"/>
+                </body>
+                
+                <body name="gipper_right" pos="0.01555 0.0245 0.0300671" quat="0.707105 0.707108 0 0">
+                  <inertial pos="0.02 0 0.02" mass="0.015" diaginertia="5e-06 5e-06 5e-06"/>
+                  <joint name="gripper_rigiht_link" class="sts3215" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"/>
+                  <geom pos="0.0509419 0 0" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right_part"/>
+                  <geom pos="0 0 0.051146" quat="1.76039e-12 1.32679e-06 1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position class="sts3215" name="shoulder_pos" joint="shoulder_joint" kp="150"/>
+    <position class="sts3215" name="elbow_pos" joint="elbow_joint" kp="150"/>
+    <position class="sts3215" name="wrist_arm_pos" joint="wrist_arm_joint" kp="150"/>
+    <position class="sts3215" name="wrist_pos" joint="wrist_joint" kp="150"/>
+    <position class="sts3215" name="gripper_base_pos" joint="gripper_base_joint" kp="80"/>
+    <position class="sts3215" name="gripper_left_pos" joint="ripper_link" kp="50"/>
+  </actuator>
+</mujoco>

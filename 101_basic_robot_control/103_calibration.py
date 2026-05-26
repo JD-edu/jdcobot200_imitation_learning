@@ -8,7 +8,7 @@ def calibrate_and_save_offset():
 
     # 그리퍼 제외 5축이면 [1,2,3,4,5]
     # 6축 전체면 [1,2,3,4,5,6]
-    MOTOR_IDS = [1, 2, 3, 4, 5]
+    MOTOR_IDS = [1, 2, 3, 4, 5, 6]
 
     LOGICAL_CENTER = 2048
 

@@ -43,8 +43,7 @@ def main():
     except KeyboardInterrupt:
         print("\n\nMonitoring stopped by user.")
     finally:
-        driver.ser.close()
-        print("Serial port closed.")
+        driver.close()
 
 if __name__ == "__main__":
     main()

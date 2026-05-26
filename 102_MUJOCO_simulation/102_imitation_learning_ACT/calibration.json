@@ -1,0 +1,50 @@
+{
+    "shoulder_joint": {
+        "id": 1,
+        "homing_offset": 0,
+        "hw_range_min": 0,
+        "hw_range_max": 4095,
+        "sim_range_min": -3.14159,
+        "sim_range_max": 3.14159
+    },
+    "elbow_joint": {
+        "id": 2,
+        "homing_offset": 0,
+        "hw_range_min": 0,
+        "hw_range_max": 4095,
+        "sim_range_min": -3.14159,
+        "sim_range_max": 3.14159
+    },
+    "wrist_arm_joint": {
+        "id": 3,
+        "homing_offset": 0,
+        "hw_range_min": 0,
+        "hw_range_max": 4095,
+        "sim_range_min": -3.14159,
+        "sim_range_max": 3.14159
+    },
+    "wrist_joint": {
+        "id": 4,
+        "homing_offset": 0,
+        "hw_range_min": 0,
+        "hw_range_max": 4095,
+        "sim_range_min": -3.14159,
+        "sim_range_max": 3.14159
+    },
+    "gripper_base_joint": {
+        "id": 5,
+        "homing_offset": 0,
+        "hw_range_min": 0,
+        "hw_range_max": 4095,
+        "sim_range_min": -3.14159,
+        "sim_range_max": 3.14159
+    },
+    "ripper_link": {
+        "id": 6,
+        "homing_offset": 0,
+        "hw_range_min": 1000,
+        "hw_range_max": 3000,
+        "sim_range_min": -0.5,
+        "sim_range_max": 0.5
+    }
+}

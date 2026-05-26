@@ -1,46 +1,6 @@
 import serial
 import time
-
-class MiniFeetechDriver:
-    REG_GOAL_POSITION = 42
-    REG_PRESENT_POSITION = 56
-    REG_TORQUE_ENABLE = 40
-
-    def __init__(self, port='/dev/ttyUSB0', baudrate=1000000):
-        try:
-            self.ser = serial.Serial(port, baudrate, timeout=0.05)
-            print(f"Connected to {port} at {baudrate}bps")
-        except Exception as e:
-            print(f"Failed to connect: {e}")
-            exit()
-
-    def _make_packet(self, motor_id, instruction, parameters):
-        length = len(parameters) + 2
-        packet = [0xFF, 0xFF, motor_id, length, instruction] + parameters
-        checksum = (~(sum(packet[2:]) & 0xFF)) & 0xFF
-        packet.append(checksum)
-        return bytearray(packet)
-    
-    def _write_only(self, motor_id, instruction, parameters):
-        self.ser.write(self._make_packet(motor_id, instruction, parameters))
-
-    def _write_and_read(self, motor_id, instruction, parameters, resp_bytes=8):
-        self.ser.reset_input_buffer()
-        self.ser.write(self._make_packet(motor_id, instruction, parameters))
-        return self.ser.read(resp_bytes)
-
-    def set_torque(self, motor_id, enable):
-        self._write_only(motor_id, 0x03, [self.REG_TORQUE_ENABLE, 1 if enable else 0])
-
-    def get_position(self, motor_id):
-        resp = self._write_and_read(motor_id, 0x02, [self.REG_PRESENT_POSITION, 2], resp_bytes=8)
-        if len(resp) < 8: return None
-        return ((resp[6] << 8) | resp[5]) & 0x0FFF
-
-    def set_position(self, motor_id, position):
-        pos_low = position & 0xFF
-        pos_high = (position >> 8) & 0xFF
-        self._write_only(motor_id, 0x03, [self.REG_GOAL_POSITION, pos_low, pos_high])
+from motor_control import MiniFeetechDriver 
 
 def main():
     # --- 설정 영역 ---
@@ -82,7 +42,7 @@ def main():
     except KeyboardInterrupt:
         print("\nExiting program. Servos will remain locked.")
     finally:
-        driver.ser.close()
+        driver.close()
 
 if __name__ == "__main__":
     main()

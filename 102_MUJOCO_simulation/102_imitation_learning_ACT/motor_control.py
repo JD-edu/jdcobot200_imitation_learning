@@ -176,22 +176,7 @@ class MiniFeetechDriver:
             
         return raw_offset
     
-    def close(self):
-        """
-        시리얼 포트 통신을 안전하게 종료하고 자원을 해제합니다.
-        """
-        if hasattr(self, 'ser') and self.ser is not None:
-            try:
-                if self.ser.is_open:
-                    # 통신 버퍼에 남아있는 데이터를 모두 내보내고 비웁니다.
-                    self.ser.flush()
-                    # 시리얼 포트를 닫습니다.
-                    self.ser.close()
-                    print("[*] MiniFeetechDriver: 시리얼 포트가 성공적으로 닫혔습니다.", flush=True)
-            except Exception as e:
-                print(f"[오류] 시리얼 포트를 닫는 중 문제가 발생했습니다: {e}", flush=True)
-    
-
+import time
 
 
 import time
