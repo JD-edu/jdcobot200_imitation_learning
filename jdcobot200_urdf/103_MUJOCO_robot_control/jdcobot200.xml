@@ -1,0 +1,77 @@
+<mujoco model="jdcobot200_urdf">
+  <compiler angle="radian" meshdir="assets/"/>
+
+  <asset>
+    <mesh name="base_top" content_type="model/stl" file="base_top.stl"/>
+    <mesh name="ac1" content_type="model/stl" file="ac1.stl"/>
+    <mesh name="base_plate" content_type="model/stl" file="base_plate.stl"/>
+    <mesh name="base_link" content_type="model/stl" file="base_link.stl"/>
+    <mesh name="main" content_type="model/stl" file="main.stl"/>
+    <mesh name="base_joint" content_type="model/stl" file="base_joint.stl"/>
+    <mesh name="ac2" content_type="model/stl" file="ac2.stl"/>
+    <mesh name="shoulder_link" content_type="model/stl" file="shoulder_link.stl"/>
+    <mesh name="arm_link" content_type="model/stl" file="arm_link.stl"/>
+    <mesh name="wrist_link___recovered" content_type="model/stl" file="wrist_link___recovered.stl"/>
+    <mesh name="gripper_base" content_type="model/stl" file="gripper_base.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_assembly">
+      <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.35" diaginertia="0.0006 0.0005 0.0005"/>
+      <geom pos="0.11465 -0.114593 -0.0881425" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_top"/>
+      <geom pos="0.11465 -0.114593 -0.103042" quat="1.32679e-06 0 0 -1" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+      <geom pos="0.10215 -0.114593 -0.138142" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_plate"/>
+      <geom pos="0.11465 -0.114593 -0.138142" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_link"/>
+      <geom pos="0.11465 -0.114593 -0.104242" quat="1.32679e-06 0 0 1" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+      <body name="shoulder_assmebly" pos="0.10215 -0.114593 -0.0844425" quat="1.76038e-12 1.32679e-06 -1 -1.32679e-06">
+        <inertial pos="0 0 0" mass="0.15" diaginertia="0.0001 0.0001 0.0001"/>
+        <joint name="base" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
+        <geom quat="1.7604e-12 1.32679e-06 1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="base_joint"/>
+        <geom pos="0.00015 0 -0.04896" quat="9.38184e-07 -0.707105 9.38187e-07 0.707108" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+        <geom pos="0.00075 0 -0.04896" quat="9.38184e-07 -0.707105 9.38187e-07 0.707108" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2"/>
+        <geom pos="0 0 -0.0193" quat="1.76037e-12 1.32679e-06 1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="shoulder_link"/>
+        <geom pos="0.0002 0 -0.04896" quat="9.38184e-07 0.707105 9.38187e-07 -0.707108" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+        <body name="arm_link_assembly" pos="-0.0184 0 -0.06146" quat="0.707105 0 0.707108 0">
+          <inertial pos="0.05 0.01 0.01" quat="0.5 0.5 0.5 0.5" mass="0.12" diaginertia="0.0002 0.0002 0.0001"/>
+          <joint name="shoulder" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
+          <geom pos="0.1227 8.02902e-05 0.0184929" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+          <geom pos="0.1227 8.02902e-05 0.0184429" quat="1.32679e-06 1 0 0" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+          <geom pos="0.053 0.012 0.0182929" quat="0.707105 0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="arm_link"/>
+          <geom pos="0.1227 8.02902e-05 0.0190429" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2"/>
+          <body name="arm_link_assembly_2" pos="0.1352 8.02902e-05 -0.000107107">
+            <inertial pos="0.05 0.01 0.01" quat="0.5 0.5 0.5 0.5" mass="0.12" diaginertia="0.0002 0.0002 0.0001"/>
+            <joint name="elbow" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
+            <geom pos="0.1227 8.02902e-05 0.0184929" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+            <geom pos="0.1227 8.02902e-05 0.0184429" quat="1.32679e-06 1 0 0" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+            <geom pos="0.053 0.012 0.0182929" quat="0.707105 0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="arm_link"/>
+            <geom pos="0.1227 8.02902e-05 0.0190429" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2"/>
+            <body name="wrist_assembly" pos="0.1352 8.02902e-05 -0.000107107">
+              <inertial pos="0.04 0 0.02" mass="0.05" diaginertia="5e-05 5e-05 5e-05"/>
+              <joint name="wrist" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
+              <geom pos="0.0389 0 0.0308929" quat="0.707105 0 0.707108 0" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+              <geom pos="0.055 0.012 0.0183929" quat="0.707105 0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="wrist_link___recovered"/>
+              <geom pos="0.0392 0 0.0308929" quat="0.707105 0 0.707108 0" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+              <body name="gripper_assembly" pos="0.0575 0 0.0183929" quat="9.38184e-07 -0.707105 -9.38187e-07 -0.707108">
+                <inertial pos="0 0 0.03" mass="0.08" diaginertia="5e-05 5e-05 5e-05"/>
+                <joint name="gripper_base" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
+                <geom pos="0 0.0007 0.0300671" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
+                <geom pos="0 0.0004 0.0300671" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac1"/>
+                <geom pos="0 -0.0185 0.0300671" quat="0.707105 -0.707108 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_base"/>
+                <geom pos="0 0.0001 0.0300671" quat="9.38184e-07 9.38187e-07 -0.707108 -0.707105" type="mesh" rgba="0.960784 0.960784 0.964706 1" mesh="ac2"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- 로봇암을 MUJOCO에서 코드로 제어하려면 다음 tag를 추가하기 -->
+<actuator>
+    <motor name="torque_base"         joint="base"         forcerange="-3.35 3.35"/>
+    <motor name="torque_shoulder"     joint="shoulder"     forcerange="-3.35 3.35"/>
+    <motor name="torque_elbow"        joint="elbow"        forcerange="-3.35 3.35"/>
+    <motor name="torque_wrist"        joint="wrist"        forcerange="-3.35 3.35"/>
+    <motor name="torque_gripper_base" joint="gripper_base" forcerange="-3.35 3.35"/>
+  </actuator>
+</mujoco>

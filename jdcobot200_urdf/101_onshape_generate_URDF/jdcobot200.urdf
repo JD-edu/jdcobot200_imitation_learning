@@ -2,11 +2,12 @@
 <!-- Generated using onshape-to-robot -->
 <!-- Onshape https://cad.onshape.com/documents/b1be9314d341256813a88427/w/ef79e5b8cf85c1610447e659/e/80392a9c2c647d9f19feb1f2 -->
 <robot name="jdcobot200_urdf">
+  <!-- MUJOCO에 로봇을 올리기위해서 아래tag를 추가해야 함 -->
   <mujoco>
     <compiler meshdir="assets/" strippath="false" fusestatic="false"/>
   </mujoco>
 
-  <!-- Materials -->
+  <!-- Materials MUJOCO에 로봇을 올리기위해서 아래tag를 추가해야 함 -->
   <material name="3d_printed">
     <color rgba="1.0 0.82 0.12 1.0"/>
   </material>
