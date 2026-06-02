@@ -3,7 +3,7 @@ from motor_control import MiniFeetechDriver
 
 def check_all_offsets():
     # --- 설정 영역 ---
-    SERIAL_PORT = '/dev/ttyUSB0'
+    SERIAL_PORT = '/dev/ttyACM0'
     BAUDRATE = 1000000
     MOTOR_IDS = [1, 2, 3, 4, 5, 6] 
     

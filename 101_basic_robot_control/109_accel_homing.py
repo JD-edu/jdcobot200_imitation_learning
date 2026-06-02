@@ -9,14 +9,14 @@ def smoothstep(t):
 
 
 if __name__ == "__main__":
-    PORT = "/dev/ttyUSB0"
+    PORT = "/dev/ttyACM0"
     BAUDRATE = 1000000
 
     MOTOR_IDS = [1, 2, 3, 4, 5]
 
     LOGICAL_CENTER = 2048
 
-    MOVE_TIME = 2.5      # 전체 이동 시간, 줄이면 더 빠름
+    MOVE_TIME = 3.0      # 전체 이동 시간, 줄이면 더 빠름
     UPDATE_DT = 0.02     # 20ms 주기
 
     driver = MiniFeetechDriver(PORT, BAUDRATE)

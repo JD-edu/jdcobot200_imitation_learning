@@ -5,7 +5,7 @@ from ikpy.chain import Chain
 from motor_control import MiniFeetechDriver
 
 
-PORT = "/dev/ttyUSB0"
+PORT = "/dev/ttyACM0"
 BAUDRATE = 1000000
 
 ARM_MOTOR_IDS = [1, 2, 3, 4, 5]

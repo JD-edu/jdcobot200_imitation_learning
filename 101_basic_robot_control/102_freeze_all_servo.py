@@ -4,7 +4,7 @@ from motor_control import MiniFeetechDriver
 
 def main():
     # --- 설정 영역 ---
-    SERIAL_PORT = '/dev/ttyUSB0' 
+    SERIAL_PORT = '/dev/ttyACM0' 
     MOTOR_IDS = [1, 2, 3, 4, 5]   
     # ----------------
 
