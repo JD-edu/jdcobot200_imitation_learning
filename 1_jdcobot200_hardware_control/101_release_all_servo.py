@@ -5,7 +5,7 @@ from motor_control import MiniFeetechDriver
 
 def main():
     # --- 설정 영역 ---
-    SERIAL_PORT = '/dev/ttyACM0'  # 윈도우라면 'COM3' 등, 리눅스라면 '/dev/ttyUSB0'
+    SERIAL_PORT = 'COM12'  # 윈도우라면 'COM3' 등, 리눅스라면 '/dev/ttyUSB0'
     BAUDRATE = 1000000
     MOTOR_IDS = [1, 2, 3, 4, 5, 6]   # 제작하신 5축 로봇의 모터 ID 리스트
     # ----------------

@@ -3,7 +3,7 @@ from motor_control import MiniFeetechDriver
 
 
 def calibrate_and_save_offset():
-    PORT = "/dev/ttyACM0"
+    PORT = "COM12"
     BAUDRATE = 1000000
 
     # 그리퍼 제외 5축이면 [1,2,3,4,5]

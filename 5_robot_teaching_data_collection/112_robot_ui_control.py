@@ -12,7 +12,7 @@ class JdCobotUI:
         self.window.geometry("850x650")
         
         # --- 로봇 연결 및 하드웨어 설정 ---
-        self.PORT = "/dev/ttyACM0"
+        self.PORT = "COM12"
         self.BAUDRATE = 1000000
         self.MOTOR_IDS = [1, 2, 3, 4, 5, 6]
         self.DEG_TO_TICK = 4096.0 / 360.0

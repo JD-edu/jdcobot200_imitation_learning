@@ -4,7 +4,7 @@ from motor_control import MiniFeetechDriver
 
 
 if __name__ == "__main__":
-    PORT = "/dev/ttyACM0"
+    PORT = "COM12"
     BAUDRATE = 1000000
     MOTOR_IDS = [1, 2, 3, 4, 5, 6]
 
