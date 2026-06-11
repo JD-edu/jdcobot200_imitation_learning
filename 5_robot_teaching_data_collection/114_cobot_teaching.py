@@ -12,7 +12,7 @@ class JdCobotTeachingUI:
         self.window.geometry("850x600")
         
         # --- 하드웨어 설정 ---
-        self.PORT = "/dev/ttyUSB0"
+        self.PORT = "/dev/ttyACM0"
         self.BAUDRATE = 1000000
         self.MOTOR_IDS = [1, 2, 3, 4, 5, 6]
         self.DEG_TO_TICK = 4096.0 / 360.0
