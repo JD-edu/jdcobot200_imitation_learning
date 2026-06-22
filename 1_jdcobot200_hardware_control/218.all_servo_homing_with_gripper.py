@@ -9,15 +9,15 @@ def smoothstep(t):
     """
     return t * t * (3 - 2 * t)
 
-def load_all_offsets(joints_file="offsets.txt", gripper_file="gripper_offset.txt"):
+def load_offsets_from_file(file_path="offsets.txt"):
     """
-    일반 조인트 오프셋 파일과 별도의 그리퍼 오프셋 파일을 통합하여 하나의 딕셔너리로 반환합니다.
+    통합 조인트 오프셋 파일(offsets.txt)에서 1~6번(그리퍼 포함) 모터 오프셋 데이터를 로드합니다.
     """
     offsets = {}
     
-    # 1. 1~6번 관절 오프셋 파일 로드
+    # 1~6번 관절 및 그리퍼 오프셋 통합 파일 로드
     try:
-        with open(joints_file, "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if not line or line.startswith("#"):
@@ -25,27 +25,11 @@ def load_all_offsets(joints_file="offsets.txt", gripper_file="gripper_offset.txt
                 if "=" in line:
                     motor_id, offset_val = line.split("=")
                     offsets[int(motor_id)] = int(offset_val)
-        print(f"▶ [{joints_file}] 로드 완료 (관절 개수: {len(offsets)}개)")
+        print(f"▶ [{file_path}] 통합 오프셋 로드 완료 (총 모터 개수: {len(offsets)}개)")
     except FileNotFoundError:
-        print(f"[경고] {joints_file} 파일이 존재하지 않습니다. 관절 오프셋을 0으로 초기화합니다.")
-        for i in range(1, 6):
+        print(f"[경고] {file_path} 파일이 존재하지 않습니다. 모든 관절 오프셋을 0으로 초기화합니다.")
+        for i in range(1, 7):
             offsets[i] = 0
-
-    # 2. 7번 그리퍼 독립 오프셋 파일 로드 및 병합
-    try:
-        with open(gripper_file, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith("#"):
-                    continue
-                if "=" in line:
-                    motor_id, offset_val = line.split("=")
-                    if int(motor_id) == 6:
-                        offsets[6] = int(offset_val)
-        print(f"▶ [{gripper_file}] 로드 및 병합 완료 (그리퍼 ID 7 반영)")
-    except FileNotFoundError:
-        print(f"[경고] {gripper_file} 파일이 없습니다. 그리퍼(7번) 오프셋을 0으로 설정합니다.")
-        offsets[6] = 0
         
     print(f"✨ 최종 통합 오프셋 맵 구성 완료: {offsets}\n")
     return offsets
@@ -62,12 +46,11 @@ if __name__ == "__main__":
     TOTAL_STEPS = int(DURATION / CONTROL_PERIOD)
 
     print("==================================================================")
-    print("  ★ [최종 통합 마스터] 전 관절 + 그리퍼 프로파일 가감속 홈잉 ★  ")
+    print("  ★ [통합 마스터] 1~5번 관절 + 6번 그리퍼 프로파일 가감속 홈잉 ★  ")
     print("==================================================================")
 
-    # 1. 파일들로부터 전체 서보(1~7번) 오프셋 딕셔너리 통합 가치 확보
-    all_motor_offsets = load_all_offsets("offsets.txt", "gripper_offset.txt")
-    print(all_motor_offsets)
+    # 1. 단일 offsets.txt 파일로부터 1~6번 오프셋 딕셔너리 확보
+    all_motor_offsets = load_offsets_from_file("offsets.txt")
 
     # --- 드라이버 초기화 및 통신 연결 ---
     driver = MiniFeetechDriver(port=PORT, baudrate=BAUDRATE) 
@@ -76,7 +59,7 @@ if __name__ == "__main__":
     start_positions = {}
     target_home_positions = {}
     
-    print("[단계 1] 전 관절 및 그리퍼 개별 토크 ON 및 실시간 현재 위치 측정")
+    print("[단계 1] 전 관절 및 6번 그리퍼 개별 토크 ON 및 실시간 현재 위치 측정")
     print("-" * 66)
     
     for motor_id, offset in sorted(all_motor_offsets.items()):
@@ -95,8 +78,8 @@ if __name__ == "__main__":
         # 소프트웨어 기준 원점 계산 방식 적용 (2048 + 각각의 파일별 고유 오프셋)
         target_home_positions[motor_id] = THEORETICAL_CENTER + offset
         
-        name_tag = "그리퍼" if motor_id == 7 else f"관절 {motor_id}번"
-        print(f" -> {name_tag:7s} 현재 위치: {current_pos:4d} | 오프셋: {offset:+3d} | 최종 소프트웨어 원점: {target_home_positions[motor_id]:4d}")
+        name_tag = "그리퍼 (6번)" if motor_id == 6 else f"관절 {motor_id}번"
+        print(f" -> {name_tag:11s} 현재 위치: {current_pos:4d} | 오프셋: {offset:+3d} | 최종 소프트웨어 원점: {target_home_positions[motor_id]:4d}")
 
     if not start_positions:
         print("정상 연동된 서보모터가 한 개도 발견되지 않았습니다. 종료합니다.")
@@ -130,7 +113,7 @@ if __name__ == "__main__":
         print("\n🎉 [성공] 모든 로봇 조인트 및 그리퍼가 충격 없이 부드럽게 원점에 안착했습니다!")
 
         # 4. 최종 수렴 상태 정밀 도달 체크 모니터링
-        print("\n[단계 2] 전 축 최종 수렴 정렬 상태 모니터링...")
+        print("\n[단계 2] 전 축 최종 수렴 정렬 상태 모니터링 (종료하려면 Ctrl+C)...")
         print("-" * 66)
         
         while True:
@@ -139,7 +122,7 @@ if __name__ == "__main__":
                 curr_p = driver.get_position(motor_id)
                 if curr_p is not None:
                     error = abs(curr_p - target_p)
-                    name_tag = "그리퍼" if motor_id == 7 else f"관절 {motor_id}"
+                    name_tag = "그리퍼" if motor_id == 6 else f"관절 {motor_id}"
                     print(f"[{name_tag:5s}] 현재 위치: {curr_p:4d} / 목표 원점: {target_p:4d} (잔여 오차: {error:2d})")
                     
                     # 허용 정밀 오차 범위 (+-5 스텝) 확인
@@ -152,8 +135,8 @@ if __name__ == "__main__":
                 print("\n완벽 정렬 완료! 전 조인트 및 그리퍼 기구부가 소프트웨어 영점에 락(Freeze)되었습니다.")
                 break
                 
-            print("..정밀 안착 조율 중..")
-            time.sleep(0.5)
+            print("..정밀 안착 조율 중.. (완전 종료는 Ctrl+C를 누르세요)\n")
+            time.sleep(1.0)
 
         print("-" * 66)
         print("현재 모든 프레임에 강력한 고정 토크가 유지되고 있어 안전합니다.")
@@ -162,4 +145,4 @@ if __name__ == "__main__":
         print("▶ 시스템 운용을 안전하게 마칩니다.")
 
     except KeyboardInterrupt:
-        print("\n사용자에 의한 긴급 정단 감지! 현재 위치에서 전 서보 안전 잠금을 유지합니다.")
+        print("\n▶ [안내] 모니터링을 종료하거나 제어를 중단합니다. 현재 위치에서 전 서보 안전 잠금(Torque ON)을 유지합니다.")

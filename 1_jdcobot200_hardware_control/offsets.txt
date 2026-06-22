@@ -1,5 +1,7 @@
+# jdcobot200 Servo Motor Calibration Offsets
 1=-18
 2=63
 3=-30
 4=-24
 5=26
+6=2

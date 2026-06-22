@@ -2,7 +2,7 @@ import time
 import serial
 from motor_control import MiniFeetechDriver  # 사용자 환경에 맞는 파일명/클래스명
 
-def load_gripper_offset(file_path="gripper_offset.txt"):
+def load_gripper_offset(file_path="joint_limits.txt"):
     """별도의 그리퍼 오프셋 파일에서 오프셋 값을 읽어옵니다."""
     try:
         with open(file_path, "r", encoding="utf-8") as f:
