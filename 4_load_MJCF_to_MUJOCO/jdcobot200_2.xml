@@ -1,16 +1,16 @@
 <mujoco model="robot_urdf">
   <compiler angle="radian" meshdir="assets/"/>
-
+  <!-- jdcobot200_1을 실행하면 시뮬레이터가 폭주한다. 이것을 방지하려 jdcobot200_calib 클래스를 만들어서 damping 등을 정의한다.  -->
   <default>
     <default class="jdcobot200_calib">
       <joint damping="1" frictionloss="0.1" armature="0.005"/>
-      <position kp="50"/>
+      <!--<position kp="50"/>-->
       <default class="visual">
         <geom type="mesh" contype="0" conaffinity="0" group="2"/>
       </default>
-      <default class="collision">
+      <!--<default class="collision">
         <geom contype="0" conaffinity="0" group="3"/>
-      </default>
+      </default>-->
     </default>
   </default>
 

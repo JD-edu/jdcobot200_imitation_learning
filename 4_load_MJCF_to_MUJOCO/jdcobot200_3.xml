@@ -1,16 +1,9 @@
 <mujoco model="robot_urdf">
   <compiler angle="radian" meshdir="assets/"/>
-
+  <!-- jdcobot200_2에서 질량을 현실적을 변경 -->
   <default>
     <default class="jdcobot200_calib">
       <joint damping="1" frictionloss="0.1" armature="0.005"/>
-      <position kp="50"/>
-      <default class="visual">
-        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
-      </default>
-      <default class="collision">
-        <geom contype="0" conaffinity="0" group="3"/>
-      </default>
     </default>
   </default>
 

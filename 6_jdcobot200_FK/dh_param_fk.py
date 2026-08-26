@@ -45,7 +45,7 @@ def jdcobot200_forward_kinematics(joint_angles):
     return T_total
 
 # --- 2. MuJoCo 모델 및 환경 설정 ---
-xml_path = os.path.join(os.path.dirname(__file__), "jdcobot200.xml")
+xml_path = os.path.join(os.path.dirname(__file__), "scene.xml")
 model = mj.MjModel.from_xml_path(xml_path)
 data = mj.MjData(model)
 
