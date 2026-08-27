@@ -21,7 +21,9 @@
        <light pos="0 0 3.5" dir="0 0 -1" directional="true" /> 
         <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" />
         <!-- Pick object: 50 x 30 x 30 mm red rectangular block. -->
-        <body name="red_block" pos="0.22 -0.10 0.016">
+        <!-- Manual setup: keep the block square with the world/table axes.
+             The controller rotates the wrist so the jaws are parallel. -->
+        <body name="red_block" pos="0.22 -0.10 0.016" euler="0 0 0">
             <freejoint name="red_block_freejoint" />
             <geom name="red_block_geom" type="box" size="0.025 0.015 0.015"
                   rgba="0.9 0.05 0.05 1" mass="0.05" friction="1.0 0.01 0.001" />
