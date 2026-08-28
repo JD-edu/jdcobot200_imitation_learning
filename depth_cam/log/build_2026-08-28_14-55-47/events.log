@@ -1,0 +1,792 @@
+[0.000000] (-) TimerEvent: {}
+[0.000056] (openni2_camera) JobQueued: {'identifier': 'openni2_camera', 'dependencies': OrderedDict()}
+[0.000259] (openni2_camera) JobStarted: {'identifier': 'openni2_camera'}
+[0.004743] (openni2_camera) JobProgress: {'identifier': 'openni2_camera', 'progress': 'cmake'}
+[0.005095] (openni2_camera) Command: {'cmd': ['/usr/bin/cmake', '/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/robo/jdcobot200_imitation_learning/depth_cam/install/openni2_camera'], 'cwd': '/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_US:en'), ('USER', 'robo'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.9/lib64:/usr/lib/mesa-diverted/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu/mesa:/usr/lib/x86_64-linux-gnu/dri:/usr/lib/x86_64-linux-gnu/gallium-pipe'), ('HOME', '/home/robo'), ('OLDPWD', '/home/robo/jdcobot200_imitation_learning'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('PAGER', 'cat'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('PULSE_SINK', 'chrome_remote_desktop_session'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '1698'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('PULSE_STATE_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('CODEX_PERMISSION_PROFILE', ':workspace'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'robo'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/robo/.codex/packages/standalone/releases/0.150.1-x86_64-unknown-linux-musl/codex-path:/home/robo/.local/bin:/home/robo/.codex/tmp/arg0/codex-arg0RD5CVs:/home/robo/.codex/packages/standalone/releases/0.150.1-x86_64-unknown-linux-musl/codex-path:/usr/local/cuda-12.9/bin:/home/robo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/robo:@/tmp/.ICE-unix/1655,unix/robo:/tmp/.ICE-unix/1655'), ('PULSE_RUNTIME_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('GDM_LANG', 'en_US'), ('CODEX_SESSION_ID', '01a046e6-55ba-7641-b9f9-20119459adf7'), ('PAPERSIZE', 'a4'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/1216b3e6_4a52_4dfe_a607_c977df9d914a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'GNOME'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/home/robo/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.166'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/robo'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('PULSE_CONFIG_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '01a046e6-55ba-7641-b9f9-20119459adf7'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('CHROME_REMOTE_DESKTOP_SESSION', '1'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099674] (-) TimerEvent: {}
+[0.135026] (openni2_camera) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.199773] (-) TimerEvent: {}
+[0.245544] (openni2_camera) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.253931] (openni2_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299900] (-) TimerEvent: {}
+[0.367006] (openni2_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.377452] (openni2_camera) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.377841] (openni2_camera) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.378483] (openni2_camera) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.381145] (openni2_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.400023] (-) TimerEvent: {}
+[0.473487] (openni2_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.477178] (openni2_camera) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.477391] (openni2_camera) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.477640] (openni2_camera) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.480676] (openni2_camera) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.500133] (-) TimerEvent: {}
+[0.600274] (-) TimerEvent: {}
+[0.611365] (openni2_camera) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.657955] (openni2_camera) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.688756] (openni2_camera) StdoutLine: {'line': b'-- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)\n'}
+[0.700428] (-) TimerEvent: {}
+[0.732521] (openni2_camera) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.735526] (openni2_camera) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.741374] (openni2_camera) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.749037] (openni2_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.760890] (openni2_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.769872] (openni2_camera) StdoutLine: {'line': b'-- Found camera_info_manager: 3.1.13 (/opt/ros/humble/share/camera_info_manager/cmake)\n'}
+[0.797243] (openni2_camera) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.798990] (openni2_camera) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.800478] (-) TimerEvent: {}
+[0.864714] (openni2_camera) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.893045] (openni2_camera) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.900549] (-) TimerEvent: {}
+[0.919821] (openni2_camera) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.926229] (openni2_camera) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.000713] (-) TimerEvent: {}
+[1.006993] (openni2_camera) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.007283] (openni2_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.100828] (-) TimerEvent: {}
+[1.106044] (openni2_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.107240] (openni2_camera) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.167412] (openni2_camera) StdoutLine: {'line': b'-- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)\n'}
+[1.187546] (openni2_camera) StdoutLine: {'line': b'-- Found rclcpp_components: 16.0.17 (/opt/ros/humble/share/rclcpp_components/cmake)\n'}
+[1.199346] (openni2_camera) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[1.200954] (-) TimerEvent: {}
+[1.207147] (openni2_camera) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[1.207712] (openni2_camera) StdoutLine: {'line': b"-- Checking for module 'libopenni2'\n"}
+[1.217782] (openni2_camera) StdoutLine: {'line': b'--   Found libopenni2, version 2.2.0.3\n'}
+[1.301076] (-) TimerEvent: {}
+[1.401242] (-) TimerEvent: {}
+[1.419975] (openni2_camera) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.501333] (-) TimerEvent: {}
+[1.601515] (-) TimerEvent: {}
+[1.626806] (openni2_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.701607] (-) TimerEvent: {}
+[1.709276] (openni2_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.738020] (openni2_camera) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[1.741369] (openni2_camera) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.766116] (openni2_camera) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[1.766254] (openni2_camera) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.766332] (openni2_camera) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.766407] (openni2_camera) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.780419] (openni2_camera) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[1.801738] (-) TimerEvent: {}
+[1.810252] (openni2_camera) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.832946] (openni2_camera) StdoutLine: {'line': b'-- Generating done\n'}
+[1.841827] (openni2_camera) StdoutLine: {'line': b'-- Build files have been written to: /home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera\n'}
+[1.901914] (-) TimerEvent: {}
+[2.002293] (-) TimerEvent: {}
+[2.102647] (-) TimerEvent: {}
+[2.203067] (-) TimerEvent: {}
+[2.303416] (-) TimerEvent: {}
+[2.403734] (-) TimerEvent: {}
+[2.504078] (-) TimerEvent: {}
+[2.604408] (-) TimerEvent: {}
+[2.704677] (-) TimerEvent: {}
+[2.804943] (-) TimerEvent: {}
+[2.905205] (-) TimerEvent: {}
+[3.005504] (-) TimerEvent: {}
+[3.105771] (-) TimerEvent: {}
+[3.206033] (-) TimerEvent: {}
+[3.306323] (-) TimerEvent: {}
+[3.406648] (-) TimerEvent: {}
+[3.506992] (-) TimerEvent: {}
+[3.607356] (-) TimerEvent: {}
+[3.707634] (-) TimerEvent: {}
+[3.807976] (-) TimerEvent: {}
+[3.908290] (-) TimerEvent: {}
+[4.008722] (-) TimerEvent: {}
+[4.109125] (-) TimerEvent: {}
+[4.209435] (-) TimerEvent: {}
+[4.309812] (-) TimerEvent: {}
+[4.410163] (-) TimerEvent: {}
+[4.510412] (-) TimerEvent: {}
+[4.610713] (-) TimerEvent: {}
+[4.711050] (-) TimerEvent: {}
+[4.811624] (-) TimerEvent: {}
+[4.911903] (-) TimerEvent: {}
+[5.012201] (-) TimerEvent: {}
+[5.112432] (-) TimerEvent: {}
+[5.212726] (-) TimerEvent: {}
+[5.312968] (-) TimerEvent: {}
+[5.413305] (-) TimerEvent: {}
+[5.513649] (-) TimerEvent: {}
+[5.613905] (-) TimerEvent: {}
+[5.714134] (-) TimerEvent: {}
+[5.814424] (-) TimerEvent: {}
+[5.914610] (-) TimerEvent: {}
+[6.014905] (-) TimerEvent: {}
+[6.115159] (-) TimerEvent: {}
+[6.215407] (-) TimerEvent: {}
+[6.315620] (-) TimerEvent: {}
+[6.415897] (-) TimerEvent: {}
+[6.516156] (-) TimerEvent: {}
+[6.616387] (-) TimerEvent: {}
+[6.716605] (-) TimerEvent: {}
+[6.816908] (-) TimerEvent: {}
+[6.917156] (-) TimerEvent: {}
+[7.017452] (-) TimerEvent: {}
+[7.117755] (-) TimerEvent: {}
+[7.218056] (-) TimerEvent: {}
+[7.318311] (-) TimerEvent: {}
+[7.418583] (-) TimerEvent: {}
+[7.518897] (-) TimerEvent: {}
+[7.619205] (-) TimerEvent: {}
+[7.719506] (-) TimerEvent: {}
+[7.819824] (-) TimerEvent: {}
+[7.920071] (-) TimerEvent: {}
+[8.020366] (-) TimerEvent: {}
+[8.120647] (-) TimerEvent: {}
+[8.220932] (-) TimerEvent: {}
+[8.321202] (-) TimerEvent: {}
+[8.421439] (-) TimerEvent: {}
+[8.521673] (-) TimerEvent: {}
+[8.621934] (-) TimerEvent: {}
+[8.722249] (-) TimerEvent: {}
+[8.822537] (-) TimerEvent: {}
+[8.922795] (-) TimerEvent: {}
+[9.023048] (-) TimerEvent: {}
+[9.123292] (-) TimerEvent: {}
+[9.223614] (-) TimerEvent: {}
+[9.323894] (-) TimerEvent: {}
+[9.424241] (-) TimerEvent: {}
+[9.524623] (-) TimerEvent: {}
+[9.625050] (-) TimerEvent: {}
+[9.725530] (-) TimerEvent: {}
+[9.825879] (-) TimerEvent: {}
+[9.926265] (-) TimerEvent: {}
+[10.026627] (-) TimerEvent: {}
+[10.126934] (-) TimerEvent: {}
+[10.227138] (-) TimerEvent: {}
+[10.327409] (-) TimerEvent: {}
+[10.427690] (-) TimerEvent: {}
+[10.527991] (-) TimerEvent: {}
+[10.628352] (-) TimerEvent: {}
+[10.728597] (-) TimerEvent: {}
+[10.828906] (-) TimerEvent: {}
+[10.929211] (-) TimerEvent: {}
+[11.029418] (-) TimerEvent: {}
+[11.129609] (-) TimerEvent: {}
+[11.229812] (-) TimerEvent: {}
+[11.330093] (-) TimerEvent: {}
+[11.430424] (-) TimerEvent: {}
+[11.530672] (-) TimerEvent: {}
+[11.630938] (-) TimerEvent: {}
+[11.731145] (-) TimerEvent: {}
+[11.831375] (-) TimerEvent: {}
+[11.931649] (-) TimerEvent: {}
+[12.031970] (-) TimerEvent: {}
+[12.132163] (-) TimerEvent: {}
+[12.232389] (-) TimerEvent: {}
+[12.332650] (-) TimerEvent: {}
+[12.432935] (-) TimerEvent: {}
+[12.533230] (-) TimerEvent: {}
+[12.633430] (-) TimerEvent: {}
+[12.733659] (-) TimerEvent: {}
+[12.833889] (-) TimerEvent: {}
+[12.934128] (-) TimerEvent: {}
+[13.034330] (-) TimerEvent: {}
+[13.134658] (-) TimerEvent: {}
+[13.234892] (-) TimerEvent: {}
+[13.335200] (-) TimerEvent: {}
+[13.435427] (-) TimerEvent: {}
+[13.535715] (-) TimerEvent: {}
+[13.635996] (-) TimerEvent: {}
+[13.736345] (-) TimerEvent: {}
+[13.836695] (-) TimerEvent: {}
+[13.937010] (-) TimerEvent: {}
+[14.037381] (-) TimerEvent: {}
+[14.137779] (-) TimerEvent: {}
+[14.238052] (-) TimerEvent: {}
+[14.338318] (-) TimerEvent: {}
+[14.438607] (-) TimerEvent: {}
+[14.538971] (-) TimerEvent: {}
+[14.639270] (-) TimerEvent: {}
+[14.739549] (-) TimerEvent: {}
+[14.839876] (-) TimerEvent: {}
+[14.940173] (-) TimerEvent: {}
+[15.040447] (-) TimerEvent: {}
+[15.140793] (-) TimerEvent: {}
+[15.241157] (-) TimerEvent: {}
+[15.341456] (-) TimerEvent: {}
+[15.441800] (-) TimerEvent: {}
+[15.542252] (-) TimerEvent: {}
+[15.642728] (-) TimerEvent: {}
+[15.743252] (-) TimerEvent: {}
+[15.843651] (-) TimerEvent: {}
+[15.944149] (-) TimerEvent: {}
+[16.044521] (-) TimerEvent: {}
+[16.144906] (-) TimerEvent: {}
+[16.245164] (-) TimerEvent: {}
+[16.345337] (-) TimerEvent: {}
+[16.445603] (-) TimerEvent: {}
+[16.545903] (-) TimerEvent: {}
+[16.646176] (-) TimerEvent: {}
+[16.746394] (-) TimerEvent: {}
+[16.846627] (-) TimerEvent: {}
+[16.946881] (-) TimerEvent: {}
+[17.047134] (-) TimerEvent: {}
+[17.147307] (-) TimerEvent: {}
+[17.247601] (-) TimerEvent: {}
+[17.347956] (-) TimerEvent: {}
+[17.448262] (-) TimerEvent: {}
+[17.548528] (-) TimerEvent: {}
+[17.648728] (-) TimerEvent: {}
+[17.748954] (-) TimerEvent: {}
+[17.849179] (-) TimerEvent: {}
+[17.949446] (-) TimerEvent: {}
+[18.049672] (-) TimerEvent: {}
+[18.149932] (-) TimerEvent: {}
+[18.250221] (-) TimerEvent: {}
+[18.350474] (-) TimerEvent: {}
+[18.450725] (-) TimerEvent: {}
+[18.550993] (-) TimerEvent: {}
+[18.651319] (-) TimerEvent: {}
+[18.751603] (-) TimerEvent: {}
+[18.851840] (-) TimerEvent: {}
+[18.952043] (-) TimerEvent: {}
+[19.052292] (-) TimerEvent: {}
+[19.152537] (-) TimerEvent: {}
+[19.252826] (-) TimerEvent: {}
+[19.353078] (-) TimerEvent: {}
+[19.453327] (-) TimerEvent: {}
+[19.553607] (-) TimerEvent: {}
+[19.653998] (-) TimerEvent: {}
+[19.754420] (-) TimerEvent: {}
+[19.854782] (-) TimerEvent: {}
+[19.955245] (-) TimerEvent: {}
+[20.055594] (-) TimerEvent: {}
+[20.155981] (-) TimerEvent: {}
+[20.256354] (-) TimerEvent: {}
+[20.356701] (-) TimerEvent: {}
+[20.456975] (-) TimerEvent: {}
+[20.557319] (-) TimerEvent: {}
+[20.657639] (-) TimerEvent: {}
+[20.757949] (-) TimerEvent: {}
+[20.858318] (-) TimerEvent: {}
+[20.958707] (-) TimerEvent: {}
+[21.058959] (-) TimerEvent: {}
+[21.159221] (-) TimerEvent: {}
+[21.259540] (-) TimerEvent: {}
+[21.359968] (-) TimerEvent: {}
+[21.460300] (-) TimerEvent: {}
+[21.560626] (-) TimerEvent: {}
+[21.660924] (-) TimerEvent: {}
+[21.761297] (-) TimerEvent: {}
+[21.861624] (-) TimerEvent: {}
+[21.961986] (-) TimerEvent: {}
+[22.062386] (-) TimerEvent: {}
+[22.162841] (-) TimerEvent: {}
+[22.263186] (-) TimerEvent: {}
+[22.363404] (-) TimerEvent: {}
+[22.463611] (-) TimerEvent: {}
+[22.563880] (-) TimerEvent: {}
+[22.664272] (-) TimerEvent: {}
+[22.764578] (-) TimerEvent: {}
+[22.864877] (-) TimerEvent: {}
+[22.965206] (-) TimerEvent: {}
+[23.065512] (-) TimerEvent: {}
+[23.165826] (-) TimerEvent: {}
+[23.266143] (-) TimerEvent: {}
+[23.366458] (-) TimerEvent: {}
+[23.466685] (-) TimerEvent: {}
+[23.566945] (-) TimerEvent: {}
+[23.667248] (-) TimerEvent: {}
+[23.767560] (-) TimerEvent: {}
+[23.867864] (-) TimerEvent: {}
+[23.968194] (-) TimerEvent: {}
+[24.068456] (-) TimerEvent: {}
+[24.168695] (-) TimerEvent: {}
+[24.268947] (-) TimerEvent: {}
+[24.369239] (-) TimerEvent: {}
+[24.469546] (-) TimerEvent: {}
+[24.569813] (-) TimerEvent: {}
+[24.670240] (-) TimerEvent: {}
+[24.770606] (-) TimerEvent: {}
+[24.870957] (-) TimerEvent: {}
+[24.971251] (-) TimerEvent: {}
+[25.071539] (-) TimerEvent: {}
+[25.171957] (-) TimerEvent: {}
+[25.272267] (-) TimerEvent: {}
+[25.372514] (-) TimerEvent: {}
+[25.472883] (-) TimerEvent: {}
+[25.573252] (-) TimerEvent: {}
+[25.673684] (-) TimerEvent: {}
+[25.774168] (-) TimerEvent: {}
+[25.874562] (-) TimerEvent: {}
+[25.974961] (-) TimerEvent: {}
+[26.075380] (-) TimerEvent: {}
+[26.175771] (-) TimerEvent: {}
+[26.276191] (-) TimerEvent: {}
+[26.376559] (-) TimerEvent: {}
+[26.476920] (-) TimerEvent: {}
+[26.577368] (-) TimerEvent: {}
+[26.677765] (-) TimerEvent: {}
+[26.778232] (-) TimerEvent: {}
+[26.878619] (-) TimerEvent: {}
+[26.979083] (-) TimerEvent: {}
+[27.079466] (-) TimerEvent: {}
+[27.179850] (-) TimerEvent: {}
+[27.280290] (-) TimerEvent: {}
+[27.380695] (-) TimerEvent: {}
+[27.481010] (-) TimerEvent: {}
+[27.581417] (-) TimerEvent: {}
+[27.681776] (-) TimerEvent: {}
+[27.782229] (-) TimerEvent: {}
+[27.882684] (-) TimerEvent: {}
+[27.983146] (-) TimerEvent: {}
+[28.083534] (-) TimerEvent: {}
+[28.183977] (-) TimerEvent: {}
+[28.284494] (-) TimerEvent: {}
+[28.384863] (-) TimerEvent: {}
+[28.485255] (-) TimerEvent: {}
+[28.585649] (-) TimerEvent: {}
+[28.686027] (-) TimerEvent: {}
+[28.786477] (-) TimerEvent: {}
+[28.886762] (-) TimerEvent: {}
+[28.987042] (-) TimerEvent: {}
+[29.087569] (-) TimerEvent: {}
+[29.187962] (-) TimerEvent: {}
+[29.288302] (-) TimerEvent: {}
+[29.388608] (-) TimerEvent: {}
+[29.489098] (-) TimerEvent: {}
+[29.589476] (-) TimerEvent: {}
+[29.689817] (-) TimerEvent: {}
+[29.790201] (-) TimerEvent: {}
+[29.890520] (-) TimerEvent: {}
+[29.991025] (-) TimerEvent: {}
+[30.029962] (openni2_camera) CommandEnded: {'returncode': 0}
+[30.031000] (openni2_camera) JobProgress: {'identifier': 'openni2_camera', 'progress': 'build'}
+[30.033264] (openni2_camera) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera', '--', '-j24', '-l24'], 'cwd': '/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('CODEX_CI', '1'), ('LANGUAGE', 'en_US:en'), ('USER', 'robo'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.9/lib64:/usr/lib/mesa-diverted/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu/mesa:/usr/lib/x86_64-linux-gnu/dri:/usr/lib/x86_64-linux-gnu/gallium-pipe'), ('HOME', '/home/robo'), ('OLDPWD', '/home/robo/jdcobot200_imitation_learning'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('PAGER', 'cat'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('PULSE_SINK', 'chrome_remote_desktop_session'), ('LC_CTYPE', 'C.UTF-8'), ('SYSTEMD_EXEC_PID', '1698'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('PULSE_STATE_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('CODEX_PERMISSION_PROFILE', ':workspace'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'robo'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/robo/.codex/packages/standalone/releases/0.150.1-x86_64-unknown-linux-musl/codex-path:/home/robo/.local/bin:/home/robo/.codex/tmp/arg0/codex-arg0RD5CVs:/home/robo/.codex/packages/standalone/releases/0.150.1-x86_64-unknown-linux-musl/codex-path:/usr/local/cuda-12.9/bin:/home/robo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/robo:@/tmp/.ICE-unix/1655,unix/robo:/tmp/.ICE-unix/1655'), ('PULSE_RUNTIME_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('GDM_LANG', 'en_US'), ('CODEX_SESSION_ID', '01a046e6-55ba-7641-b9f9-20119459adf7'), ('PAPERSIZE', 'a4'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/1216b3e6_4a52_4dfe_a607_c977df9d914a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'GNOME'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/home/robo/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.166'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/robo'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('PULSE_CONFIG_PATH', '/run/user/1000/crd_audio#dlfdci21-0'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '01a046e6-55ba-7641-b9f9-20119459adf7'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('CHROME_REMOTE_DESKTOP_SESSION', '1'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[30.089743] (openni2_camera) StdoutLine: {'line': b'[  2%] Generating C code for ROS interfaces\n'}
+[30.091045] (-) TimerEvent: {}
+[30.092457] (openni2_camera) StdoutLine: {'line': b'[  4%] Building C object CMakeFiles/usb_reset.dir/src/usb_reset.c.o\n'}
+[30.099989] (openni2_camera) StdoutLine: {'line': b'[  6%] Building CXX object CMakeFiles/openni2_camera_driver.dir/rclcpp_components/node_main_openni2_camera_driver.cpp.o\n'}
+[30.101432] (openni2_camera) StdoutLine: {'line': b'[  8%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_convert.cpp.o\n'}
+[30.101850] (openni2_camera) StdoutLine: {'line': b'[ 10%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_device.cpp.o\n'}
+[30.101961] (openni2_camera) StdoutLine: {'line': b'[ 12%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_device_info.cpp.o\n'}
+[30.102651] (openni2_camera) StdoutLine: {'line': b'[ 14%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_timer_filter.cpp.o\n'}
+[30.103458] (openni2_camera) StdoutLine: {'line': b'[ 16%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_device_manager.cpp.o\n'}
+[30.103765] (openni2_camera) StdoutLine: {'line': b'[ 18%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_exception.cpp.o\n'}
+[30.104133] (openni2_camera) StdoutLine: {'line': b'[ 20%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_frame_listener.cpp.o\n'}
+[30.111258] (openni2_camera) StdoutLine: {'line': b'[ 22%] Generating C++ code for ROS interfaces\n'}
+[30.114072] (openni2_camera) StdoutLine: {'line': b'[ 22%] Built target ament_cmake_python_symlink_openni2_camera\n'}
+[30.114769] (openni2_camera) StdoutLine: {'line': b'[ 24%] Building CXX object CMakeFiles/openni2_wrapper.dir/src/openni2_video_mode.cpp.o\n'}
+[30.157094] (openni2_camera) StdoutLine: {'line': b'[ 26%] Linking C executable usb_reset\n'}
+[30.178600] (openni2_camera) StdoutLine: {'line': b'[ 26%] Built target usb_reset\n'}
+[30.191147] (-) TimerEvent: {}
+[30.291410] (-) TimerEvent: {}
+[30.312492] (openni2_camera) StdoutLine: {'line': b'[ 26%] Built target openni2_camera__cpp\n'}
+[30.317931] (openni2_camera) StdoutLine: {'line': b'[ 28%] Generating C++ type support for eProsima Fast-RTPS\n'}
+[30.320659] (openni2_camera) StdoutLine: {'line': b'[ 32%] Generating C++ introspection for ROS interfaces\n'}
+[30.320795] (openni2_camera) StdoutLine: {'line': b'[ 32%] Generating C++ type support dispatch for ROS interfaces\n'}
+[30.349600] (openni2_camera) StdoutLine: {'line': b'running egg_info\n'}
+[30.350185] (openni2_camera) StdoutLine: {'line': b'creating openni2_camera.egg-info\n'}
+[30.350435] (openni2_camera) StdoutLine: {'line': b'writing openni2_camera.egg-info/PKG-INFO\n'}
+[30.350568] (openni2_camera) StdoutLine: {'line': b'writing dependency_links to openni2_camera.egg-info/dependency_links.txt\n'}
+[30.350679] (openni2_camera) StdoutLine: {'line': b'writing top-level names to openni2_camera.egg-info/top_level.txt\n'}
+[30.350894] (openni2_camera) StdoutLine: {'line': b"writing manifest file 'openni2_camera.egg-info/SOURCES.txt'\n"}
+[30.353281] (openni2_camera) StdoutLine: {'line': b"reading manifest file 'openni2_camera.egg-info/SOURCES.txt'\n"}
+[30.353686] (openni2_camera) StdoutLine: {'line': b"writing manifest file 'openni2_camera.egg-info/SOURCES.txt'\n"}
+[30.357129] (openni2_camera) StdoutLine: {'line': b'[ 34%] Building C object CMakeFiles/openni2_camera__rosidl_generator_c.dir/rosidl_generator_c/openni2_camera/srv/detail/get_serial__functions.c.o\n'}
+[30.378004] (openni2_camera) StdoutLine: {'line': b'[ 34%] Built target ament_cmake_python_build_openni2_camera_egg\n'}
+[30.391507] (-) TimerEvent: {}
+[30.395764] (openni2_camera) StdoutLine: {'line': b'[ 36%] Linking C shared library libopenni2_camera__rosidl_generator_c.so\n'}
+[30.424682] (openni2_camera) StdoutLine: {'line': b'[ 36%] Built target openni2_camera__rosidl_generator_c\n'}
+[30.434759] (openni2_camera) StdoutLine: {'line': b'[ 38%] Generating C type support dispatch for ROS interfaces\n'}
+[30.434929] (openni2_camera) StdoutLine: {'line': b'[ 42%] Generating C type support for eProsima Fast-RTPS\n'}
+[30.434999] (openni2_camera) StdoutLine: {'line': b'[ 42%] Generating C introspection for ROS interfaces\n'}
+[30.442313] (openni2_camera) StdoutLine: {'line': b'[ 44%] Building CXX object CMakeFiles/openni2_camera__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/openni2_camera/srv/get_serial__type_support.cpp.o\n'}
+[30.453285] (openni2_camera) StdoutLine: {'line': b'[ 46%] Building CXX object CMakeFiles/openni2_camera__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/openni2_camera/srv/detail/dds_fastrtps/get_serial__type_support.cpp.o\n'}
+[30.486602] (openni2_camera) StdoutLine: {'line': b'[ 48%] Building CXX object CMakeFiles/openni2_camera__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/openni2_camera/srv/detail/get_serial__type_support.cpp.o\n'}
+[30.491598] (-) TimerEvent: {}
+[30.568541] (openni2_camera) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/openni2_camera__rosidl_typesupport_c.dir/rosidl_typesupport_c/openni2_camera/srv/get_serial__type_support.cpp.o\n'}
+[30.571943] (openni2_camera) StdoutLine: {'line': b'[ 52%] Building C object CMakeFiles/openni2_camera__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/openni2_camera/srv/detail/get_serial__type_support.c.o\n'}
+[30.579484] (openni2_camera) StdoutLine: {'line': b'[ 54%] Linking CXX shared library libopenni2_camera__rosidl_typesupport_cpp.so\n'}
+[30.585244] (openni2_camera) StdoutLine: {'line': b'[ 56%] Building CXX object CMakeFiles/openni2_camera__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/openni2_camera/srv/detail/get_serial__type_support_c.cpp.o\n'}
+[30.591706] (-) TimerEvent: {}
+[30.595288] (openni2_camera) StdoutLine: {'line': b'[ 58%] Linking C shared library libopenni2_camera__rosidl_typesupport_introspection_c.so\n'}
+[30.596075] (openni2_camera) StdoutLine: {'line': b'[ 60%] Linking CXX shared library libopenni2_camera__rosidl_typesupport_c.so\n'}
+[30.604207] (openni2_camera) StdoutLine: {'line': b'[ 60%] Built target openni2_camera__rosidl_typesupport_cpp\n'}
+[30.619247] (openni2_camera) StdoutLine: {'line': b'[ 60%] Built target openni2_camera__rosidl_typesupport_introspection_c\n'}
+[30.632063] (openni2_camera) StdoutLine: {'line': b'[ 60%] Built target openni2_camera__rosidl_typesupport_c\n'}
+[30.687980] (openni2_camera) StdoutLine: {'line': b'[ 62%] Linking CXX shared library libopenni2_camera__rosidl_typesupport_introspection_cpp.so\n'}
+[30.691763] (-) TimerEvent: {}
+[30.729008] (openni2_camera) StdoutLine: {'line': b'[ 62%] Built target openni2_camera__rosidl_typesupport_introspection_cpp\n'}
+[30.764847] (openni2_camera) StdoutLine: {'line': b'[ 64%] Linking CXX shared library libopenni2_camera__rosidl_typesupport_fastrtps_cpp.so\n'}
+[30.769707] (openni2_camera) StdoutLine: {'line': b'[ 66%] Linking CXX shared library libopenni2_camera__rosidl_typesupport_fastrtps_c.so\n'}
+[30.791858] (-) TimerEvent: {}
+[30.815734] (openni2_camera) StdoutLine: {'line': b'[ 66%] Built target openni2_camera__rosidl_typesupport_fastrtps_c\n'}
+[30.817508] (openni2_camera) StdoutLine: {'line': b'[ 66%] Built target openni2_camera__rosidl_typesupport_fastrtps_cpp\n'}
+[30.833991] (openni2_camera) StdoutLine: {'line': b'[ 66%] Built target openni2_camera\n'}
+[30.847208] (openni2_camera) StdoutLine: {'line': b'[ 68%] Generating Python code for ROS interfaces\n'}
+[30.891953] (-) TimerEvent: {}
+[30.992176] (-) TimerEvent: {}
+[31.010424] (openni2_camera) StdoutLine: {'line': b'[ 68%] Built target openni2_camera__py\n'}
+[31.025311] (openni2_camera) StdoutLine: {'line': b'[ 70%] Building C object CMakeFiles/openni2_camera__rosidl_generator_py.dir/rosidl_generator_py/openni2_camera/srv/_get_serial_s.c.o\n'}
+[31.092276] (-) TimerEvent: {}
+[31.094931] (openni2_camera) StdoutLine: {'line': b'[ 72%] Linking C shared library rosidl_generator_py/openni2_camera/libopenni2_camera__rosidl_generator_py.so\n'}
+[31.125509] (openni2_camera) StdoutLine: {'line': b'[ 72%] Built target openni2_camera__rosidl_generator_py\n'}
+[31.140734] (openni2_camera) StdoutLine: {'line': b'[ 74%] Building C object CMakeFiles/openni2_camera__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/openni2_camera/_openni2_camera_s.ep.rosidl_typesupport_introspection_c.c.o\n'}
+[31.141218] (openni2_camera) StdoutLine: {'line': b'[ 76%] Building C object CMakeFiles/openni2_camera__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/openni2_camera/_openni2_camera_s.ep.rosidl_typesupport_fastrtps_c.c.o\n'}
+[31.142160] (openni2_camera) StdoutLine: {'line': b'[ 78%] Building C object CMakeFiles/openni2_camera__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/openni2_camera/_openni2_camera_s.ep.rosidl_typesupport_c.c.o\n'}
+[31.192394] (-) TimerEvent: {}
+[31.199334] (openni2_camera) StdoutLine: {'line': b'[ 82%] Linking C shared library rosidl_generator_py/openni2_camera/openni2_camera_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[31.199607] (openni2_camera) StdoutLine: {'line': b'[ 82%] Linking C shared library rosidl_generator_py/openni2_camera/openni2_camera_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[31.199684] (openni2_camera) StdoutLine: {'line': b'[ 84%] Linking C shared library rosidl_generator_py/openni2_camera/openni2_camera_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[31.225120] (openni2_camera) StdoutLine: {'line': b'[ 84%] Built target openni2_camera__rosidl_typesupport_c__pyext\n'}
+[31.225372] (openni2_camera) StdoutLine: {'line': b'[ 84%] Built target openni2_camera__rosidl_typesupport_fastrtps_c__pyext\n'}
+[31.225442] (openni2_camera) StdoutLine: {'line': b'[ 84%] Built target openni2_camera__rosidl_typesupport_introspection_c__pyext\n'}
+[31.292528] (-) TimerEvent: {}
+[31.392772] (-) TimerEvent: {}
+[31.493016] (-) TimerEvent: {}
+[31.593254] (-) TimerEvent: {}
+[31.693490] (-) TimerEvent: {}
+[31.793648] (-) TimerEvent: {}
+[31.808469] (openni2_camera) StdoutLine: {'line': b'[ 86%] Linking CXX shared library libopenni2_wrapper.so\n'}
+[31.879555] (openni2_camera) StdoutLine: {'line': b'[ 88%] Linking CXX executable openni2_camera_driver\n'}
+[31.893731] (-) TimerEvent: {}
+[31.911888] (openni2_camera) StdoutLine: {'line': b'[ 88%] Built target openni2_wrapper\n'}
+[31.929072] (openni2_camera) StdoutLine: {'line': b'[ 90%] Building CXX object CMakeFiles/test_wrapper.dir/test/test_wrapper.cpp.o\n'}
+[31.929432] (openni2_camera) StdoutLine: {'line': b'[ 94%] Building CXX object CMakeFiles/list_devices.dir/src/list_devices.cpp.o\n'}
+[31.929508] (openni2_camera) StdoutLine: {'line': b'[ 92%] Building CXX object CMakeFiles/openni2_camera_lib.dir/src/openni2_driver.cpp.o\n'}
+[31.949819] (openni2_camera) StdoutLine: {'line': b'[ 94%] Built target openni2_camera_driver\n'}
+[31.993826] (-) TimerEvent: {}
+[32.094046] (-) TimerEvent: {}
+[32.194288] (-) TimerEvent: {}
+[32.294522] (-) TimerEvent: {}
+[32.394725] (-) TimerEvent: {}
+[32.494940] (-) TimerEvent: {}
+[32.595168] (-) TimerEvent: {}
+[32.695417] (-) TimerEvent: {}
+[32.795648] (-) TimerEvent: {}
+[32.895863] (-) TimerEvent: {}
+[32.996105] (-) TimerEvent: {}
+[33.049219] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp: In member function \xe2\x80\x98void openni2_wrapper::OpenNI2Driver::advertiseROSTopics()\xe2\x80\x99:\n'}
+[33.049412] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:162:33: error: \xe2\x80\x98struct rclcpp::PublisherEventCallbacks\xe2\x80\x99 has no member named \xe2\x80\x98matched_callback\xe2\x80\x99\n'}
+[33.049476] (openni2_camera) StderrLine: {'line': b'  162 |     pub_options.event_callbacks.matched_callback =\n'}
+[33.049535] (openni2_camera) StderrLine: {'line': b'      |                                 ^~~~~~~~~~~~~~~~\n'}
+[33.049602] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:163:14: error: \xe2\x80\x98rclcpp::MatchedInfo\xe2\x80\x99 has not been declared\n'}
+[33.049672] (openni2_camera) StderrLine: {'line': b'  163 |       [this](rclcpp::MatchedInfo&)\n'}
+[33.049935] (openni2_camera) StderrLine: {'line': b'      |              ^~~~~~\n'}
+[33.050025] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:169:58: error: too many arguments to function \xe2\x80\x98image_transport::CameraPublisher image_transport::create_camera_publisher(rclcpp::Node*, const string&, rmw_qos_profile_t)\xe2\x80\x99\n'}
+[33.050083] (openni2_camera) StderrLine: {'line': b'  169 |     pub_color_ = image_transport::create_camera_publisher(this, "rgb/image_raw", custom_qos, pub_options);\n'}
+[33.050152] (openni2_camera) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.050208] (openni2_camera) StderrLine: {'line': b'In file included from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/include/openni2_camera/openni2_driver.h:39,\n'}
+[33.050260] (openni2_camera) StderrLine: {'line': b'                 from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:32:\n'}
+[33.050316] (openni2_camera) StderrLine: {'line': b'/opt/ros/humble/include/image_transport/image_transport/image_transport.hpp:74:17: note: declared here\n'}
+[33.050376] (openni2_camera) StderrLine: {'line': b'   74 | CameraPublisher create_camera_publisher(\n'}
+[33.050430] (openni2_camera) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.050482] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:176:33: error: \xe2\x80\x98struct rclcpp::PublisherEventCallbacks\xe2\x80\x99 has no member named \xe2\x80\x98matched_callback\xe2\x80\x99\n'}
+[33.050533] (openni2_camera) StderrLine: {'line': b'  176 |     pub_options.event_callbacks.matched_callback =\n'}
+[33.050585] (openni2_camera) StderrLine: {'line': b'      |                                 ^~~~~~~~~~~~~~~~\n'}
+[33.050635] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:177:14: error: \xe2\x80\x98rclcpp::MatchedInfo\xe2\x80\x99 has not been declared\n'}
+[33.050686] (openni2_camera) StderrLine: {'line': b'  177 |       [this](rclcpp::MatchedInfo&)\n'}
+[33.050737] (openni2_camera) StderrLine: {'line': b'      |              ^~~~~~\n'}
+[33.050788] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:183:55: error: too many arguments to function \xe2\x80\x98image_transport::CameraPublisher image_transport::create_camera_publisher(rclcpp::Node*, const string&, rmw_qos_profile_t)\xe2\x80\x99\n'}
+[33.050842] (openni2_camera) StderrLine: {'line': b'  183 |     pub_ir_ = image_transport::create_camera_publisher(this, "ir/image_raw", custom_qos, pub_options);\n'}
+[33.050895] (openni2_camera) StderrLine: {'line': b'      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.050951] (openni2_camera) StderrLine: {'line': b'In file included from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/include/openni2_camera/openni2_driver.h:39,\n'}
+[33.051003] (openni2_camera) StderrLine: {'line': b'                 from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:32:\n'}
+[33.051055] (openni2_camera) StderrLine: {'line': b'/opt/ros/humble/include/image_transport/image_transport/image_transport.hpp:74:17: note: declared here\n'}
+[33.051111] (openni2_camera) StderrLine: {'line': b'   74 | CameraPublisher create_camera_publisher(\n'}
+[33.051168] (openni2_camera) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.051220] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:190:33: error: \xe2\x80\x98struct rclcpp::PublisherEventCallbacks\xe2\x80\x99 has no member named \xe2\x80\x98matched_callback\xe2\x80\x99\n'}
+[33.051273] (openni2_camera) StderrLine: {'line': b'  190 |     pub_options.event_callbacks.matched_callback =\n'}
+[33.051325] (openni2_camera) StderrLine: {'line': b'      |                                 ^~~~~~~~~~~~~~~~\n'}
+[33.051377] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:191:14: error: \xe2\x80\x98rclcpp::MatchedInfo\xe2\x80\x99 has not been declared\n'}
+[33.051430] (openni2_camera) StderrLine: {'line': b'  191 |       [this](rclcpp::MatchedInfo&)\n'}
+[33.051494] (openni2_camera) StderrLine: {'line': b'      |              ^~~~~~\n'}
+[33.051545] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:197:62: error: too many arguments to function \xe2\x80\x98image_transport::CameraPublisher image_transport::create_camera_publisher(rclcpp::Node*, const string&, rmw_qos_profile_t)\xe2\x80\x99\n'}
+[33.051606] (openni2_camera) StderrLine: {'line': b'  197 |     pub_depth_raw_ = image_transport::create_camera_publisher(this, "depth_raw/image", custom_qos, pub_options);\n'}
+[33.051674] (openni2_camera) StderrLine: {'line': b'      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.051736] (openni2_camera) StderrLine: {'line': b'In file included from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/include/openni2_camera/openni2_driver.h:39,\n'}
+[33.051807] (openni2_camera) StderrLine: {'line': b'                 from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:32:\n'}
+[33.051870] (openni2_camera) StderrLine: {'line': b'/opt/ros/humble/include/image_transport/image_transport/image_transport.hpp:74:17: note: declared here\n'}
+[33.051927] (openni2_camera) StderrLine: {'line': b'   74 | CameraPublisher create_camera_publisher(\n'}
+[33.051988] (openni2_camera) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.052045] (openni2_camera) StderrLine: {'line': b'/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:198:58: error: too many arguments to function \xe2\x80\x98image_transport::CameraPublisher image_transport::create_camera_publisher(rclcpp::Node*, const string&, rmw_qos_profile_t)\xe2\x80\x99\n'}
+[33.052108] (openni2_camera) StderrLine: {'line': b'  198 |     pub_depth_ = image_transport::create_camera_publisher(this, "depth/image", custom_qos, pub_options);\n'}
+[33.052171] (openni2_camera) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.052229] (openni2_camera) StderrLine: {'line': b'In file included from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/include/openni2_camera/openni2_driver.h:39,\n'}
+[33.052286] (openni2_camera) StderrLine: {'line': b'                 from /home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/src/openni2_driver.cpp:32:\n'}
+[33.052348] (openni2_camera) StderrLine: {'line': b'/opt/ros/humble/include/image_transport/image_transport/image_transport.hpp:74:17: note: declared here\n'}
+[33.052405] (openni2_camera) StderrLine: {'line': b'   74 | CameraPublisher create_camera_publisher(\n'}
+[33.052475] (openni2_camera) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[33.096234] (-) TimerEvent: {}
+[33.179984] (openni2_camera) StdoutLine: {'line': b'[ 96%] Linking CXX executable list_devices\n'}
+[33.196333] (-) TimerEvent: {}
+[33.247731] (openni2_camera) StdoutLine: {'line': b'[ 96%] Built target list_devices\n'}
+[33.286993] (openni2_camera) StdoutLine: {'line': b'[ 98%] Linking CXX executable test_wrapper\n'}
+[33.296406] (-) TimerEvent: {}
+[33.356630] (openni2_camera) StdoutLine: {'line': b'[ 98%] Built target test_wrapper\n'}
+[33.396528] (-) TimerEvent: {}
+[33.496674] (-) TimerEvent: {}
+[33.596834] (-) TimerEvent: {}
+[33.671287] (openni2_camera) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/openni2_camera_lib.dir/build.make:76: CMakeFiles/openni2_camera_lib.dir/src/openni2_driver.cpp.o] Error 1\n'}
+[33.671553] (openni2_camera) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:656: CMakeFiles/openni2_camera_lib.dir/all] Error 2\n'}
+[33.671720] (openni2_camera) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[33.696918] (-) TimerEvent: {}
+[33.797169] (-) TimerEvent: {}
+[33.897485] (-) TimerEvent: {}
+[33.997780] (-) TimerEvent: {}
+[34.098130] (-) TimerEvent: {}
+[34.198447] (-) TimerEvent: {}
+[34.298722] (-) TimerEvent: {}
+[34.399039] (-) TimerEvent: {}
+[34.499390] (-) TimerEvent: {}
+[34.599710] (-) TimerEvent: {}
+[34.700045] (-) TimerEvent: {}
+[34.800416] (-) TimerEvent: {}
+[34.900727] (-) TimerEvent: {}
+[35.001016] (-) TimerEvent: {}
+[35.101324] (-) TimerEvent: {}
+[35.201651] (-) TimerEvent: {}
+[35.301974] (-) TimerEvent: {}
+[35.402265] (-) TimerEvent: {}
+[35.502611] (-) TimerEvent: {}
+[35.602968] (-) TimerEvent: {}
+[35.703269] (-) TimerEvent: {}
+[35.803575] (-) TimerEvent: {}
+[35.903913] (-) TimerEvent: {}
+[36.004260] (-) TimerEvent: {}
+[36.104539] (-) TimerEvent: {}
+[36.204805] (-) TimerEvent: {}
+[36.305071] (-) TimerEvent: {}
+[36.405459] (-) TimerEvent: {}
+[36.505743] (-) TimerEvent: {}
+[36.606081] (-) TimerEvent: {}
+[36.706443] (-) TimerEvent: {}
+[36.806736] (-) TimerEvent: {}
+[36.907098] (-) TimerEvent: {}
+[37.007397] (-) TimerEvent: {}
+[37.107673] (-) TimerEvent: {}
+[37.207942] (-) TimerEvent: {}
+[37.308141] (-) TimerEvent: {}
+[37.408413] (-) TimerEvent: {}
+[37.508718] (-) TimerEvent: {}
+[37.609012] (-) TimerEvent: {}
+[37.709377] (-) TimerEvent: {}
+[37.809697] (-) TimerEvent: {}
+[37.910072] (-) TimerEvent: {}
+[38.010474] (-) TimerEvent: {}
+[38.110942] (-) TimerEvent: {}
+[38.211447] (-) TimerEvent: {}
+[38.311934] (-) TimerEvent: {}
+[38.412354] (-) TimerEvent: {}
+[38.512769] (-) TimerEvent: {}
+[38.613275] (-) TimerEvent: {}
+[38.713710] (-) TimerEvent: {}
+[38.814086] (-) TimerEvent: {}
+[38.914510] (-) TimerEvent: {}
+[39.014808] (-) TimerEvent: {}
+[39.115037] (-) TimerEvent: {}
+[39.215330] (-) TimerEvent: {}
+[39.315752] (-) TimerEvent: {}
+[39.416288] (-) TimerEvent: {}
+[39.516612] (-) TimerEvent: {}
+[39.616947] (-) TimerEvent: {}
+[39.717188] (-) TimerEvent: {}
+[39.817497] (-) TimerEvent: {}
+[39.917778] (-) TimerEvent: {}
+[40.018170] (-) TimerEvent: {}
+[40.118431] (-) TimerEvent: {}
+[40.218731] (-) TimerEvent: {}
+[40.319064] (-) TimerEvent: {}
+[40.419423] (-) TimerEvent: {}
+[40.519717] (-) TimerEvent: {}
+[40.620002] (-) TimerEvent: {}
+[40.720277] (-) TimerEvent: {}
+[40.820661] (-) TimerEvent: {}
+[40.921125] (-) TimerEvent: {}
+[41.021510] (-) TimerEvent: {}
+[41.121975] (-) TimerEvent: {}
+[41.222406] (-) TimerEvent: {}
+[41.322815] (-) TimerEvent: {}
+[41.423272] (-) TimerEvent: {}
+[41.523752] (-) TimerEvent: {}
+[41.624261] (-) TimerEvent: {}
+[41.724748] (-) TimerEvent: {}
+[41.825250] (-) TimerEvent: {}
+[41.925573] (-) TimerEvent: {}
+[42.025938] (-) TimerEvent: {}
+[42.126377] (-) TimerEvent: {}
+[42.226775] (-) TimerEvent: {}
+[42.327151] (-) TimerEvent: {}
+[42.427504] (-) TimerEvent: {}
+[42.527838] (-) TimerEvent: {}
+[42.628269] (-) TimerEvent: {}
+[42.728544] (-) TimerEvent: {}
+[42.828753] (-) TimerEvent: {}
+[42.928949] (-) TimerEvent: {}
+[43.029200] (-) TimerEvent: {}
+[43.129502] (-) TimerEvent: {}
+[43.229786] (-) TimerEvent: {}
+[43.330012] (-) TimerEvent: {}
+[43.430252] (-) TimerEvent: {}
+[43.530540] (-) TimerEvent: {}
+[43.630806] (-) TimerEvent: {}
+[43.731077] (-) TimerEvent: {}
+[43.831393] (-) TimerEvent: {}
+[43.931655] (-) TimerEvent: {}
+[44.031901] (-) TimerEvent: {}
+[44.132188] (-) TimerEvent: {}
+[44.232476] (-) TimerEvent: {}
+[44.332768] (-) TimerEvent: {}
+[44.433014] (-) TimerEvent: {}
+[44.533316] (-) TimerEvent: {}
+[44.633566] (-) TimerEvent: {}
+[44.733846] (-) TimerEvent: {}
+[44.834171] (-) TimerEvent: {}
+[44.934498] (-) TimerEvent: {}
+[45.034754] (-) TimerEvent: {}
+[45.135069] (-) TimerEvent: {}
+[45.235448] (-) TimerEvent: {}
+[45.335800] (-) TimerEvent: {}
+[45.436124] (-) TimerEvent: {}
+[45.536448] (-) TimerEvent: {}
+[45.636739] (-) TimerEvent: {}
+[45.737090] (-) TimerEvent: {}
+[45.837469] (-) TimerEvent: {}
+[45.937801] (-) TimerEvent: {}
+[46.038185] (-) TimerEvent: {}
+[46.138531] (-) TimerEvent: {}
+[46.238891] (-) TimerEvent: {}
+[46.339287] (-) TimerEvent: {}
+[46.439582] (-) TimerEvent: {}
+[46.539929] (-) TimerEvent: {}
+[46.640237] (-) TimerEvent: {}
+[46.740528] (-) TimerEvent: {}
+[46.840801] (-) TimerEvent: {}
+[46.941188] (-) TimerEvent: {}
+[47.041479] (-) TimerEvent: {}
+[47.141713] (-) TimerEvent: {}
+[47.242008] (-) TimerEvent: {}
+[47.342334] (-) TimerEvent: {}
+[47.442692] (-) TimerEvent: {}
+[47.542974] (-) TimerEvent: {}
+[47.643274] (-) TimerEvent: {}
+[47.743503] (-) TimerEvent: {}
+[47.843653] (-) TimerEvent: {}
+[47.943784] (-) TimerEvent: {}
+[48.043980] (-) TimerEvent: {}
+[48.144303] (-) TimerEvent: {}
+[48.244482] (-) TimerEvent: {}
+[48.344628] (-) TimerEvent: {}
+[48.444838] (-) TimerEvent: {}
+[48.545202] (-) TimerEvent: {}
+[48.645544] (-) TimerEvent: {}
+[48.745799] (-) TimerEvent: {}
+[48.846212] (-) TimerEvent: {}
+[48.946510] (-) TimerEvent: {}
+[49.046863] (-) TimerEvent: {}
+[49.147324] (-) TimerEvent: {}
+[49.247743] (-) TimerEvent: {}
+[49.348208] (-) TimerEvent: {}
+[49.448698] (-) TimerEvent: {}
+[49.549179] (-) TimerEvent: {}
+[49.649622] (-) TimerEvent: {}
+[49.750033] (-) TimerEvent: {}
+[49.850450] (-) TimerEvent: {}
+[49.950858] (-) TimerEvent: {}
+[50.051284] (-) TimerEvent: {}
+[50.151706] (-) TimerEvent: {}
+[50.252264] (-) TimerEvent: {}
+[50.352607] (-) TimerEvent: {}
+[50.452800] (-) TimerEvent: {}
+[50.552983] (-) TimerEvent: {}
+[50.653200] (-) TimerEvent: {}
+[50.753420] (-) TimerEvent: {}
+[50.853648] (-) TimerEvent: {}
+[50.954006] (-) TimerEvent: {}
+[51.054335] (-) TimerEvent: {}
+[51.154592] (-) TimerEvent: {}
+[51.254856] (-) TimerEvent: {}
+[51.355216] (-) TimerEvent: {}
+[51.455481] (-) TimerEvent: {}
+[51.555743] (-) TimerEvent: {}
+[51.656014] (-) TimerEvent: {}
+[51.756248] (-) TimerEvent: {}
+[51.856372] (-) TimerEvent: {}
+[51.956549] (-) TimerEvent: {}
+[52.056776] (-) TimerEvent: {}
+[52.156985] (-) TimerEvent: {}
+[52.257167] (-) TimerEvent: {}
+[52.357307] (-) TimerEvent: {}
+[52.457487] (-) TimerEvent: {}
+[52.557671] (-) TimerEvent: {}
+[52.657885] (-) TimerEvent: {}
+[52.758133] (-) TimerEvent: {}
+[52.858324] (-) TimerEvent: {}
+[52.958489] (-) TimerEvent: {}
+[53.058666] (-) TimerEvent: {}
+[53.158817] (-) TimerEvent: {}
+[53.258982] (-) TimerEvent: {}
+[53.359175] (-) TimerEvent: {}
+[53.459409] (-) TimerEvent: {}
+[53.559605] (-) TimerEvent: {}
+[53.659798] (-) TimerEvent: {}
+[53.760000] (-) TimerEvent: {}
+[53.860143] (-) TimerEvent: {}
+[53.960305] (-) TimerEvent: {}
+[54.060450] (-) TimerEvent: {}
+[54.160632] (-) TimerEvent: {}
+[54.260791] (-) TimerEvent: {}
+[54.360916] (-) TimerEvent: {}
+[54.461088] (-) TimerEvent: {}
+[54.561280] (-) TimerEvent: {}
+[54.661415] (-) TimerEvent: {}
+[54.761578] (-) TimerEvent: {}
+[54.861756] (-) TimerEvent: {}
+[54.961947] (-) TimerEvent: {}
+[55.062148] (-) TimerEvent: {}
+[55.162344] (-) TimerEvent: {}
+[55.262524] (-) TimerEvent: {}
+[55.362707] (-) TimerEvent: {}
+[55.462919] (-) TimerEvent: {}
+[55.563221] (-) TimerEvent: {}
+[55.663495] (-) TimerEvent: {}
+[55.763676] (-) TimerEvent: {}
+[55.863852] (-) TimerEvent: {}
+[55.964039] (-) TimerEvent: {}
+[56.064223] (-) TimerEvent: {}
+[56.164486] (-) TimerEvent: {}
+[56.264707] (-) TimerEvent: {}
+[56.364933] (-) TimerEvent: {}
+[56.465130] (-) TimerEvent: {}
+[56.565331] (-) TimerEvent: {}
+[56.665562] (-) TimerEvent: {}
+[56.765789] (-) TimerEvent: {}
+[56.866065] (-) TimerEvent: {}
+[56.966362] (-) TimerEvent: {}
+[57.066625] (-) TimerEvent: {}
+[57.166927] (-) TimerEvent: {}
+[57.267177] (-) TimerEvent: {}
+[57.367484] (-) TimerEvent: {}
+[57.467815] (-) TimerEvent: {}
+[57.568174] (-) TimerEvent: {}
+[57.668519] (-) TimerEvent: {}
+[57.768850] (-) TimerEvent: {}
+[57.869278] (-) TimerEvent: {}
+[57.969634] (-) TimerEvent: {}
+[58.069939] (-) TimerEvent: {}
+[58.170274] (-) TimerEvent: {}
+[58.270673] (-) TimerEvent: {}
+[58.371028] (-) TimerEvent: {}
+[58.471351] (-) TimerEvent: {}
+[58.571711] (-) TimerEvent: {}
+[58.672057] (-) TimerEvent: {}
+[58.772415] (-) TimerEvent: {}
+[58.872695] (-) TimerEvent: {}
+[58.973045] (-) TimerEvent: {}
+[59.073369] (-) TimerEvent: {}
+[59.173694] (-) TimerEvent: {}
+[59.274081] (-) TimerEvent: {}
+[59.374500] (-) TimerEvent: {}
+[59.474954] (-) TimerEvent: {}
+[59.575308] (-) TimerEvent: {}
+[59.675703] (-) TimerEvent: {}
+[59.776341] (-) TimerEvent: {}
+[59.876659] (-) TimerEvent: {}
+[59.976992] (-) TimerEvent: {}
+[60.051209] (openni2_camera) CommandEnded: {'returncode': 2}
+[60.063053] (openni2_camera) JobEnded: {'identifier': 'openni2_camera', 'rc': 2}
+[60.073545] (-) EventReactorShutdown: {}

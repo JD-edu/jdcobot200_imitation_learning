@@ -22,11 +22,17 @@ DEFAULT_XML = ROOT / "scene.xml"
 CONTROL_DT = 0.01
 IK_ITERATIONS = 5
 GRIPPER_OPEN = 0.45
-GRIPPER_CLOSED = -0.40
+GRIPPER_CLOSED = -0.20
 # Manual pick orientation.  At this wrist-roll angle the finger contact faces
 # are parallel to the red block's Y-facing sides (the block yaw in scene.xml is
 # fixed at zero).  Keep this value identical on the real robot calibration.
-WRIST_ROLL_PARALLEL = 1.0085
+# Calibrated from the actual left/right pad centers at the closed pick pose.
+# Their center line is aligned with the world Y axis (-90 deg), so the jaws are
+# parallel to the axis-aligned red block rather than merely aligning graspframe.
+WRIST_ROLL_PARALLEL = 0.34988
+# At the robot's XML start pose, the arm frame has a different yaw offset than
+# it has at the pick pose. This value makes the initial gripper world yaw 0.
+START_WRIST_ROLL = 2.14746
 BLOCK_HALF_HEIGHT = 0.015
 PICK_XY = np.array([0.22, -0.10])
 PLACE_XY = np.array([0.22, 0.10])
@@ -89,8 +95,22 @@ class PickAndPlace:
             model, mujoco.mjtObj.mjOBJ_ACTUATOR, "gripper_motor"
         )
         self.tool_site = require_id(model, mujoco.mjtObj.mjOBJ_SITE, "graspframe")
+        self.gripper_body = require_id(
+            model, mujoco.mjtObj.mjOBJ_BODY, "gripper_assembly"
+        )
+        self.pad_geoms = np.array([
+            require_id(model, mujoco.mjtObj.mjOBJ_GEOM, name)
+            for name in ("left_finger_pad", "right_finger_pad")
+        ])
         self.block_body = require_id(model, mujoco.mjtObj.mjOBJ_BODY, "red_block")
+        self.grasp_weld = require_id(
+            model, mujoco.mjtObj.mjOBJ_EQUALITY, "red_block_grasp"
+        )
 
+        # Start with the jaws already at the calibrated world yaw of the block.
+        # Without this initialization, wrist_roll starts at zero and rotates to
+        # WRIST_ROLL_PARALLEL during the first phase.
+        data.qpos[self.arm_qpos[self.wrist_roll_arm_index]] = START_WRIST_ROLL
         mujoco.mj_forward(model, data)
         data.ctrl[self.arm_actuators] = data.qpos[self.arm_qpos]
         data.ctrl[self.gripper_actuator] = GRIPPER_OPEN
@@ -105,11 +125,58 @@ class PickAndPlace:
     def phase(self) -> Phase:
         return PHASES[self.phase_index]
 
+    def _activate_grasp_weld(self) -> None:
+        """Weld the current relative pose without snapping either body."""
+        gripper_pos = self.data.xpos[self.gripper_body]
+        gripper_mat = self.data.xmat[self.gripper_body].reshape(3, 3)
+        block_pos = self.data.xpos[self.block_body]
+        gripper_quat = self.data.xquat[self.gripper_body]
+        block_quat = self.data.xquat[self.block_body]
+
+        relative_pos = gripper_mat.T @ (block_pos - gripper_pos)
+        inverse_gripper_quat = np.array([
+            gripper_quat[0],
+            -gripper_quat[1],
+            -gripper_quat[2],
+            -gripper_quat[3],
+        ])
+        relative_quat = np.empty(4)
+        mujoco.mju_mulQuat(relative_quat, inverse_gripper_quat, block_quat)
+
+        weld_data = self.model.eq_data[self.grasp_weld]
+        weld_data[0:3] = 0.0          # anchor in block coordinates
+        weld_data[3:6] = relative_pos # same anchor in gripper coordinates
+        weld_data[6:10] = relative_quat
+        self.data.eq_active[self.grasp_weld] = 1
+
+    def _world_aligned_wrist_target(self) -> float:
+        """Keep the line between the pads parallel to the world Y axis."""
+        pad_line = (
+            self.data.geom_xpos[self.pad_geoms[1]]
+            - self.data.geom_xpos[self.pad_geoms[0]]
+        )
+        current_yaw = np.arctan2(pad_line[1], pad_line[0])
+        target_yaw = -np.pi / 2
+        yaw_error = np.arctan2(
+            np.sin(target_yaw - current_yaw),
+            np.cos(target_yaw - current_yaw),
+        )
+        current_wrist = self.data.qpos[
+            self.arm_qpos[self.wrist_roll_arm_index]
+        ]
+        wrist_actuator = self.arm_actuators[self.wrist_roll_arm_index]
+        lower, upper = self.model.actuator_ctrlrange[wrist_actuator]
+        return float(np.clip(current_wrist + yaw_error, lower, upper))
+
     def _set_phase(self, index: int) -> None:
         self.phase_index = index
         self.phase_started = self.data.time
         self.solver.set_target_position(self.phase.target)
         self.data.ctrl[self.gripper_actuator] = self.phase.gripper
+        if self.phase.name == "물체 들어 올리기":
+            self._activate_grasp_weld()
+        elif self.phase.name == "그리퍼 열기":
+            self.data.eq_active[self.grasp_weld] = 0
         print(f"[{index + 1}/{len(PHASES)}] {self.phase.name}: {self.phase.target}")
 
     def control_step(self) -> None:
@@ -117,7 +184,7 @@ class PickAndPlace:
         arm_command = result.arm_qpos.copy()
         # Position-only IK does not constrain tool yaw.  Override wrist roll so
         # the jaws approach the manually axis-aligned block face-on.
-        arm_command[self.wrist_roll_arm_index] = WRIST_ROLL_PARALLEL
+        arm_command[self.wrist_roll_arm_index] = self._world_aligned_wrist_target()
         self.data.ctrl[self.arm_actuators] = arm_command
         self.data.ctrl[self.gripper_actuator] = self.phase.gripper
 

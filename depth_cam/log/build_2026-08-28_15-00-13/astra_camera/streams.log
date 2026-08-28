@@ -1,0 +1,77 @@
+[0.007s] Invoking command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera': AMENT_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:/home/robo/jdcobot200_imitation_learning/depth_cam/local:/opt/ros/humble LD_LIBRARY_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher/lib:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/robo/jdcobot200_imitation_learning/depth_cam/src/ros2_astra_camera/astra_camera -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera
+[0.063s] -- The C compiler identification is GNU 11.4.0
+[0.106s] -- The CXX compiler identification is GNU 11.4.0
+[0.109s] -- Detecting C compiler ABI info
+[0.206s] -- Detecting C compiler ABI info - done
+[0.212s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.212s] -- Detecting C compile features
+[0.212s] -- Detecting C compile features - done
+[0.214s] -- Detecting CXX compiler ABI info
+[0.287s] -- Detecting CXX compiler ABI info - done
+[0.294s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.294s] -- Detecting CXX compile features
+[0.295s] -- Detecting CXX compile features - done
+[0.296s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.408s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.448s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.461s] -- Found ament_index_cpp: 1.4.0 (/opt/ros/humble/share/ament_index_cpp/cmake)
+[0.461s] -- Found astra_camera_msgs: 1.0.1 (/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake)
+[0.480s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.482s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.486s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.492s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.500s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.538s] -- Found camera_info_manager: 3.1.13 (/opt/ros/humble/share/camera_info_manager/cmake)
+[0.557s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.558s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.619s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.643s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.677s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.686s] -- Looking for pthread.h
+[0.754s] -- Looking for pthread.h - found
+[0.754s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.849s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.850s] -- Found Threads: TRUE  
+[0.877s] -- Found class_loader: 2.2.0 (/opt/ros/humble/share/class_loader/cmake)
+[0.881s] -- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+[0.887s] -- Found message_filters: 4.3.11 (/opt/ros/humble/share/message_filters/cmake)
+[0.893s] -- Found image_geometry: 3.2.1 (/opt/ros/humble/share/image_geometry/cmake)
+[0.895s] -- Found image_publisher: 3.0.9 (/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher/share/image_publisher/cmake)
+[0.918s] -- Found OpenCV: /usr (found version "4.5.4") 
+[0.919s] -- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)
+[0.928s] -- Found tf2: 0.25.18 (/opt/ros/humble/share/tf2/cmake)
+[0.931s] -- Found tf2_eigen: 0.25.18 (/opt/ros/humble/share/tf2_eigen/cmake)
+[0.973s] -- Found tf2_sensor_msgs: 0.25.18 (/opt/ros/humble/share/tf2_sensor_msgs/cmake)
+[0.978s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[0.979s] -- Checking for one of the modules 'libuvc'
+[1.033s] -- Checking for one of the modules 'libglog'
+[1.139s] -- ORRBEC Machine : x86_64
+[1.139s] 
+[1.139s] -- ORRBEC Machine Bits : 64
+[1.139s] 
+[1.139s] -- ORRBEC : x64
+[1.183s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.221s] -- Configuring done
+[1.267s] -- Generating done
+[1.276s] -- Build files have been written to: /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera
+[1.282s] Invoked command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera' returned '0': AMENT_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:/home/robo/jdcobot200_imitation_learning/depth_cam/local:/opt/ros/humble LD_LIBRARY_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher/lib:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/robo/jdcobot200_imitation_learning/depth_cam/src/ros2_astra_camera/astra_camera -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera
+[1.283s] Invoking command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera': AMENT_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:/home/robo/jdcobot200_imitation_learning/depth_cam/local:/opt/ros/humble LD_LIBRARY_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher/lib:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera -- -j24 -l24
+[1.323s] [  5%] Building CXX object CMakeFiles/astra_camera.dir/src/point_cloud_proc/point_cloud_xyzrgb.cpp.o
+[1.323s] [ 10%] Building CXX object CMakeFiles/astra_camera.dir/src/ob_context.cpp.o
+[1.323s] [ 15%] Building CXX object CMakeFiles/astra_camera.dir/src/ob_camera_info.cpp.o
+[1.323s] [ 21%] Building CXX object CMakeFiles/astra_camera.dir/src/ob_timer_filter.cpp.o
+[1.323s] [ 26%] Building CXX object CMakeFiles/astra_camera.dir/src/ob_camera_node_factory.cpp.o
+[1.323s] [ 31%] Building CXX object CMakeFiles/astra_camera.dir/src/ob_camera_node.cpp.o
+[1.324s] [ 36%] Building CXX object CMakeFiles/astra_camera.dir/src/dynamic_params.cpp.o
+[1.324s] [ 42%] Building CXX object CMakeFiles/astra_camera.dir/src/uvc_camera_driver.cpp.o
+[1.325s] [ 47%] Building CXX object CMakeFiles/astra_camera.dir/src/point_cloud_proc/point_cloud_xyz.cpp.o
+[1.326s] [ 52%] Building CXX object CMakeFiles/astra_camera.dir/src/ros_service.cpp.o
+[1.326s] [ 63%] Building CXX object CMakeFiles/astra_camera.dir/src/ros_param_backend.cpp.o
+[1.326s] [ 63%] Building CXX object CMakeFiles/astra_camera.dir/src/utils.cpp.o
+[16.780s] [ 68%] Linking CXX shared library libastra_camera.so
+[16.860s] /usr/bin/ld: cannot find -luvc: No such file or directory
+[16.915s] collect2: error: ld returned 1 exit status
+[16.916s] gmake[2]: *** [CMakeFiles/astra_camera.dir/build.make:521: libastra_camera.so] Error 1
+[16.916s] gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/astra_camera.dir/all] Error 2
+[16.917s] gmake: *** [Makefile:146: all] Error 2
+[30.015s] Invoked command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera' returned '2': AMENT_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs:/home/robo/jdcobot200_imitation_learning/depth_cam/local:/opt/ros/humble LD_LIBRARY_PATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/image_publisher/lib:/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera -- -j24 -l24

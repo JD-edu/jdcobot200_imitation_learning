@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/rosidl_generator_c/openni2_camera/srv/detail/get_serial__struct.h

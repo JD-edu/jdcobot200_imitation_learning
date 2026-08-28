@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake

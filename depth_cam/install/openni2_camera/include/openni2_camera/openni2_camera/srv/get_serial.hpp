@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/rosidl_generator_cpp/openni2_camera/srv/get_serial.hpp

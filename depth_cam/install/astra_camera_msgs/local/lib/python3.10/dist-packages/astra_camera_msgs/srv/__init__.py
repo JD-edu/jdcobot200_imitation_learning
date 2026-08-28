@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_generator_py/astra_camera_msgs/srv/__init__.py

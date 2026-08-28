@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/set_int32__rosidl_typesupport_introspection_c.h

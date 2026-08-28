@@ -1,0 +1,310 @@
+JDCobot200 GLFW 픽 앤드 플레이스 정리
+========================================
+
+작성일: 2026-08-27
+작업 폴더:
+/home/robo/jdcobot200_imitation_learning/9_jdcobot200_pick_and_place
+
+
+1. 현재 구현 내용
+-----------------
+
+- scene.xml에 빨간색 직사각형 블록을 추가했습니다.
+- 초록색 원기둥 사이트를 플레이스 목표 위치 표시로 추가했습니다.
+- 기존 MINK IK solver를 사용해 로봇 팔을 제어합니다.
+- 시각화는 mujoco.viewer가 아닌 저수준 MuJoCo GLFW 방식으로 변경했습니다.
+- 자동 동작 순서는 다음과 같습니다.
+
+  1) 픽 위치 위로 이동
+  2) 물체로 하강
+  3) 그리퍼 닫기
+  4) 물체 들어 올리기
+  5) 플레이스 위치 위로 이동
+  6) 물체 내려놓기
+  7) 그리퍼 열기
+  8) 위로 후퇴
+
+
+2. 관련 파일
+------------
+
+- scene.xml
+  빨간 블록, 바닥, 플레이스 위치 마커를 포함하는 장면 파일
+
+- jdcobot200.xml
+  로봇, 그리퍼, actuator 및 graspframe 정의
+
+- jdcobot200_mink_solver.py
+  MINK 기반 제한조건 IK solver
+
+- jdcobot200_mujoco_glfw.py
+  GLFW 카메라 조작 클래스가 포함된 기존 IK 예제
+
+- jdcobot200_pick_and_place.py
+  GLFW 기반 자동 픽 앤드 플레이스 예제
+
+
+3. 실행 방법
+------------
+
+GLFW 창으로 실행:
+
+python3 jdcobot200_pick_and_place.py
+
+창 없이 전체 동작 검증:
+
+python3 jdcobot200_pick_and_place.py --headless
+
+최대 실행 시간 지정:
+
+python3 jdcobot200_pick_and_place.py --max-time 40
+
+
+4. GLFW 조작 방법
+----------------
+
+- 왼쪽 마우스 드래그: 카메라 회전
+- 오른쪽 마우스 드래그: 카메라 이동
+- 가운데 마우스 드래그: 확대/축소
+- 마우스 휠: 확대/축소
+- ESC 키: 프로그램 종료
+
+GLFW 창 제목에는 현재 픽 앤드 플레이스 단계와 TCP 위치 오차가 표시됩니다.
+
+
+5. 현재 파지 방식의 제한 사항
+----------------------------
+
+현재 jdcobot200.xml에서는 로봇 geom의 충돌이 비활성화되어 있습니다.
+
+관련 설정:
+
+<default class="sts3215">
+  <geom contype="0" conaffinity="0"/>
+</default>
+
+contype="0"과 conaffinity="0" 때문에 그리퍼 손가락이 빨간 블록과
+물리적으로 접촉하지 않습니다. 따라서 현재 Python 예제는 그리퍼가 블록
+근처에서 닫히면 블록을 graspframe에 키네마틱 방식으로 부착합니다.
+
+현재 사용하는 관련 함수:
+
+- _attach_block()
+- _hold_attached_block()
+- _detach_block()
+
+이 방식은 IK 경로와 자동 동작 순서를 검증하기에는 안정적이지만, 손가락의
+마찰과 접촉력으로 물체를 집는 완전한 물리 기반 파지는 아닙니다.
+
+
+6. 물리 기반 파지를 위한 XML 수정
+----------------------------------
+
+6.1 왼쪽 손가락 충돌 활성화
+
+jdcobot200.xml의 gripper_left_assembly 안에 있는 왼쪽 손가락 geom에
+contype, conaffinity, friction, condim을 지정합니다.
+
+예시:
+
+<geom
+    pos="0 0 0.0453"
+    quat="1.32679e-06 -1 0 0"
+    type="mesh"
+    mesh="gripper_left"
+    rgba="0.627451 0.627451 0.627451 1"
+    contype="1"
+    conaffinity="1"
+    friction="1.5 0.01 0.001"
+    condim="4"/>
+
+
+6.2 오른쪽 손가락 충돌 활성화
+
+jdcobot200.xml의 gripper_right_assembly 안에 있는 오른쪽 손가락 geom도
+같은 방식으로 수정합니다.
+
+예시:
+
+<geom
+    pos="0 0 0.051019"
+    quat="1.76038e-12 -1.32679e-06 -1 1.32679e-06"
+    type="mesh"
+    mesh="gripper_right"
+    rgba="0.627451 0.627451 0.627451 1"
+    contype="1"
+    conaffinity="1"
+    friction="1.5 0.01 0.001"
+    condim="4"/>
+
+오른쪽 손가락의 gripper_right_part 메시도 블록과 접촉해야 한다면 같은
+충돌 속성을 추가합니다.
+
+
+6.3 권장 방법: 단순 충돌 geom 추가
+
+STL 메시 자체를 충돌 형상으로 사용하면 접촉 계산이 무겁거나 불안정할 수
+있습니다. 시각용 STL geom은 그대로 두고, 각 손가락에 투명한 box 또는
+capsule 충돌 geom을 별도로 추가하는 방법을 권장합니다.
+
+예시:
+
+<geom
+    name="left_finger_collision"
+    type="box"
+    pos="0 0 0.045"
+    size="0.008 0.006 0.035"
+    contype="1"
+    conaffinity="1"
+    friction="1.5 0.01 0.001"
+    condim="4"
+    rgba="0 0 0 0"
+    group="3"/>
+
+오른쪽 손가락에도 대칭되는 충돌 geom을 추가해야 합니다. 이 예시의 pos,
+quat, size는 최종값이 아니며 실제 STL 손가락의 위치와 방향에 맞춰 MuJoCo
+화면에서 조정해야 합니다.
+
+
+6.4 빨간 블록 충돌 설정
+
+scene.xml의 빨간 블록은 현재도 기본 충돌이 가능한 geom입니다. 설정을
+명시적으로 관리하려면 다음과 같이 작성할 수 있습니다.
+
+<geom
+    name="red_block_geom"
+    type="box"
+    size="0.025 0.015 0.015"
+    rgba="0.9 0.05 0.05 1"
+    mass="0.05"
+    contype="1"
+    conaffinity="1"
+    friction="1.5 0.01 0.001"
+    condim="4"
+    solref="0.01 1"/>
+
+MuJoCo의 box size는 전체 크기가 아니라 반쪽 크기입니다. 따라서 위 설정의
+실제 블록 크기는 50 x 30 x 30 mm입니다.
+
+
+6.5 바닥 충돌
+
+scene.xml의 floor geom은 기본적으로 블록과 충돌할 수 있습니다. 충돌 그룹을
+명시하려면 다음 속성을 추가할 수 있습니다.
+
+contype="1" conaffinity="1"
+
+
+7. 로봇 전체 충돌 활성화 시 주의 사항
+--------------------------------------
+
+로봇의 모든 STL geom에 contype="1"과 conaffinity="1"을 한꺼번에 적용하면
+인접 링크 및 자기충돌 때문에 시뮬레이션이 불안정해질 수 있습니다.
+
+다음 순서로 충돌을 추가하는 것이 안전합니다.
+
+1) 빨간 블록과 바닥 충돌 확인
+2) 왼쪽 및 오른쪽 손가락 충돌 형상 추가
+3) 손가락과 블록의 양쪽 접촉 확인
+4) 그리퍼 베이스 충돌 형상 추가
+5) 필요한 팔 링크에만 단순화된 capsule/box 충돌 형상 추가
+6) exclude 설정으로 인접 링크 사이 불필요한 충돌 제거
+
+
+8. 물리 기반 파지를 위한 Python 수정
+-------------------------------------
+
+손가락 충돌 형상이 준비되면 jdcobot200_pick_and_place.py에서 물체를 강제로
+이동하는 키네마틱 파지 코드를 제거해야 합니다.
+
+제거 또는 비활성화할 항목:
+
+- _attach_block()
+- _hold_attached_block()
+- _detach_block() 내부의 qpos 강제 변경
+- physics_step()에서 _hold_attached_block() 호출
+
+그 대신 MuJoCo contact 정보를 사용해 다음 조건을 확인합니다.
+
+- 왼쪽 손가락과 빨간 블록이 접촉함
+- 오른쪽 손가락과 빨간 블록이 접촉함
+- 그리퍼가 닫힌 명령을 유지함
+- 물체가 일정 높이 이상 상승함
+
+양쪽 손가락 접촉은 data.contact와 model.geom 이름을 이용해 확인할 수
+있습니다. 한쪽 손가락만 접촉한 상태에서 팔을 들어 올리면 블록이 밀리거나
+떨어질 수 있으므로 양쪽 접촉 여부를 확인하는 것이 좋습니다.
+
+
+9. IK 방향 제어 필요성
+----------------------
+
+현재 SO101MinkSolver는 기본적으로 TCP 위치만 강하게 제어하고 orientation_cost
+값은 0입니다. 따라서 graspframe 위치가 블록에 도달해도 손가락 방향이 블록과
+정렬되지 않을 수 있습니다.
+
+물리 파지를 위해서는 다음 작업이 필요합니다.
+
+- graspframe의 목표 위치와 목표 자세를 함께 지정
+- MINK FrameTask의 orientation_cost 활성화
+- 접근 단계에서 그리퍼가 블록을 향하도록 목표 quaternion 설정
+- wrist_roll을 이용해 손가락과 블록의 긴 축 정렬
+
+방향 제어를 추가할 때는 현재 solver의 set_target_position()을 위치와 자세를
+받는 함수로 확장하거나 별도의 set_target_pose() 함수를 추가해야 합니다.
+
+
+10. 그리퍼 actuator 확인 사항
+-----------------------------
+
+현재 그리퍼 actuator:
+
+<position class="sts3215"
+          name="gripper_motor"
+          joint="gripper_left"
+          ctrlrange="-1.5 1.5"
+          kp="50"/>
+
+물리 파지 전 다음을 확인해야 합니다.
+
+- GRIPPER_OPEN 값에서 블록 폭보다 손가락 간격이 충분히 큰지
+- GRIPPER_CLOSED 값에서 손가락이 블록을 관통하지 않고 접촉하는지
+- kp와 forcerange가 너무 커서 블록이 튀지 않는지
+- 마찰이 부족해 들어 올리는 동안 블록이 미끄러지지 않는지
+
+현재 Python 값:
+
+GRIPPER_OPEN = 1.20
+GRIPPER_CLOSED = 0.00
+
+충돌 형상을 추가한 뒤에는 이 두 값을 실제 손가락 간격에 맞춰 다시 보정해야
+합니다.
+
+
+11. 현재 검증 결과
+------------------
+
+키네마틱 파지 방식의 헤드리스 전체 사이클이 정상적으로 완료되었습니다.
+
+- 전체 단계: 8단계
+- IK 중단 또는 시간 초과: 없음
+- 최종 블록 위치: 약 [0.2273, 0.0809, 0.0149] m
+- 목표 배치 위치 대비 XY 오차: 약 20.4 mm
+
+현재 오차에는 실제 actuator force limit 및 중력에 따른 TCP 정적 오차가
+반영되어 있습니다. 물체를 놓을 때 목표 위치로 순간 이동시키지 않고 로봇이
+실제로 도달한 XY 위치에서 해제하도록 구현되어 있습니다.
+
+
+12. 권장 다음 작업
+------------------
+
+1) GLFW에서 손가락 STL 형상과 축 방향 확인
+2) 양쪽 손가락에 단순 box 충돌 geom 추가
+3) 충돌 geom을 반투명하게 표시하여 위치와 크기 조정
+4) 빨간 블록과 양쪽 손가락의 contact 확인 코드 작성
+5) MINK에 TCP orientation 제어 추가
+6) 키네마틱 부착 코드 제거
+7) 마찰, 그리퍼 kp, actuator force 및 닫힘 값을 조정
+8) 물리 기반 픽, 리프트, 이동, 릴리즈 전체 사이클 검증
+

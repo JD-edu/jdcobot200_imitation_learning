@@ -91,13 +91,13 @@
                   <inertial pos="0 0 0" mass="0.015" diaginertia="1e-09 1e-09 1e-09"/>
                   <joint name="gripper_left" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" ref="-0.57"  actuatorfrcrange="-10 10"/>
                   <geom pos="0 0 0.0453" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_left"/>
-                  <!-- Simple fingertip pad: unlike the visual mesh, this geom
+                  <!-- Parallel fingertip pad: unlike the visual mesh, this geom
                        participates in collision and can physically grip objects. -->
                   <geom name="left_finger_pad" type="box" size="0.001 0.008 0.012"
-                        pos="-0.01353006 -0.04711574 0.03004873"
-                        quat="0.30791573 -0.12741030 0.69553494 0.63654196"
+                        pos="-0.01638219 -0.04978807 0.01956274"
+                        quat="0.76953395 -0.62337390 0.08929685 -0.10605922"
                         contype="1" conaffinity="1" condim="4"
-                        friction="1.5 0.05 0.001" rgba="1 0.5 0.5 0.65"/>
+                        friction="5.0 0.05 0.001" rgba="1 0.5 0.5 0.65"/>
                 </body>
                 <body name="gripper_right_assembly" pos="0.0270171 -0.0105891 -0.0300671" quat="0.672125 -0.672127 -0.219651 0.21965">
                   <inertial pos="0 0 0" mass="0.015" diaginertia="1e-09 1e-09 1e-09"/>
@@ -105,10 +105,10 @@
                   <geom pos="0 0 0.051019" quat="1.76038e-12 -1.32679e-06 -1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right"/>
                   <geom pos="0.0509419 0 0" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right_part"/>
                   <geom name="right_finger_pad" type="box" size="0.001 0.008 0.012"
-                        pos="-0.01582879 0.04743097 0.01505166"
-                        quat="0.69552945 0.63655305 0.30789898 -0.12742534"
+                        pos="-0.02052139 0.05227357 0.02362731"
+                        quat="-0.17939548 0.14216555 -0.61347941 0.75581031"
                         contype="1" conaffinity="1" condim="4"
-                        friction="1.5 0.05 0.001" rgba="0.5 0.5 1 0.65"/>
+                        friction="5.0 0.05 0.001" rgba="0.5 0.5 1 0.65"/>
                 </body>
               </body>
             </body>

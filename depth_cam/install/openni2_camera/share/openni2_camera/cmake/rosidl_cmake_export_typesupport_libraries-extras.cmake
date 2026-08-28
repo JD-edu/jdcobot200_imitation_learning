@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake

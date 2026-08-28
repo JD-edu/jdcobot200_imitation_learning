@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/ament_cmake_core/openni2_cameraConfig-version.cmake

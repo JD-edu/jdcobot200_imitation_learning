@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/image_publisher/ament_cmake_environment_hooks/local_setup.zsh

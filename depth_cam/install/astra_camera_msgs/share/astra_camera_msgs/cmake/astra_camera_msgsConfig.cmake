@@ -1,0 +1,1 @@
+/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/ament_cmake_core/astra_camera_msgsConfig.cmake

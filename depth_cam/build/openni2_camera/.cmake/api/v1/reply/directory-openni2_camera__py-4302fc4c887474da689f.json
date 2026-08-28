@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "openni2_camera__py",
+		"source" : "/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/openni2_camera__py"
+	}
+}

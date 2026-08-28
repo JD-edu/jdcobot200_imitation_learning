@@ -1,0 +1,426 @@
+[0.005s] Invoking command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/robo/jdcobot200_imitation_learning/depth_cam/src/ros2_astra_camera/astra_camera_msgs -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs
+[0.044s] -- The C compiler identification is GNU 11.4.0
+[0.089s] -- The CXX compiler identification is GNU 11.4.0
+[0.094s] -- Detecting C compiler ABI info
+[0.176s] -- Detecting C compiler ABI info - done
+[0.180s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.181s] -- Detecting C compile features
+[0.181s] -- Detecting C compile features - done
+[0.183s] -- Detecting CXX compiler ABI info
+[0.237s] -- Detecting CXX compiler ABI info - done
+[0.244s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.244s] -- Detecting CXX compile features
+[0.244s] -- Detecting CXX compile features - done
+[0.246s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.336s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.368s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.382s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.385s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.389s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.413s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.429s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.648s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.794s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.014s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.036s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.037s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.060s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.060s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.060s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.060s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.072s] -- Found PythonExtra: .so  
+[1.112s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.122s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.123s] -- Added test 'lint_cmake' to check CMake code style
+[1.124s] -- Added test 'xmllint' to check XML markup files
+[1.125s] -- Configuring done
+[1.149s] -- Generating done
+[1.155s] -- Build files have been written to: /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs
+[3.321s] Invoked command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/robo/jdcobot200_imitation_learning/depth_cam/src/ros2_astra_camera/astra_camera_msgs -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs
+[3.322s] Invoking command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs -- -j24 -l24
+[3.372s] [  1%] Generating C code for ROS interfaces
+[3.380s] [  2%] Generating C++ code for ROS interfaces
+[3.386s] [  2%] Built target ament_cmake_python_symlink_astra_camera_msgs
+[3.511s] running egg_info
+[3.511s] creating astra_camera_msgs.egg-info
+[3.511s] writing astra_camera_msgs.egg-info/PKG-INFO
+[3.511s] writing dependency_links to astra_camera_msgs.egg-info/dependency_links.txt
+[3.511s] writing top-level names to astra_camera_msgs.egg-info/top_level.txt
+[3.511s] writing manifest file 'astra_camera_msgs.egg-info/SOURCES.txt'
+[3.512s] reading manifest file 'astra_camera_msgs.egg-info/SOURCES.txt'
+[3.512s] writing manifest file 'astra_camera_msgs.egg-info/SOURCES.txt'
+[3.527s] [  2%] Built target ament_cmake_python_build_astra_camera_msgs_egg
+[3.739s] [  3%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/msg/detail/extrinsics__functions.c.o
+[3.739s] [  4%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/get_device_info__functions.c.o
+[3.740s] [  5%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/get_camera_info__functions.c.o
+[3.740s] [  6%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/get_camera_params__functions.c.o
+[3.740s] [  7%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/msg/detail/device_info__functions.c.o
+[3.740s] [  8%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/get_int32__functions.c.o
+[3.740s] [  9%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/get_string__functions.c.o
+[3.744s] [ 10%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/srv/detail/set_int32__functions.c.o
+[3.745s] [ 11%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/astra_camera_msgs/msg/detail/metadata__functions.c.o
+[3.768s] [ 11%] Built target astra_camera_msgs__cpp
+[3.774s] [ 13%] Generating C++ type support dispatch for ROS interfaces
+[3.774s] [ 13%] Generating C++ type support for eProsima Fast-RTPS
+[3.775s] [ 14%] Generating C++ introspection for ROS interfaces
+[3.861s] [ 15%] Linking C shared library libastra_camera_msgs__rosidl_generator_c.so
+[3.890s] [ 15%] Built target astra_camera_msgs__rosidl_generator_c
+[3.900s] [ 18%] Generating C introspection for ROS interfaces
+[3.900s] [ 18%] Generating C type support dispatch for ROS interfaces
+[3.900s] [ 18%] Generating C type support for eProsima Fast-RTPS
+[4.026s] [ 20%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/msg/metadata__type_support.cpp.o
+[4.026s] [ 21%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/get_int32__type_support.cpp.o
+[4.027s] [ 22%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/msg/device_info__type_support.cpp.o
+[4.027s] [ 24%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/get_device_info__type_support.cpp.o
+[4.027s] [ 24%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/msg/extrinsics__type_support.cpp.o
+[4.028s] [ 25%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/get_camera_info__type_support.cpp.o
+[4.028s] [ 26%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/set_int32__type_support.cpp.o
+[4.028s] [ 27%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/get_camera_params__type_support.cpp.o
+[4.028s] [ 28%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/astra_camera_msgs/srv/get_string__type_support.cpp.o
+[4.085s] [ 30%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/msg/detail/metadata__type_support.cpp.o
+[4.085s] [ 30%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/msg/detail/device_info__type_support.cpp.o
+[4.085s] [ 31%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/get_camera_info__type_support.cpp.o
+[4.085s] [ 32%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/msg/detail/extrinsics__type_support.cpp.o
+[4.085s] [ 33%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/get_int32__type_support.cpp.o
+[4.085s] [ 34%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/get_string__type_support.cpp.o
+[4.085s] [ 35%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/get_device_info__type_support.cpp.o
+[4.085s] [ 36%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/get_camera_params__type_support.cpp.o
+[4.086s] [ 37%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/astra_camera_msgs/srv/detail/set_int32__type_support.cpp.o
+[4.239s] [ 38%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/msg/detail/dds_fastrtps/device_info__type_support.cpp.o
+[4.246s] [ 41%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/get_device_info__type_support.cpp.o
+[4.246s] [ 41%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/msg/detail/dds_fastrtps/metadata__type_support.cpp.o
+[4.246s] [ 42%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/msg/detail/dds_fastrtps/extrinsics__type_support.cpp.o
+[4.250s] [ 43%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/get_camera_info__type_support.cpp.o
+[4.252s] [ 44%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/msg/device_info__type_support.cpp.o
+[4.262s] [ 45%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/get_camera_params__type_support.cpp.o
+[4.268s] [ 46%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/get_int32__type_support.cpp.o
+[4.274s] [ 47%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/get_string__type_support.cpp.o
+[4.295s] [ 48%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/msg/extrinsics__type_support.cpp.o
+[4.311s] [ 49%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/astra_camera_msgs/srv/detail/dds_fastrtps/set_int32__type_support.cpp.o
+[4.322s] [ 50%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/msg/metadata__type_support.cpp.o
+[4.323s] [ 51%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/get_device_info__type_support.cpp.o
+[4.325s] [ 52%] Linking CXX shared library libastra_camera_msgs__rosidl_typesupport_cpp.so
+[4.345s] [ 53%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/get_camera_info__type_support.cpp.o
+[4.356s] [ 54%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/get_camera_params__type_support.cpp.o
+[4.370s] [ 54%] Built target astra_camera_msgs__rosidl_typesupport_cpp
+[4.376s] [ 55%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/get_int32__type_support.cpp.o
+[4.378s] [ 56%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/get_string__type_support.cpp.o
+[4.384s] [ 57%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/astra_camera_msgs/srv/set_int32__type_support.cpp.o
+[4.415s] [ 58%] Linking CXX shared library libastra_camera_msgs__rosidl_typesupport_c.so
+[4.448s] [ 60%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/msg/detail/device_info__type_support.c.o
+[4.451s] [ 61%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/msg/detail/extrinsics__type_support.c.o
+[4.451s] [ 62%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/msg/detail/metadata__type_support.c.o
+[4.451s] [ 63%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/get_device_info__type_support.c.o
+[4.454s] [ 64%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/get_camera_info__type_support.c.o
+[4.455s] [ 65%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/get_camera_params__type_support.c.o
+[4.458s] [ 65%] Built target astra_camera_msgs__rosidl_typesupport_c
+[4.467s] [ 66%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/get_int32__type_support.c.o
+[4.473s] [ 68%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/msg/detail/device_info__type_support_c.cpp.o
+[4.476s] [ 67%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/get_string__type_support.c.o
+[4.476s] [ 69%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/astra_camera_msgs/srv/detail/set_int32__type_support.c.o
+[4.484s] [ 70%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/msg/detail/extrinsics__type_support_c.cpp.o
+[4.489s] [ 71%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/msg/detail/metadata__type_support_c.cpp.o
+[4.492s] [ 72%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/get_device_info__type_support_c.cpp.o
+[4.499s] [ 74%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/get_int32__type_support_c.cpp.o
+[4.500s] [ 74%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/get_camera_params__type_support_c.cpp.o
+[4.505s] [ 75%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/get_camera_info__type_support_c.cpp.o
+[4.511s] [ 76%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/get_string__type_support_c.cpp.o
+[4.519s] [ 77%] Building CXX object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/astra_camera_msgs/srv/detail/set_int32__type_support_c.cpp.o
+[4.528s] [ 78%] Linking C shared library libastra_camera_msgs__rosidl_typesupport_introspection_c.so
+[4.563s] [ 78%] Built target astra_camera_msgs__rosidl_typesupport_introspection_c
+[4.588s] [ 80%] Linking CXX shared library libastra_camera_msgs__rosidl_typesupport_introspection_cpp.so
+[4.640s] [ 80%] Built target astra_camera_msgs__rosidl_typesupport_introspection_cpp
+[4.750s] [ 81%] Linking CXX shared library libastra_camera_msgs__rosidl_typesupport_fastrtps_cpp.so
+[4.799s] [ 81%] Built target astra_camera_msgs__rosidl_typesupport_fastrtps_cpp
+[4.859s] [ 82%] Linking CXX shared library libastra_camera_msgs__rosidl_typesupport_fastrtps_c.so
+[4.904s] [ 82%] Built target astra_camera_msgs__rosidl_typesupport_fastrtps_c
+[4.919s] [ 82%] Built target astra_camera_msgs
+[4.934s] [ 83%] Generating Python code for ROS interfaces
+[5.532s] [ 83%] Built target astra_camera_msgs__py
+[5.552s] [ 84%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/msg/_metadata_s.c.o
+[5.553s] [ 86%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_set_int32_s.c.o
+[5.554s] [ 86%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_get_string_s.c.o
+[5.554s] [ 87%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_get_camera_params_s.c.o
+[5.554s] [ 88%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_get_int32_s.c.o
+[5.557s] [ 90%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/msg/_device_info_s.c.o
+[5.557s] [ 90%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/msg/_extrinsics_s.c.o
+[5.558s] [ 91%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_get_device_info_s.c.o
+[5.558s] [ 92%] Building C object CMakeFiles/astra_camera_msgs__rosidl_generator_py.dir/rosidl_generator_py/astra_camera_msgs/srv/_get_camera_info_s.c.o
+[5.686s] [ 93%] Linking C shared library rosidl_generator_py/astra_camera_msgs/libastra_camera_msgs__rosidl_generator_py.so
+[5.719s] [ 93%] Built target astra_camera_msgs__rosidl_generator_py
+[5.734s] [ 94%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[5.735s] [ 95%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_c.c.o
+[5.736s] [ 96%] Building C object CMakeFiles/astra_camera_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[5.889s] [ 97%] Linking C shared library rosidl_generator_py/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.892s] [ 98%] Linking C shared library rosidl_generator_py/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.911s] [100%] Linking C shared library rosidl_generator_py/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.919s] [100%] Built target astra_camera_msgs__rosidl_typesupport_c__pyext
+[5.920s] [100%] Built target astra_camera_msgs__rosidl_typesupport_fastrtps_c__pyext
+[5.935s] [100%] Built target astra_camera_msgs__rosidl_typesupport_introspection_c__pyext
+[5.942s] Invoked command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs -- -j24 -l24
+[5.942s] Invoking command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs
+[5.948s] -- Install configuration: "Release"
+[5.949s] -- Execute custom install script
+[5.949s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/ament_index/resource_index/rosidl_interfaces/astra_camera_msgs
+[5.954s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__functions.h
+[5.959s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__struct.h
+[5.965s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__type_support.h
+[5.971s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__functions.h
+[5.976s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__struct.h
+[5.981s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__type_support.h
+[5.987s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__functions.h
+[5.992s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__struct.h
+[5.997s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__type_support.h
+[6.002s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/device_info.h
+[6.006s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/extrinsics.h
+[6.011s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/metadata.h
+[6.019s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/rosidl_generator_c__visibility_control.h
+[6.026s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__functions.h
+[6.036s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__struct.h
+[6.043s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__type_support.h
+[6.051s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__functions.h
+[6.062s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__struct.h
+[6.071s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__type_support.h
+[6.079s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__functions.h
+[6.083s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__struct.h
+[6.087s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__type_support.h
+[6.093s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__functions.h
+[6.098s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__struct.h
+[6.106s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__type_support.h
+[6.120s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__functions.h
+[6.130s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__struct.h
+[6.145s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__type_support.h
+[6.156s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__functions.h
+[6.161s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__struct.h
+[6.165s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__type_support.h
+[6.170s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_camera_info.h
+[6.175s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_camera_params.h
+[6.181s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_device_info.h
+[6.187s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_int32.h
+[6.192s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_string.h
+[6.197s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/set_int32.h
+[6.203s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/library_path.sh
+[6.209s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/library_path.dsv
+[6.221s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_c.h
+[6.231s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_fastrtps_c.h
+[6.241s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__rosidl_typesupport_fastrtps_c.h
+[6.252s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[6.263s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_fastrtps_c.h
+[6.273s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__rosidl_typesupport_fastrtps_c.h
+[6.280s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_fastrtps_c.h
+[6.287s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__rosidl_typesupport_fastrtps_c.h
+[6.293s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__rosidl_typesupport_fastrtps_c.h
+[6.304s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__rosidl_typesupport_fastrtps_c.h
+[6.319s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__rosidl_typesupport_introspection_c.h
+[6.328s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_introspection_c.h
+[6.340s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__rosidl_typesupport_introspection_c.h
+[6.353s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[6.361s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_introspection_c.h
+[6.367s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__rosidl_typesupport_introspection_c.h
+[6.373s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_introspection_c.h
+[6.380s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__rosidl_typesupport_introspection_c.h
+[6.388s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__rosidl_typesupport_introspection_c.h
+[6.396s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__rosidl_typesupport_introspection_c.h
+[6.407s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__builder.hpp
+[6.418s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__struct.hpp
+[6.425s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__traits.hpp
+[6.431s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__type_support.hpp
+[6.437s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__builder.hpp
+[6.443s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__struct.hpp
+[6.452s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__traits.hpp
+[6.459s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__type_support.hpp
+[6.467s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__builder.hpp
+[6.478s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__struct.hpp
+[6.488s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__traits.hpp
+[6.497s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__type_support.hpp
+[6.512s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/device_info.hpp
+[6.523s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/extrinsics.hpp
+[6.527s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/metadata.hpp
+[6.532s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[6.539s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__builder.hpp
+[6.549s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__struct.hpp
+[6.558s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__traits.hpp
+[6.563s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__type_support.hpp
+[6.572s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__builder.hpp
+[6.577s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__struct.hpp
+[6.583s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__traits.hpp
+[6.593s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__type_support.hpp
+[6.608s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__builder.hpp
+[6.618s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__struct.hpp
+[6.631s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__traits.hpp
+[6.642s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__type_support.hpp
+[6.657s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__builder.hpp
+[6.668s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__struct.hpp
+[6.679s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__traits.hpp
+[6.687s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__type_support.hpp
+[6.699s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__builder.hpp
+[6.708s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__struct.hpp
+[6.721s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__traits.hpp
+[6.734s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__type_support.hpp
+[6.748s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__builder.hpp
+[6.761s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__struct.hpp
+[6.777s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__traits.hpp
+[6.786s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__type_support.hpp
+[6.796s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_camera_info.hpp
+[6.807s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_camera_params.hpp
+[6.816s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_device_info.hpp
+[6.827s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_int32.hpp
+[6.843s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/get_string.hpp
+[6.854s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/set_int32.hpp
+[6.863s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_cpp.hpp
+[6.869s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_fastrtps_cpp.hpp
+[6.878s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__rosidl_typesupport_fastrtps_cpp.hpp
+[6.891s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[6.903s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_fastrtps_cpp.hpp
+[6.918s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__rosidl_typesupport_fastrtps_cpp.hpp
+[6.928s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_fastrtps_cpp.hpp
+[6.939s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__rosidl_typesupport_fastrtps_cpp.hpp
+[6.949s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__rosidl_typesupport_fastrtps_cpp.hpp
+[6.956s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__rosidl_typesupport_fastrtps_cpp.hpp
+[6.970s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/device_info__rosidl_typesupport_introspection_cpp.hpp
+[6.983s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_introspection_cpp.hpp
+[6.992s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/msg/detail/metadata__rosidl_typesupport_introspection_cpp.hpp
+[7.003s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_introspection_cpp.hpp
+[7.015s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_camera_params__rosidl_typesupport_introspection_cpp.hpp
+[7.031s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_introspection_cpp.hpp
+[7.042s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_int32__rosidl_typesupport_introspection_cpp.hpp
+[7.052s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/get_string__rosidl_typesupport_introspection_cpp.hpp
+[7.063s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/include/astra_camera_msgs/astra_camera_msgs/srv/detail/set_int32__rosidl_typesupport_introspection_cpp.hpp
+[7.073s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/pythonpath.sh
+[7.086s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/pythonpath.dsv
+[7.100s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs-1.0.1-py3.10.egg-info/PKG-INFO
+[7.112s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs-1.0.1-py3.10.egg-info/SOURCES.txt
+[7.124s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs-1.0.1-py3.10.egg-info/dependency_links.txt
+[7.133s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs-1.0.1-py3.10.egg-info/top_level.txt
+[7.140s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/__init__.py
+[7.149s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_c.c
+[7.159s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[7.173s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/_astra_camera_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[7.187s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[7.197s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[7.208s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[7.221s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/libastra_camera_msgs__rosidl_generator_py.so
+[7.235s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/__init__.py
+[7.247s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_device_info.py
+[7.255s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_device_info_s.c
+[7.265s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_extrinsics.py
+[7.279s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_extrinsics_s.c
+[7.290s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_metadata.py
+[7.306s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_metadata_s.c
+[7.316s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/__init__.py
+[7.329s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_info.py
+[7.343s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_info_s.c
+[7.354s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_params.py
+[7.361s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_params_s.c
+[7.369s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_device_info.py
+[7.378s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_device_info_s.c
+[7.383s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_int32.py
+[7.387s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_int32_s.c
+[7.396s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_string.py
+[7.405s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_string_s.c
+[7.418s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_set_int32.py
+[7.428s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_set_int32_s.c
+[7.435s] -- Up-to-date symlink: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[7.435s] -- Up-to-date symlink: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[7.435s] -- Up-to-date symlink: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/astra_camera_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[7.435s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/DeviceInfo.idl
+[7.446s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/Extrinsics.idl
+[7.460s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/Metadata.idl
+[7.475s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetDeviceInfo.idl
+[7.489s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraInfo.idl
+[7.497s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraParams.idl
+[7.505s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetInt32.idl
+[7.514s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetString.idl
+[7.523s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/SetInt32.idl
+[7.532s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/DeviceInfo.msg
+[7.548s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/Extrinsics.msg
+[7.558s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/msg/Metadata.msg
+[7.573s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetDeviceInfo.srv
+[7.589s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetDeviceInfo_Request.msg
+[7.599s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetDeviceInfo_Response.msg
+[7.608s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraInfo.srv
+[7.616s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraInfo_Request.msg
+[7.626s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraInfo_Response.msg
+[7.638s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraParams.srv
+[7.652s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraParams_Request.msg
+[7.664s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetCameraParams_Response.msg
+[7.673s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetInt32.srv
+[7.685s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetInt32_Request.msg
+[7.697s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetInt32_Response.msg
+[7.709s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetString.srv
+[7.720s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetString_Request.msg
+[7.730s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/GetString_Response.msg
+[7.742s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/SetInt32.srv
+[7.754s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/SetInt32_Request.msg
+[7.763s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/srv/SetInt32_Response.msg
+[7.775s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/ament_index/resource_index/package_run_dependencies/astra_camera_msgs
+[7.791s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/ament_index/resource_index/parent_prefix_path/astra_camera_msgs
+[7.799s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/ament_prefix_path.sh
+[7.805s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/ament_prefix_path.dsv
+[7.816s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/path.sh
+[7.830s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/environment/path.dsv
+[7.842s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/local_setup.bash
+[7.855s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/local_setup.sh
+[7.864s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/local_setup.zsh
+[7.875s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/local_setup.dsv
+[7.885s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/package.dsv
+[7.896s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/ament_index/resource_index/packages/astra_camera_msgs
+[7.910s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/rosidl_cmake-extras.cmake
+[7.924s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.938s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.956s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[7.967s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[7.973s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[7.979s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[7.990s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgsConfig.cmake
+[7.995s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgsConfig-version.cmake
+[8.002s] -- Symlinking: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/package.xml
+[8.008s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_generator_c.so
+[8.008s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_generator_c.so" to ""
+[8.008s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_fastrtps_c.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[8.009s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_introspection_c.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_introspection_c.so" to ""
+[8.009s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_c.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_c.so" to ""
+[8.009s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_fastrtps_cpp.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[8.009s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_introspection_cpp.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[8.009s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_cpp.so
+[8.009s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_typesupport_cpp.so" to ""
+[8.036s] Listing '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs'...
+[8.036s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/__init__.py'...
+[8.036s] Listing '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg'...
+[8.036s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/__init__.py'...
+[8.036s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_device_info.py'...
+[8.036s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_extrinsics.py'...
+[8.036s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/msg/_metadata.py'...
+[8.036s] Listing '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/__init__.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_info.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_camera_params.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_device_info.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_int32.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_get_string.py'...
+[8.037s] Compiling '/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/local/lib/python3.10/dist-packages/astra_camera_msgs/srv/_set_int32.py'...
+[8.038s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_generator_py.so
+[8.039s] -- Set runtime path of "/home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/lib/libastra_camera_msgs__rosidl_generator_py.so" to ""
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_generator_cExport.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_generator_cExport-release.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_introspection_cExport.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_cExport.cmake
+[8.039s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_cExport-release.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_generator_cppExport.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_cppExport.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/astra_camera_msgs__rosidl_typesupport_cppExport-release.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_generator_pyExport.cmake
+[8.040s] -- Installing: /home/robo/jdcobot200_imitation_learning/depth_cam/install/astra_camera_msgs/share/astra_camera_msgs/cmake/export_astra_camera_msgs__rosidl_generator_pyExport-release.cmake
+[8.041s] Invoked command in '/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs
