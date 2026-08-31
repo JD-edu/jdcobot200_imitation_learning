@@ -1,0 +1,5638 @@
+{
+  "format_version": 1,
+  "generator": "generate_synthetic_trajectories.py",
+  "xml": "/home/robo/jdcobot200_imitation_learning/10_create_virtual_dataset/scene.xml",
+  "control_hz": 50,
+  "action_names": [
+    "base",
+    "shoulder",
+    "elbow",
+    "wrist_pitch",
+    "wrist_roll",
+    "gripper"
+  ],
+  "goal_xy": [
+    0.22,
+    0.1
+  ],
+  "initial_candidate_budget": 200,
+  "validation": {
+    "headless_every_frame": true,
+    "min_floor_clearance_m": 0.0,
+    "moving_robot_mesh_vertices_checked": true,
+    "joint_limits_checked": true,
+    "finite_values_checked": true,
+    "placement_checked": true
+  },
+  "episodes": [
+    {
+      "episode_index": 0,
+      "seed": 2328434273,
+      "length": 454,
+      "duration_s": 9.079999999999702,
+      "initial_arm_qpos": [
+        0.704048925758104,
+        -0.3500713275346048,
+        0.9052730295176022,
+        0.0936439092272635,
+        2.435173282479523
+      ],
+      "initial_block_xy": [
+        0.24441774902109636,
+        -0.019537568165920394
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22388573293274683,
+        0.08872490236784203,
+        0.012792749999999993
+      ],
+      "final_place_error_m": 0.011925885587214378,
+      "floor_clearance_min_m": 5.24764530956609e-05,
+      "floor_clearance_frame": 406,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0000.npz"
+    },
+    {
+      "episode_index": 1,
+      "seed": 1003822476,
+      "length": 439,
+      "duration_s": 8.779999999999601,
+      "initial_arm_qpos": [
+        -0.4060911112883022,
+        0.08346802150009835,
+        0.8141222153170204,
+        0.29833817862696965,
+        2.001785715878959
+      ],
+      "initial_block_xy": [
+        0.182179419641806,
+        0.001275596435565296
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22947872397258504,
+        0.08610378826693403,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.016821144689903204,
+      "floor_clearance_min_m": 0.0013511899031727389,
+      "floor_clearance_frame": 394,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0001.npz"
+    },
+    {
+      "episode_index": 2,
+      "seed": 1318823446,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        -0.2749771877875278,
+        0.09567379362430994,
+        0.3856019437430359,
+        0.2578459700712399,
+        2.366018965373
+      ],
+      "initial_block_xy": [
+        0.19183020512667268,
+        -0.006384592862898025
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22724136173942805,
+        0.08582224544442256,
+        0.012792749999999997
+      ],
+      "final_place_error_m": 0.015919988821586826,
+      "floor_clearance_min_m": 0.0027298641667985665,
+      "floor_clearance_frame": 347,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 6,
+      "file": "episode_0002.npz"
+    },
+    {
+      "episode_index": 3,
+      "seed": 911831122,
+      "length": 439,
+      "duration_s": 8.779999999999601,
+      "initial_arm_qpos": [
+        0.9547934824649251,
+        0.05751410579869476,
+        0.34436649154536936,
+        0.17055933741206922,
+        2.370785980384748
+      ],
+      "initial_block_xy": [
+        0.19997122640722814,
+        -0.03599661539696293
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2272755776278119,
+        0.08295201871248077,
+        0.01279274999999999
+      ],
+      "final_place_error_m": 0.018535579187010123,
+      "floor_clearance_min_m": 2.3361763669094496e-05,
+      "floor_clearance_frame": 136,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0003.npz"
+    },
+    {
+      "episode_index": 4,
+      "seed": 1849003710,
+      "length": 415,
+      "duration_s": 8.299999999999441,
+      "initial_arm_qpos": [
+        -0.5795890125870808,
+        -0.5048318185154129,
+        0.9053755659134913,
+        0.19503806921276676,
+        2.3817104576842882
+      ],
+      "initial_block_xy": [
+        0.19285980753265183,
+        0.0008096961350391452
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2288890836202462,
+        0.0865989979475435,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.016081127560518663,
+      "floor_clearance_min_m": 0.0006653259601901041,
+      "floor_clearance_frame": 373,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0004.npz"
+    },
+    {
+      "episode_index": 5,
+      "seed": 2470215927,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        0.9880648455268661,
+        -0.12982848038081024,
+        0.5220047286841251,
+        0.22291924252245313,
+        2.0155749997797776
+      ],
+      "initial_block_xy": [
+        0.18605544293025233,
+        -0.004813096020804014
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22826642766775007,
+        0.08597214211018696,
+        0.01279275000000001
+      ],
+      "final_place_error_m": 0.016282340844084243,
+      "floor_clearance_min_m": 0.0021881965741766644,
+      "floor_clearance_frame": 408,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 14,
+      "file": "episode_0005.npz"
+    },
+    {
+      "episode_index": 6,
+      "seed": 1418682083,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        0.667215095290266,
+        -0.03660961231706095,
+        0.6157941737984707,
+        0.21698301430279432,
+        1.9259829315238244
+      ],
+      "initial_block_xy": [
+        0.1948384996798348,
+        -0.07978752182658877
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2261319184213002,
+        0.09192573682607698,
+        0.012792749999999967
+      ],
+      "final_place_error_m": 0.01013874495819134,
+      "floor_clearance_min_m": 0.000825722029661911,
+      "floor_clearance_frame": 401,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0006.npz"
+    },
+    {
+      "episode_index": 7,
+      "seed": 2898692495,
+      "length": 415,
+      "duration_s": 8.299999999999441,
+      "initial_arm_qpos": [
+        -0.9614334481591804,
+        -0.20813322585456795,
+        0.4941505176293147,
+        0.21717451292417322,
+        2.101847442315999
+      ],
+      "initial_block_xy": [
+        0.18451104779201116,
+        -0.028135459876279384
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2280982706680508,
+        0.08714960373538375,
+        0.012792749999999988
+      ],
+      "final_place_error_m": 0.01518929465020267,
+      "floor_clearance_min_m": 0.00198926847717653,
+      "floor_clearance_frame": 372,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 11,
+      "file": "episode_0007.npz"
+    },
+    {
+      "episode_index": 8,
+      "seed": 3676980756,
+      "length": 412,
+      "duration_s": 8.239999999999421,
+      "initial_arm_qpos": [
+        0.19105408909602617,
+        0.016844496250732366,
+        0.8550427607618076,
+        -0.009877345036709007,
+        2.364421219585875
+      ],
+      "initial_block_xy": [
+        0.170704436595549,
+        -0.01762497566530788
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2297081896649608,
+        0.08641379380495881,
+        0.012792750000000018
+      ],
+      "final_place_error_m": 0.01669832163257814,
+      "floor_clearance_min_m": 0.002322720843173509,
+      "floor_clearance_frame": 369,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 11,
+      "file": "episode_0008.npz"
+    },
+    {
+      "episode_index": 9,
+      "seed": 4032400124,
+      "length": 432,
+      "duration_s": 8.639999999999555,
+      "initial_arm_qpos": [
+        -0.8181806251086292,
+        -0.383417241545838,
+        0.7016572757221232,
+        0.003840994372952433,
+        1.8802972577131936
+      ],
+      "initial_block_xy": [
+        0.19710096429286775,
+        -0.03137034591820492
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22679835356170575,
+        0.08817842890298608,
+        0.01279275
+      ],
+      "final_place_error_m": 0.013636977463929178,
+      "floor_clearance_min_m": 0.0018757258197528784,
+      "floor_clearance_frame": 387,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0009.npz"
+    },
+    {
+      "episode_index": 10,
+      "seed": 4093110070,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -0.21545737498485273,
+        -0.3698277314348771,
+        0.44108867256046724,
+        0.11374041367549302,
+        1.8764709200533356
+      ],
+      "initial_block_xy": [
+        0.2162024404931345,
+        -0.01614013781533835
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22527094987852045,
+        0.08673951780899686,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.01426966364564303,
+      "floor_clearance_min_m": 0.0018617496776631888,
+      "floor_clearance_frame": 400,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 10,
+      "file": "episode_0010.npz"
+    },
+    {
+      "episode_index": 11,
+      "seed": 38952098,
+      "length": 412,
+      "duration_s": 8.239999999999421,
+      "initial_arm_qpos": [
+        -0.31063814589612115,
+        -0.3146182908800528,
+        0.7684510858534215,
+        0.08179570411635748,
+        2.2544400696646827
+      ],
+      "initial_block_xy": [
+        0.222251904751902,
+        -0.04299010934015429
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2249309503678253,
+        0.0896637935397435,
+        0.012792750000000004
+      ],
+      "final_place_error_m": 0.011452136722856767,
+      "floor_clearance_min_m": 0.0006006383676667049,
+      "floor_clearance_frame": 369,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0011.npz"
+    },
+    {
+      "episode_index": 12,
+      "seed": 2574630857,
+      "length": 445,
+      "duration_s": 8.899999999999642,
+      "initial_arm_qpos": [
+        -0.20375356346109386,
+        -0.028278186139939487,
+        0.9924440659848802,
+        0.12776403848642356,
+        2.4290396956098133
+      ],
+      "initial_block_xy": [
+        0.17731492564669632,
+        -0.006573711456226317
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.23002418919214934,
+        0.08654836862434592,
+        0.012792750000000002
+      ],
+      "final_place_error_m": 0.01677589805722737,
+      "floor_clearance_min_m": 0.0013346540239672251,
+      "floor_clearance_frame": 399,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0012.npz"
+    },
+    {
+      "episode_index": 13,
+      "seed": 4163443306,
+      "length": 431,
+      "duration_s": 8.619999999999548,
+      "initial_arm_qpos": [
+        0.4644483775812178,
+        -0.006056895105051696,
+        0.4365625455182166,
+        0.07964900553980445,
+        2.0796904736213055
+      ],
+      "initial_block_xy": [
+        0.1801327978692198,
+        -0.010126804973511316
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22813105835922506,
+        0.08585800402103755,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.016312883261708034,
+      "floor_clearance_min_m": 0.003242699717297355,
+      "floor_clearance_frame": 386,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0013.npz"
+    },
+    {
+      "episode_index": 14,
+      "seed": 4073055161,
+      "length": 406,
+      "duration_s": 8.119999999999381,
+      "initial_arm_qpos": [
+        -0.1893493604367693,
+        -0.22434952838529465,
+        1.155389972132845,
+        -0.008256590612720466,
+        1.9074678680694512
+      ],
+      "initial_block_xy": [
+        0.2320613436710413,
+        -0.021388847696331176
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22489158481145416,
+        0.08854486986123952,
+        0.012792749999999974
+      ],
+      "final_place_error_m": 0.012455826285862684,
+      "floor_clearance_min_m": 4.70267435882174e-05,
+      "floor_clearance_frame": 364,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0014.npz"
+    },
+    {
+      "episode_index": 15,
+      "seed": 2925651004,
+      "length": 429,
+      "duration_s": 8.579999999999535,
+      "initial_arm_qpos": [
+        0.09597542295878103,
+        -0.4138963461909022,
+        0.7146579263492432,
+        0.14076540717900526,
+        2.1032314412713395
+      ],
+      "initial_block_xy": [
+        0.17093187467677984,
+        -0.10410865270642528
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22729578182566484,
+        0.09259596396499287,
+        0.012792749999999983
+      ],
+      "final_place_error_m": 0.01039462274714122,
+      "floor_clearance_min_m": 0.00010941700336277761,
+      "floor_clearance_frame": 385,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0015.npz"
+    },
+    {
+      "episode_index": 16,
+      "seed": 237332608,
+      "length": 406,
+      "duration_s": 8.119999999999381,
+      "initial_arm_qpos": [
+        0.41099056398297273,
+        -0.08818548738070142,
+        0.374436030090723,
+        0.20900452667532324,
+        2.1449339129935034
+      ],
+      "initial_block_xy": [
+        0.1712388711148289,
+        -0.06819312632670271
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22758851937469754,
+        0.08906581886081931,
+        0.012792750000000002
+      ],
+      "final_place_error_m": 0.013309468189397154,
+      "floor_clearance_min_m": 0.002220536603260343,
+      "floor_clearance_frame": 364,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0016.npz"
+    },
+    {
+      "episode_index": 17,
+      "seed": 1182897106,
+      "length": 440,
+      "duration_s": 8.799999999999608,
+      "initial_arm_qpos": [
+        1.012347336457937,
+        0.08301709464842699,
+        0.7700919433846196,
+        0.05073355445622535,
+        1.9702409859962478
+      ],
+      "initial_block_xy": [
+        0.2218870358510492,
+        -0.0533780822005831
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22517375639664347,
+        0.08647897028475914,
+        0.012792749999999981
+      ],
+      "final_place_error_m": 0.014477085335530623,
+      "floor_clearance_min_m": 0.00020136688261669644,
+      "floor_clearance_frame": 392,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0017.npz"
+    },
+    {
+      "episode_index": 18,
+      "seed": 1643728214,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        0.34607619551665114,
+        -0.4756956761002835,
+        0.9292663486971853,
+        0.23069675055626476,
+        1.971417182981534
+      ],
+      "initial_block_xy": [
+        0.22278989559485035,
+        -0.0064188010191104095
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22621538450425757,
+        0.0875046028648116,
+        0.012792749999999981
+      ],
+      "final_place_error_m": 0.013955857340265405,
+      "floor_clearance_min_m": 6.502984979638027e-07,
+      "floor_clearance_frame": 354,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 7,
+      "file": "episode_0018.npz"
+    },
+    {
+      "episode_index": 19,
+      "seed": 2117589899,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -0.742549260130239,
+        -0.03885092127976547,
+        0.5846883938649443,
+        0.0922697444069328,
+        2.3144315647562292
+      ],
+      "initial_block_xy": [
+        0.20073785412557094,
+        -0.030861933442637546
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22611128717977252,
+        0.08807453185881287,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.013400172438447256,
+      "floor_clearance_min_m": 0.002356793460330889,
+      "floor_clearance_frame": 401,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0019.npz"
+    },
+    {
+      "episode_index": 20,
+      "seed": 3089030420,
+      "length": 390,
+      "duration_s": 7.799999999999363,
+      "initial_arm_qpos": [
+        0.044990866609632585,
+        -0.20861327721964829,
+        0.810681291031402,
+        0.0032402924065554617,
+        1.942099607310062
+      ],
+      "initial_block_xy": [
+        0.19428219251501597,
+        0.010419242935316514
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22766891788657576,
+        0.08521587026549614,
+        0.01279275000000001
+      ],
+      "final_place_error_m": 0.016654812924727883,
+      "floor_clearance_min_m": 0.0019794699308195406,
+      "floor_clearance_frame": 350,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0020.npz"
+    },
+    {
+      "episode_index": 21,
+      "seed": 1133821777,
+      "length": 406,
+      "duration_s": 8.119999999999381,
+      "initial_arm_qpos": [
+        -0.7325761935615648,
+        -0.34732324697089184,
+        1.2438266087333245,
+        0.07574812192887402,
+        2.0754470395585827
+      ],
+      "initial_block_xy": [
+        0.1850536730964289,
+        0.0023097164853371766
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22993448162763053,
+        0.08658132669984561,
+        0.01279275000000001
+      ],
+      "final_place_error_m": 0.016695949159781388,
+      "floor_clearance_min_m": 0.0004125488797583031,
+      "floor_clearance_frame": 365,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 10,
+      "file": "episode_0021.npz"
+    },
+    {
+      "episode_index": 22,
+      "seed": 3708286442,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        -0.14385092489778728,
+        -0.39103134741062595,
+        0.6647419137248973,
+        0.10979604553955902,
+        2.163208988826447
+      ],
+      "initial_block_xy": [
+        0.18626496210099386,
+        -0.0495342905413234
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2274969334372912,
+        0.08938467820212694,
+        0.012792749999999978
+      ],
+      "final_place_error_m": 0.012995732677905228,
+      "floor_clearance_min_m": 0.0013392929133737939,
+      "floor_clearance_frame": 380,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0022.npz"
+    },
+    {
+      "episode_index": 23,
+      "seed": 357704611,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        0.7929169574426065,
+        0.10969347068980129,
+        0.920158922083672,
+        0.12575674949056578,
+        1.9189783065247428
+      ],
+      "initial_block_xy": [
+        0.2092088605824981,
+        0.003807186186286865
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22656814682416382,
+        0.08584840597258385,
+        0.012792749999999974
+      ],
+      "final_place_error_m": 0.015601543712741181,
+      "floor_clearance_min_m": 0.0013204501318037458,
+      "floor_clearance_frame": 354,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0023.npz"
+    },
+    {
+      "episode_index": 24,
+      "seed": 3266095159,
+      "length": 457,
+      "duration_s": 9.139999999999722,
+      "initial_arm_qpos": [
+        -0.5420674104193828,
+        -0.027007164943078033,
+        0.7455780523012558,
+        0.0046778956407112215,
+        2.4029719806740295
+      ],
+      "initial_block_xy": [
+        0.20350165774046153,
+        -0.08800959291746642
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22517641497463114,
+        0.08931378548921144,
+        0.012792749999999988
+      ],
+      "final_place_error_m": 0.01187394006049271,
+      "floor_clearance_min_m": 0.0006137943045295934,
+      "floor_clearance_frame": 407,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0024.npz"
+    },
+    {
+      "episode_index": 25,
+      "seed": 1861448958,
+      "length": 403,
+      "duration_s": 8.059999999999361,
+      "initial_arm_qpos": [
+        -0.855914583706263,
+        0.08496879646578703,
+        0.5414517298507422,
+        0.010455626743035601,
+        2.378532264466881
+      ],
+      "initial_block_xy": [
+        0.17634904341211813,
+        0.003662510452210971
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22867919251713315,
+        0.08517841584129054,
+        0.012792749999999993
+      ],
+      "final_place_error_m": 0.0171757893478922,
+      "floor_clearance_min_m": 0.003153569974430309,
+      "floor_clearance_frame": 124,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0025.npz"
+    },
+    {
+      "episode_index": 26,
+      "seed": 4225021446,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.7115317754328676,
+        -0.13761123331006753,
+        1.2424731038299277,
+        0.0886704422044308,
+        2.055233990497453
+      ],
+      "initial_block_xy": [
+        0.17049425905289242,
+        0.013351445844506066
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.23142139647462456,
+        0.08589732488549445,
+        0.012792749999999976
+      ],
+      "final_place_error_m": 0.018147554733788807,
+      "floor_clearance_min_m": 0.0008116021013003013,
+      "floor_clearance_frame": 355,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0026.npz"
+    },
+    {
+      "episode_index": 27,
+      "seed": 1767568757,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        -0.5109852414287369,
+        -0.02372639104914892,
+        0.654752714432426,
+        0.260153678543869,
+        1.853466246997595
+      ],
+      "initial_block_xy": [
+        0.1842237215625248,
+        0.0020677632949833435
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22874825830119958,
+        0.08579119840230122,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.016685984122828203,
+      "floor_clearance_min_m": 0.0018663730044469386,
+      "floor_clearance_frame": 380,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0027.npz"
+    },
+    {
+      "episode_index": 28,
+      "seed": 3326483062,
+      "length": 437,
+      "duration_s": 8.739999999999588,
+      "initial_arm_qpos": [
+        0.7234017944590128,
+        -0.24856601400027345,
+        0.8907877608872264,
+        0.2300048534535363,
+        2.114093738423488
+      ],
+      "initial_block_xy": [
+        0.19539812803745377,
+        -0.0023041693163939614
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22840229428001033,
+        0.08686250035519388,
+        0.012792749999999995
+      ],
+      "final_place_error_m": 0.015594628757529792,
+      "floor_clearance_min_m": 0.0007784957854947878,
+      "floor_clearance_frame": 392,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0028.npz"
+    },
+    {
+      "episode_index": 29,
+      "seed": 667921140,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        0.1055617042782413,
+        -0.0005119990712458833,
+        0.8315234964223017,
+        0.1295251591573059,
+        2.4449903513497264
+      ],
+      "initial_block_xy": [
+        0.17866057601836524,
+        -0.04797221638275892
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22868836588568126,
+        0.08850688554449969,
+        0.012792750000000016
+      ],
+      "final_place_error_m": 0.014407615404733017,
+      "floor_clearance_min_m": 0.0012461070544569405,
+      "floor_clearance_frame": 409,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0029.npz"
+    },
+    {
+      "episode_index": 30,
+      "seed": 502701545,
+      "length": 390,
+      "duration_s": 7.799999999999363,
+      "initial_arm_qpos": [
+        -0.4226520478670116,
+        -0.5153229560109155,
+        0.6087068789013497,
+        0.2932232257651694,
+        1.8926262935035174
+      ],
+      "initial_block_xy": [
+        0.1771968895603801,
+        -0.03131564969670034
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22975529105370046,
+        0.08791429259962022,
+        0.012792749999999974
+      ],
+      "final_place_error_m": 0.01553158159718459,
+      "floor_clearance_min_m": 0.0008782342608885767,
+      "floor_clearance_frame": 351,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0030.npz"
+    },
+    {
+      "episode_index": 31,
+      "seed": 4166522790,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.6060111442289609,
+        -0.30189275184336567,
+        0.2478026995098973,
+        0.07248555215567393,
+        1.8996252567319243
+      ],
+      "initial_block_xy": [
+        0.1727514611274086,
+        -0.10951556352076827
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22752767778867955,
+        0.08417279775703816,
+        0.012792749999999959
+      ],
+      "final_place_error_m": 0.017526159411856205,
+      "floor_clearance_min_m": 0.000426895707963797,
+      "floor_clearance_frame": 115,
+      "floor_clearance_geom": "left_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0031.npz"
+    },
+    {
+      "episode_index": 32,
+      "seed": 3601949280,
+      "length": 420,
+      "duration_s": 8.399999999999475,
+      "initial_arm_qpos": [
+        -0.332638481396742,
+        -0.34689217573300557,
+        0.6349405157663461,
+        0.2973621984639595,
+        2.3734086072694747
+      ],
+      "initial_block_xy": [
+        0.22162601783507752,
+        -0.02618132938784616
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22549358271703496,
+        0.08900193762326632,
+        0.012792750000000009
+      ],
+      "final_place_error_m": 0.012293771883007683,
+      "floor_clearance_min_m": 0.0004064584095041946,
+      "floor_clearance_frame": 377,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0032.npz"
+    },
+    {
+      "episode_index": 33,
+      "seed": 1016709254,
+      "length": 407,
+      "duration_s": 8.139999999999388,
+      "initial_arm_qpos": [
+        -0.7572929331821041,
+        -0.18487928925131164,
+        0.7461495075335124,
+        0.041263987258890814,
+        2.378511541939896
+      ],
+      "initial_block_xy": [
+        0.19961321706101615,
+        -0.013794468422122674
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22681953666177992,
+        0.08694238364303017,
+        0.012792750000000006
+      ],
+      "final_place_error_m": 0.014731171888453637,
+      "floor_clearance_min_m": 0.00196616867316032,
+      "floor_clearance_frame": 365,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0033.npz"
+    },
+    {
+      "episode_index": 34,
+      "seed": 121980789,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -0.5819610639738073,
+        -0.1522320330441596,
+        1.0633350154295647,
+        0.02146804007257533,
+        2.3493096642705016
+      ],
+      "initial_block_xy": [
+        0.19797454844778742,
+        -0.03444836367489801
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22726022812187413,
+        0.0890724229795946,
+        0.012792749999999988
+      ],
+      "final_place_error_m": 0.013119559898050859,
+      "floor_clearance_min_m": 0.0007950068788157207,
+      "floor_clearance_frame": 409,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0034.npz"
+    },
+    {
+      "episode_index": 35,
+      "seed": 39700048,
+      "length": 390,
+      "duration_s": 7.799999999999363,
+      "initial_arm_qpos": [
+        -0.9093573256524805,
+        -0.1276960512787853,
+        0.5065109488404946,
+        0.18809006382579493,
+        2.435792734886472
+      ],
+      "initial_block_xy": [
+        0.1746297489363047,
+        -0.02441527022304768
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2290206828433597,
+        0.08676977024074611,
+        0.012792749999999966
+      ],
+      "final_place_error_m": 0.016012860407907486,
+      "floor_clearance_min_m": 0.002376837414825937,
+      "floor_clearance_frame": 350,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0035.npz"
+    },
+    {
+      "episode_index": 36,
+      "seed": 1966006919,
+      "length": 398,
+      "duration_s": 7.959999999999345,
+      "initial_arm_qpos": [
+        -0.26602640560323787,
+        0.05093418104198699,
+        0.4794453306531993,
+        0.19667287009218026,
+        2.3715718974605866
+      ],
+      "initial_block_xy": [
+        0.17147989752243728,
+        -0.06705514930271918
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22766527971085848,
+        0.08891489225663979,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.013477244775086758,
+      "floor_clearance_min_m": 0.0021196203353417813,
+      "floor_clearance_frame": 357,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0036.npz"
+    },
+    {
+      "episode_index": 37,
+      "seed": 3260863430,
+      "length": 439,
+      "duration_s": 8.779999999999601,
+      "initial_arm_qpos": [
+        -0.5175396017824644,
+        0.06394446566365208,
+        0.4473567892528739,
+        0.06805119444806827,
+        2.3496098993513685
+      ],
+      "initial_block_xy": [
+        0.17786577767620007,
+        -0.03944890990767719
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2275075689245587,
+        0.08729302845586226,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.014759089300513291,
+      "floor_clearance_min_m": 0.003126062257072123,
+      "floor_clearance_frame": 393,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0037.npz"
+    },
+    {
+      "episode_index": 38,
+      "seed": 3225452607,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        0.005775512429618823,
+        -0.1251655607433007,
+        1.047725347773513,
+        0.03831288203771013,
+        2.1611731741671516
+      ],
+      "initial_block_xy": [
+        0.23384142783678252,
+        -0.030313308664306482
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22458197365610727,
+        0.08927130165288498,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.011666166928715263,
+      "floor_clearance_min_m": 6.082804504482439e-05,
+      "floor_clearance_frame": 408,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 10,
+      "file": "episode_0038.npz"
+    },
+    {
+      "episode_index": 39,
+      "seed": 3245839402,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        -1.0490725094172986,
+        -0.30144408184224813,
+        1.1834268547099653,
+        0.10937553557942443,
+        1.9167833801691598
+      ],
+      "initial_block_xy": [
+        0.17641220587548498,
+        0.013601262935413888
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.23089583711042438,
+        0.08602299135101368,
+        0.012792749999999969
+      ],
+      "final_place_error_m": 0.01772219052800019,
+      "floor_clearance_min_m": 0.0006933672662158864,
+      "floor_clearance_frame": 348,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0039.npz"
+    },
+    {
+      "episode_index": 40,
+      "seed": 2007494529,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -0.4919198662326806,
+        0.007414623634532713,
+        0.8674728679538427,
+        0.13036890821625882,
+        2.3987607059740963
+      ],
+      "initial_block_xy": [
+        0.18198352402122459,
+        -0.03764617047775172
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22862709697025937,
+        0.08799007491130365,
+        0.01279275
+      ],
+      "final_place_error_m": 0.0147873291290333,
+      "floor_clearance_min_m": 0.0012611084730613474,
+      "floor_clearance_frame": 409,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0040.npz"
+    },
+    {
+      "episode_index": 41,
+      "seed": 3365972660,
+      "length": 439,
+      "duration_s": 8.779999999999601,
+      "initial_arm_qpos": [
+        -0.03334454020308453,
+        -0.03972843021694056,
+        0.21355897138185775,
+        0.11026536655492537,
+        2.0702190030449885
+      ],
+      "initial_block_xy": [
+        0.20603231044078738,
+        -0.06802008806156706
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22692012527859512,
+        0.08344217307763489,
+        0.012792749999999973
+      ],
+      "final_place_error_m": 0.017945745074040533,
+      "floor_clearance_min_m": 0.0006252627479845663,
+      "floor_clearance_frame": 136,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0041.npz"
+    },
+    {
+      "episode_index": 42,
+      "seed": 4156111289,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        -0.22143629343056792,
+        -0.03425169798820343,
+        0.7041771638590545,
+        0.14587653795695885,
+        2.0131323576473075
+      ],
+      "initial_block_xy": [
+        0.1893738733051451,
+        -0.01438800070810653
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2279580344466216,
+        0.08656867382559244,
+        0.012792750000000004
+      ],
+      "final_place_error_m": 0.015611881214541115,
+      "floor_clearance_min_m": 0.0019632589864646884,
+      "floor_clearance_frame": 379,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0042.npz"
+    },
+    {
+      "episode_index": 43,
+      "seed": 2757990257,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -1.1631597838118721,
+        -0.47317989679576467,
+        0.5052200527844937,
+        0.06310127097030857,
+        2.218520426509921
+      ],
+      "initial_block_xy": [
+        0.2188740663747104,
+        0.00807610080836868
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22540934416120356,
+        0.08560585952462925,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.015377005049067706,
+      "floor_clearance_min_m": 0.0019627701487408052,
+      "floor_clearance_frame": 401,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0043.npz"
+    },
+    {
+      "episode_index": 44,
+      "seed": 3030556494,
+      "length": 404,
+      "duration_s": 8.079999999999368,
+      "initial_arm_qpos": [
+        0.04680747256018325,
+        -0.13525600460814846,
+        0.8060083976579783,
+        0.25687357406970013,
+        2.088892703377157
+      ],
+      "initial_block_xy": [
+        0.19660873309476448,
+        -0.046353163117109034
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22743697405170915,
+        0.0899808610700686,
+        0.012792749999999981
+      ],
+      "final_place_error_m": 0.012477649135276334,
+      "floor_clearance_min_m": 0.00036151658301404425,
+      "floor_clearance_frame": 363,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 7,
+      "file": "episode_0044.npz"
+    },
+    {
+      "episode_index": 45,
+      "seed": 670577537,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.3908529716735367,
+        -0.3323095809679779,
+        0.3072070267954999,
+        0.27680370907146723,
+        2.1822244314096215
+      ],
+      "initial_block_xy": [
+        0.17909245460929335,
+        -0.09719045536854204
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2264530372367626,
+        0.09221130979016862,
+        0.012792749999999978
+      ],
+      "final_place_error_m": 0.010114612437645255,
+      "floor_clearance_min_m": 0.001227132285941743,
+      "floor_clearance_frame": 354,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0045.npz"
+    },
+    {
+      "episode_index": 46,
+      "seed": 2212555263,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -0.11866955350954567,
+        -0.26054963861196007,
+        1.0302826847492965,
+        0.30393110227674297,
+        2.0758438396408345
+      ],
+      "initial_block_xy": [
+        0.18586002219926956,
+        0.007373010613595937
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.23021826613414928,
+        0.08651078399517995,
+        0.012792750000000014
+      ],
+      "final_place_error_m": 0.016922526738433467,
+      "floor_clearance_min_m": 0.0002722293604159355,
+      "floor_clearance_frame": 409,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0046.npz"
+    },
+    {
+      "episode_index": 47,
+      "seed": 2964325935,
+      "length": 412,
+      "duration_s": 8.239999999999421,
+      "initial_arm_qpos": [
+        -0.5398979374472925,
+        -0.10932099735687961,
+        1.0359249459813236,
+        0.16697472315806153,
+        1.892938146211121
+      ],
+      "initial_block_xy": [
+        0.1788874612873026,
+        -0.02863985691353345
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2299570100529536,
+        0.08802726003121562,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.01557204391063505,
+      "floor_clearance_min_m": 0.000515551080129328,
+      "floor_clearance_frame": 370,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0047.npz"
+    },
+    {
+      "episode_index": 48,
+      "seed": 1424477956,
+      "length": 432,
+      "duration_s": 8.639999999999555,
+      "initial_arm_qpos": [
+        0.05017972214158162,
+        0.025495938666344697,
+        0.7433957480426703,
+        0.20202258528884168,
+        2.036026061144508
+      ],
+      "initial_block_xy": [
+        0.18420911249837438,
+        -0.04740203152687289
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22809713517916186,
+        0.08893985982371701,
+        0.01279275
+      ],
+      "final_place_error_m": 0.01370730822695141,
+      "floor_clearance_min_m": 0.0012400173188422316,
+      "floor_clearance_frame": 388,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0048.npz"
+    },
+    {
+      "episode_index": 49,
+      "seed": 1086999953,
+      "length": 432,
+      "duration_s": 8.639999999999555,
+      "initial_arm_qpos": [
+        0.7726907285901461,
+        -0.28756780634297063,
+        1.2719963191950752,
+        -0.0008685435979278178,
+        1.9973861507837087
+      ],
+      "initial_block_xy": [
+        0.1935612721766511,
+        0.0035926236947052548
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2288697590586651,
+        0.08666329334192943,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.016016877668328357,
+      "floor_clearance_min_m": 0.0006225847276505932,
+      "floor_clearance_frame": 388,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0049.npz"
+    },
+    {
+      "episode_index": 50,
+      "seed": 3034709844,
+      "length": 412,
+      "duration_s": 8.239999999999421,
+      "initial_arm_qpos": [
+        0.29752999606682873,
+        -0.1929385888849649,
+        0.9344802869721955,
+        0.117708643933263,
+        2.3771132153150574
+      ],
+      "initial_block_xy": [
+        0.19368159495744466,
+        0.00045833662046787516
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22824519872905719,
+        0.08643250638518626,
+        0.01279274999999999
+      ],
+      "final_place_error_m": 0.01587640340472797,
+      "floor_clearance_min_m": 0.0012435421028210228,
+      "floor_clearance_frame": 370,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0050.npz"
+    },
+    {
+      "episode_index": 51,
+      "seed": 917842727,
+      "length": 390,
+      "duration_s": 7.799999999999363,
+      "initial_arm_qpos": [
+        -0.958762449767735,
+        0.017759274174925177,
+        0.8759061376374502,
+        0.2284358871772711,
+        2.0123450474409017
+      ],
+      "initial_block_xy": [
+        0.20926831536984142,
+        -0.02135379990028774
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.226712691958061,
+        0.0877181442543077,
+        0.012792749999999997
+      ],
+      "final_place_error_m": 0.013996578649148946,
+      "floor_clearance_min_m": 0.0007031452329023594,
+      "floor_clearance_frame": 351,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0051.npz"
+    },
+    {
+      "episode_index": 52,
+      "seed": 3856447753,
+      "length": 403,
+      "duration_s": 8.059999999999361,
+      "initial_arm_qpos": [
+        -1.0035916530651852,
+        0.11995543062660019,
+        1.0437196048967632,
+        0.028245087241795613,
+        2.1713252439382775
+      ],
+      "initial_block_xy": [
+        0.20307289865097095,
+        -0.05229131136141542
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2265927868316508,
+        0.08958453406769175,
+        0.012792749999999981
+      ],
+      "final_place_error_m": 0.012326669006453529,
+      "floor_clearance_min_m": 0.0007690507221869841,
+      "floor_clearance_frame": 361,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 7,
+      "file": "episode_0052.npz"
+    },
+    {
+      "episode_index": 53,
+      "seed": 4195857232,
+      "length": 398,
+      "duration_s": 7.959999999999345,
+      "initial_arm_qpos": [
+        -0.9108107174685056,
+        -0.07452505642942714,
+        0.751878609195491,
+        -0.004912566780178734,
+        2.136852496465713
+      ],
+      "initial_block_xy": [
+        0.18236953724794075,
+        -0.1009293128484326
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.226247968354367,
+        0.09158109795598637,
+        0.01279274999999997
+      ],
+      "final_place_error_m": 0.010484036445180282,
+      "floor_clearance_min_m": 0.001176410802158516,
+      "floor_clearance_frame": 357,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0053.npz"
+    },
+    {
+      "episode_index": 54,
+      "seed": 3116702919,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        0.27352669010450414,
+        -0.20571580310528903,
+        0.5359253752511584,
+        0.15952651374481827,
+        2.307424284513529
+      ],
+      "initial_block_xy": [
+        0.20511145677739986,
+        -0.06393948426092817
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22563993754222442,
+        0.090073106807177,
+        0.012792749999999981
+      ],
+      "final_place_error_m": 0.011417184589114253,
+      "floor_clearance_min_m": 0.0012570959245927268,
+      "floor_clearance_frame": 347,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 5,
+      "file": "episode_0054.npz"
+    },
+    {
+      "episode_index": 55,
+      "seed": 286464128,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        -0.8457215467433791,
+        -0.011433752495449423,
+        1.0995562352098458,
+        0.05463717094018651,
+        1.8475793855187024
+      ],
+      "initial_block_xy": [
+        0.23024146589584354,
+        -0.01985613557083396
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2250068527307333,
+        0.08830455684961319,
+        0.012792749999999985
+      ],
+      "final_place_error_m": 0.012722105358437383,
+      "floor_clearance_min_m": 0.00027522777814337034,
+      "floor_clearance_frame": 379,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 9,
+      "file": "episode_0055.npz"
+    },
+    {
+      "episode_index": 56,
+      "seed": 833922358,
+      "length": 440,
+      "duration_s": 8.799999999999608,
+      "initial_arm_qpos": [
+        -1.152776326779297,
+        -0.48318516906610187,
+        0.38020002777865214,
+        0.04271543988914475,
+        2.04464909142945
+      ],
+      "initial_block_xy": [
+        0.17973047460893507,
+        -0.06414810281507649
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.226877070748207,
+        0.08939640459370118,
+        0.01279274999999997
+      ],
+      "final_place_error_m": 0.012638446803952057,
+      "floor_clearance_min_m": 0.0023372896234777375,
+      "floor_clearance_frame": 394,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0056.npz"
+    },
+    {
+      "episode_index": 57,
+      "seed": 2303249769,
+      "length": 420,
+      "duration_s": 8.399999999999475,
+      "initial_arm_qpos": [
+        -0.37500084716673143,
+        -0.2526341340868306,
+        0.7535493410656223,
+        0.02423429084272885,
+        2.3453622208595695
+      ],
+      "initial_block_xy": [
+        0.1794319682748115,
+        -0.07972983397982977
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2271711120655379,
+        0.09092036622313523,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.011569986939425934,
+      "floor_clearance_min_m": 0.0011917374597529787,
+      "floor_clearance_frame": 377,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 11,
+      "file": "episode_0057.npz"
+    },
+    {
+      "episode_index": 58,
+      "seed": 1127687814,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        -0.13341796131728567,
+        -0.4637480720325114,
+        0.45076748679621836,
+        0.28198810774292377,
+        2.248677009749203
+      ],
+      "initial_block_xy": [
+        0.19079196591846886,
+        -0.027633617661299403
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22780127758642107,
+        0.08751962389934168,
+        0.01279275
+      ],
+      "final_place_error_m": 0.014718006644728743,
+      "floor_clearance_min_m": 0.001459982756945916,
+      "floor_clearance_frame": 347,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 7,
+      "file": "episode_0058.npz"
+    },
+    {
+      "episode_index": 59,
+      "seed": 3711737463,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -1.0260707615682418,
+        0.005574430755115656,
+        1.0194396249653797,
+        0.23365724149089515,
+        1.9603201134491195
+      ],
+      "initial_block_xy": [
+        0.23528335950019996,
+        0.010978392898327055
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22513276226492002,
+        0.08621067884129396,
+        0.012792750000000012
+      ],
+      "final_place_error_m": 0.01471362044114653,
+      "floor_clearance_min_m": 0.00022713648948833806,
+      "floor_clearance_frame": 408,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 6,
+      "file": "episode_0059.npz"
+    },
+    {
+      "episode_index": 60,
+      "seed": 3718265547,
+      "length": 457,
+      "duration_s": 9.139999999999722,
+      "initial_arm_qpos": [
+        -0.9389385521046327,
+        0.04272801375236723,
+        0.8184425938140674,
+        -0.005283208564089731,
+        2.4472437738823665
+      ],
+      "initial_block_xy": [
+        0.2118706796994325,
+        -0.08265916410719806
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22519432882215729,
+        0.08722609446205673,
+        0.01279274999999997
+      ],
+      "final_place_error_m": 0.013789623439564684,
+      "floor_clearance_min_m": 2.7886160474683425e-06,
+      "floor_clearance_frame": 406,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0060.npz"
+    },
+    {
+      "episode_index": 61,
+      "seed": 2794852517,
+      "length": 454,
+      "duration_s": 9.079999999999702,
+      "initial_arm_qpos": [
+        -0.46143784211768213,
+        -0.5037025525488232,
+        0.8263495856585672,
+        0.2514846769233432,
+        1.9532369009974804
+      ],
+      "initial_block_xy": [
+        0.20540364983090856,
+        -0.0032872455104084597
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2274064100905198,
+        0.08721155964087064,
+        0.01279274999999998
+      ],
+      "final_place_error_m": 0.014778332695130465,
+      "floor_clearance_min_m": 0.00040810059891974865,
+      "floor_clearance_frame": 407,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 7,
+      "file": "episode_0061.npz"
+    },
+    {
+      "episode_index": 62,
+      "seed": 2998219155,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        0.23354181241212713,
+        -0.471596120246615,
+        0.706413958712969,
+        0.015376718144376855,
+        1.9510203859446646
+      ],
+      "initial_block_xy": [
+        0.2075549502762876,
+        -0.03503064819452663
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22604374283756146,
+        0.08898932337449578,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.01256032751316623,
+      "floor_clearance_min_m": 0.0014611626386607408,
+      "floor_clearance_frame": 401,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0062.npz"
+    },
+    {
+      "episode_index": 63,
+      "seed": 221769632,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        0.5060678136747321,
+        -0.46213664981414554,
+        0.8960362037708456,
+        0.05282464739891447,
+        2.3656835089217965
+      ],
+      "initial_block_xy": [
+        0.1871934111990551,
+        -0.04298649237676842
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22822576292226474,
+        0.08866875598682206,
+        0.012792749999999974
+      ],
+      "final_place_error_m": 0.014002152210981222,
+      "floor_clearance_min_m": 0.0007619906764084177,
+      "floor_clearance_frame": 348,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 10,
+      "file": "episode_0063.npz"
+    },
+    {
+      "episode_index": 64,
+      "seed": 130607492,
+      "length": 412,
+      "duration_s": 8.239999999999421,
+      "initial_arm_qpos": [
+        -0.4090756860308711,
+        -0.2501591034124199,
+        0.7324928301307404,
+        0.09343552967547608,
+        2.210828209683738
+      ],
+      "initial_block_xy": [
+        0.199906775005195,
+        -0.07481609305227006
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22593940994378903,
+        0.0918344397910768,
+        0.012792749999999988
+      ],
+      "final_place_error_m": 0.010097176041147835,
+      "floor_clearance_min_m": 0.0006877518557769167,
+      "floor_clearance_frame": 370,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 6,
+      "file": "episode_0064.npz"
+    },
+    {
+      "episode_index": 65,
+      "seed": 2921762021,
+      "length": 421,
+      "duration_s": 8.419999999999481,
+      "initial_arm_qpos": [
+        -0.7085193316774019,
+        -0.06879085457378387,
+        0.7741609220986467,
+        0.11493520271543975,
+        2.0034715584856473
+      ],
+      "initial_block_xy": [
+        0.2113801665102102,
+        -0.06966916207018405
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22512998171142867,
+        0.09192524418917912,
+        0.012792749999999976
+      ],
+      "final_place_error_m": 0.009566524643985313,
+      "floor_clearance_min_m": 0.0004959473565980602,
+      "floor_clearance_frame": 377,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0065.npz"
+    },
+    {
+      "episode_index": 66,
+      "seed": 23023292,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        1.1914041304766065,
+        -0.09418111273418112,
+        0.7693100294013497,
+        0.032509022707483404,
+        2.4465860795964733
+      ],
+      "initial_block_xy": [
+        0.19811403540151895,
+        -0.08798067233739972
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22541388138411508,
+        0.09263171057348306,
+        0.012792749999999995
+      ],
+      "final_place_error_m": 0.009143402031748866,
+      "floor_clearance_min_m": 0.0008123886588745407,
+      "floor_clearance_frame": 379,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 12,
+      "file": "episode_0066.npz"
+    },
+    {
+      "episode_index": 67,
+      "seed": 187695575,
+      "length": 429,
+      "duration_s": 8.579999999999535,
+      "initial_arm_qpos": [
+        0.32650032564899956,
+        -0.43676401495229467,
+        1.0596216361003803,
+        0.268747737508736,
+        2.044358621425211
+      ],
+      "initial_block_xy": [
+        0.1724450449570707,
+        -0.004544632634655016
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2318767415077216,
+        0.08714455028128973,
+        0.012792750000000002
+      ],
+      "final_place_error_m": 0.01750198778172141,
+      "floor_clearance_min_m": 0.00010159992549337374,
+      "floor_clearance_frame": 385,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 15,
+      "file": "episode_0067.npz"
+    },
+    {
+      "episode_index": 68,
+      "seed": 2241738280,
+      "length": 454,
+      "duration_s": 9.079999999999702,
+      "initial_arm_qpos": [
+        0.6760948658940256,
+        0.045364438916089767,
+        0.24850181017520445,
+        0.08456308052907267,
+        2.1224568466396483
+      ],
+      "initial_block_xy": [
+        0.20237976279031794,
+        -0.10823797262868234
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22642815751878223,
+        0.08453945147381518,
+        0.01279274999999999
+      ],
+      "final_place_error_m": 0.016743648641105443,
+      "floor_clearance_min_m": 0.000144592687325501,
+      "floor_clearance_frame": 135,
+      "floor_clearance_geom": "left_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0068.npz"
+    },
+    {
+      "episode_index": 69,
+      "seed": 2415261492,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        -1.185824742890037,
+        0.012307973808400097,
+        0.7582982345143637,
+        0.04210943921015864,
+        2.0883159501418955
+      ],
+      "initial_block_xy": [
+        0.1948193764982911,
+        -0.03935400697760552
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22680490114366444,
+        0.08799807675623136,
+        0.012792750000000009
+      ],
+      "final_place_error_m": 0.013796841708317149,
+      "floor_clearance_min_m": 0.0018546665672162423,
+      "floor_clearance_frame": 347,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0069.npz"
+    },
+    {
+      "episode_index": 70,
+      "seed": 1855354847,
+      "length": 440,
+      "duration_s": 8.799999999999608,
+      "initial_arm_qpos": [
+        0.8558054718129282,
+        -0.16860346465465792,
+        0.8476781582112742,
+        0.11594378551961856,
+        2.053864470818085
+      ],
+      "initial_block_xy": [
+        0.18692949565646694,
+        0.001842611428849894
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22864430155540205,
+        0.08595493188379051,
+        0.012792750000000016
+      ],
+      "final_place_error_m": 0.01649205529246403,
+      "floor_clearance_min_m": 0.0016096659761130842,
+      "floor_clearance_frame": 395,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 17,
+      "file": "episode_0070.npz"
+    },
+    {
+      "episode_index": 71,
+      "seed": 2045609056,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.3065106385443689,
+        0.03538978834892137,
+        0.9662360675959256,
+        0.03496166106520315,
+        2.096030966397237
+      ],
+      "initial_block_xy": [
+        0.2324135383143259,
+        -0.006201667167177155
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22474881730530416,
+        0.08710792591842396,
+        0.012792750000000004
+      ],
+      "final_place_error_m": 0.013738880592100688,
+      "floor_clearance_min_m": 0.0010100993806084948,
+      "floor_clearance_frame": 354,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0071.npz"
+    },
+    {
+      "episode_index": 72,
+      "seed": 4038254637,
+      "length": 439,
+      "duration_s": 8.779999999999601,
+      "initial_arm_qpos": [
+        -0.6608423156668644,
+        0.10079656697211592,
+        1.001514098204417,
+        0.036565001108152834,
+        1.8808579919922686
+      ],
+      "initial_block_xy": [
+        0.2220922178861799,
+        0.0037725524062661997
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2253991024512893,
+        0.08631123634868675,
+        0.012792750000000004
+      ],
+      "final_place_error_m": 0.014715045279612062,
+      "floor_clearance_min_m": 0.0013137658988609628,
+      "floor_clearance_frame": 393,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0072.npz"
+    },
+    {
+      "episode_index": 73,
+      "seed": 2461953453,
+      "length": 396,
+      "duration_s": 7.91999999999935,
+      "initial_arm_qpos": [
+        0.8937923480181504,
+        0.08062264545394471,
+        0.8642730394239934,
+        0.23390633267100355,
+        2.3483670760177775
+      ],
+      "initial_block_xy": [
+        0.24075755447866315,
+        -0.022254010617848652
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22419066255800804,
+        0.08899095276800376,
+        0.012792749999999976
+      ],
+      "final_place_error_m": 0.01177967629569738,
+      "floor_clearance_min_m": 4.087343295423353e-05,
+      "floor_clearance_frame": 355,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 10,
+      "file": "episode_0073.npz"
+    },
+    {
+      "episode_index": 74,
+      "seed": 985114861,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.46529231548052297,
+        0.0037402559647893296,
+        0.6836282174423755,
+        0.011079562641017976,
+        1.929113571356383
+      ],
+      "initial_block_xy": [
+        0.19236613121156543,
+        -0.04670405596103297
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22656504669333033,
+        0.08862112659150029,
+        0.012792750000000002
+      ],
+      "final_place_error_m": 0.013136917375559208,
+      "floor_clearance_min_m": 0.0021372369118672595,
+      "floor_clearance_frame": 354,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0074.npz"
+    },
+    {
+      "episode_index": 75,
+      "seed": 857781293,
+      "length": 406,
+      "duration_s": 8.119999999999381,
+      "initial_arm_qpos": [
+        -0.594930628103047,
+        -0.49561548155570806,
+        0.7719752071968805,
+        0.25778366786066,
+        2.2307527034324273
+      ],
+      "initial_block_xy": [
+        0.20036027049587718,
+        -0.042417100918368034
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22737778039068518,
+        0.0900313635068647,
+        0.012792749999999985
+      ],
+      "final_place_error_m": 0.012401828777460508,
+      "floor_clearance_min_m": 4.549383199657468e-05,
+      "floor_clearance_frame": 365,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0075.npz"
+    },
+    {
+      "episode_index": 76,
+      "seed": 710351529,
+      "length": 428,
+      "duration_s": 8.559999999999528,
+      "initial_arm_qpos": [
+        -0.48381418052862124,
+        -0.2028044343229557,
+        0.9829100161534013,
+        0.027886073622232596,
+        1.8599211897613386
+      ],
+      "initial_block_xy": [
+        0.2069700667362568,
+        0.004325320832446772
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22680451143212305,
+        0.08621853929303998,
+        0.01279274999999998
+      ],
+      "final_place_error_m": 0.015369776675260327,
+      "floor_clearance_min_m": 0.0012932686647929743,
+      "floor_clearance_frame": 383,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0076.npz"
+    },
+    {
+      "episode_index": 77,
+      "seed": 62227150,
+      "length": 415,
+      "duration_s": 8.299999999999441,
+      "initial_arm_qpos": [
+        -0.7247493217419612,
+        -0.25280093131575443,
+        1.0327507252608426,
+        0.028830772671385674,
+        2.0350850084061585
+      ],
+      "initial_block_xy": [
+        0.17392666546290364,
+        0.0021763294573821923
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.23049679655557337,
+        0.08608790227408407,
+        0.012792750000000007
+      ],
+      "final_place_error_m": 0.017427828351935657,
+      "floor_clearance_min_m": 0.0014027325222574216,
+      "floor_clearance_frame": 373,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0077.npz"
+    },
+    {
+      "episode_index": 78,
+      "seed": 3543922312,
+      "length": 431,
+      "duration_s": 8.619999999999548,
+      "initial_arm_qpos": [
+        -0.8551917572906669,
+        -0.3378810824451738,
+        0.20536527168484486,
+        0.034683520654072056,
+        2.018813250471531
+      ],
+      "initial_block_xy": [
+        0.1747561440484397,
+        -0.029065826414980983
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22799021643167275,
+        0.08651299505754785,
+        0.012792750000000006
+      ],
+      "final_place_error_m": 0.01567618770437194,
+      "floor_clearance_min_m": 0.003448108749788622,
+      "floor_clearance_frame": 133,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0078.npz"
+    },
+    {
+      "episode_index": 79,
+      "seed": 1432558989,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        0.9847136141785031,
+        -0.06197351003119095,
+        1.2244232485357984,
+        0.005409025402724754,
+        2.0882664633930084
+      ],
+      "initial_block_xy": [
+        0.17909623304740513,
+        -0.04631179213846451
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22942507362590833,
+        0.08887256249963446,
+        0.012792749999999969
+      ],
+      "final_place_error_m": 0.014582588185172555,
+      "floor_clearance_min_m": 0.00031718247353950714,
+      "floor_clearance_frame": 355,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0079.npz"
+    },
+    {
+      "episode_index": 80,
+      "seed": 4062351870,
+      "length": 437,
+      "duration_s": 8.739999999999588,
+      "initial_arm_qpos": [
+        -0.9637974870424746,
+        -0.09845950423641081,
+        0.7034937534874862,
+        0.19521904717352756,
+        1.9087116734442262
+      ],
+      "initial_block_xy": [
+        0.1899649964126362,
+        -0.07004623979802252
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.227116067478104,
+        0.09003773783339454,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.012242756382004344,
+      "floor_clearance_min_m": 0.0008341453219779318,
+      "floor_clearance_frame": 391,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 3,
+      "file": "episode_0080.npz"
+    },
+    {
+      "episode_index": 81,
+      "seed": 2278476601,
+      "length": 395,
+      "duration_s": 7.899999999999352,
+      "initial_arm_qpos": [
+        -0.22209363574877472,
+        -0.519290841426028,
+        0.5867761044013087,
+        0.1946494175679118,
+        2.0935478213847727
+      ],
+      "initial_block_xy": [
+        0.20008640004859896,
+        -0.041944799307329736
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2269761142592987,
+        0.08951993163250348,
+        0.012792749999999985
+      ],
+      "final_place_error_m": 0.012589599006568556,
+      "floor_clearance_min_m": 0.0010071995781289755,
+      "floor_clearance_frame": 355,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0081.npz"
+    },
+    {
+      "episode_index": 82,
+      "seed": 1649468284,
+      "length": 431,
+      "duration_s": 8.619999999999548,
+      "initial_arm_qpos": [
+        0.3737426886091315,
+        -0.1588447202605574,
+        0.4591477089211523,
+        0.13225788162928162,
+        2.133062739750706
+      ],
+      "initial_block_xy": [
+        0.20011827676885469,
+        -0.061234183741242315
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22556420845716696,
+        0.09024966610089989,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.011226282862049625,
+      "floor_clearance_min_m": 0.0019479533427117675,
+      "floor_clearance_frame": 386,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0082.npz"
+    },
+    {
+      "episode_index": 83,
+      "seed": 3523344272,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -0.3796607277373353,
+        -0.18002626081774642,
+        1.0757331407848518,
+        0.1616218806881988,
+        2.0588368736857894
+      ],
+      "initial_block_xy": [
+        0.1849432979059791,
+        -0.024046460167567674
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22965726546400922,
+        0.08797077450986018,
+        0.012792749999999993
+      ],
+      "final_place_error_m": 0.015426115588020687,
+      "floor_clearance_min_m": 0.00030781283031891364,
+      "floor_clearance_frame": 402,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 12,
+      "file": "episode_0083.npz"
+    },
+    {
+      "episode_index": 84,
+      "seed": 3084192049,
+      "length": 445,
+      "duration_s": 8.899999999999642,
+      "initial_arm_qpos": [
+        -1.131854352815578,
+        -0.09889716338033516,
+        0.7903009609010764,
+        0.07481017521802094,
+        2.110227867067405
+      ],
+      "initial_block_xy": [
+        0.17401295654880036,
+        -0.07174552681136506
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.227760640162779,
+        0.09001678355446142,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.012644846631517933,
+      "floor_clearance_min_m": 0.0011415949597474839,
+      "floor_clearance_frame": 399,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 13,
+      "file": "episode_0084.npz"
+    },
+    {
+      "episode_index": 85,
+      "seed": 3116994161,
+      "length": 404,
+      "duration_s": 8.079999999999368,
+      "initial_arm_qpos": [
+        0.2863344779154582,
+        -0.12915272608430634,
+        0.8620452759899191,
+        0.24356544004008585,
+        2.0553534815707537
+      ],
+      "initial_block_xy": [
+        0.17140441550515184,
+        -0.05869996232195035
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22977776611991865,
+        0.08946886051253891,
+        0.012792749999999966
+      ],
+      "final_place_error_m": 0.014370442206146314,
+      "floor_clearance_min_m": 0.00018779787143508898,
+      "floor_clearance_frame": 363,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0085.npz"
+    },
+    {
+      "episode_index": 86,
+      "seed": 1310109677,
+      "length": 440,
+      "duration_s": 8.799999999999608,
+      "initial_arm_qpos": [
+        -0.7649786996711317,
+        -0.05728313530011525,
+        1.2588020622504803,
+        0.09221595797377559,
+        2.3328835571785778
+      ],
+      "initial_block_xy": [
+        0.20209493540988477,
+        -0.021950568641565665
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22783445617151082,
+        0.08864618210983902,
+        0.01279274999999999
+      ],
+      "final_place_error_m": 0.013794487456453891,
+      "floor_clearance_min_m": 8.178536675533012e-05,
+      "floor_clearance_frame": 395,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0086.npz"
+    },
+    {
+      "episode_index": 87,
+      "seed": 1751381211,
+      "length": 387,
+      "duration_s": 7.73999999999937,
+      "initial_arm_qpos": [
+        -0.9430904660829222,
+        -0.36396717217336844,
+        0.5173662628609648,
+        -0.005784514273037722,
+        2.003433145971964
+      ],
+      "initial_block_xy": [
+        0.20372364995020079,
+        -0.03025592846891849
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2260566911269019,
+        0.08729464150150346,
+        0.01279275
+      ],
+      "final_place_error_m": 0.014075142698459964,
+      "floor_clearance_min_m": 0.002204357440309227,
+      "floor_clearance_frame": 347,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0087.npz"
+    },
+    {
+      "episode_index": 88,
+      "seed": 3169186732,
+      "length": 420,
+      "duration_s": 8.399999999999475,
+      "initial_arm_qpos": [
+        -0.11822690372207956,
+        -0.03456686517346724,
+        1.059395493440928,
+        0.06151637110011375,
+        2.2353048298445297
+      ],
+      "initial_block_xy": [
+        0.20865217520264528,
+        -0.04354954144598329
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22640790320016518,
+        0.09011872924163086,
+        0.012792749999999962
+      ],
+      "final_place_error_m": 0.011777127630406671,
+      "floor_clearance_min_m": 0.00035519231394536,
+      "floor_clearance_frame": 377,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0088.npz"
+    },
+    {
+      "episode_index": 89,
+      "seed": 3273054663,
+      "length": 404,
+      "duration_s": 8.079999999999368,
+      "initial_arm_qpos": [
+        0.3907233815659672,
+        0.0803399378859988,
+        0.9210685786234646,
+        0.12674680557938411,
+        1.9478782964527663
+      ],
+      "initial_block_xy": [
+        0.17685563636680668,
+        -0.029532988202266644
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22952332256678623,
+        0.08761796883965066,
+        0.012792750000000014
+      ],
+      "final_place_error_m": 0.015620767214414345,
+      "floor_clearance_min_m": 0.001408363058344183,
+      "floor_clearance_frame": 363,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0089.npz"
+    },
+    {
+      "episode_index": 90,
+      "seed": 2928467324,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -0.6748821404727675,
+        0.03186638211838233,
+        0.7279535204749153,
+        0.11542627588139728,
+        2.4038553168414993
+      ],
+      "initial_block_xy": [
+        0.22469263704043538,
+        -0.007104778042706178
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22492398375627584,
+        0.08706644553104506,
+        0.012792749999999999
+      ],
+      "final_place_error_m": 0.013839163530845813,
+      "floor_clearance_min_m": 0.001620829088146621,
+      "floor_clearance_frame": 408,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 4,
+      "file": "episode_0090.npz"
+    },
+    {
+      "episode_index": 91,
+      "seed": 2166240980,
+      "length": 398,
+      "duration_s": 7.959999999999345,
+      "initial_arm_qpos": [
+        -0.920109299520598,
+        -0.3010850976640038,
+        0.8569568072312547,
+        0.11267625410640604,
+        2.443602447360829
+      ],
+      "initial_block_xy": [
+        0.23847859440286165,
+        0.0009313865161047485
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22420629604559789,
+        0.08662415258992102,
+        0.012792750000000009
+      ],
+      "final_place_error_m": 0.014021634011802226,
+      "floor_clearance_min_m": 0.0006210033025310768,
+      "floor_clearance_frame": 357,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 6,
+      "file": "episode_0091.npz"
+    },
+    {
+      "episode_index": 92,
+      "seed": 1263247627,
+      "length": 431,
+      "duration_s": 8.619999999999548,
+      "initial_arm_qpos": [
+        -0.05424839917475399,
+        -0.19743719922875563,
+        0.7527338975375841,
+        0.15094407031878557,
+        2.0397709421098367
+      ],
+      "initial_block_xy": [
+        0.18507429042159154,
+        -0.08778180061909628
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2268709024783818,
+        0.0922066068255012,
+        0.012792750000000006
+      ],
+      "final_place_error_m": 0.010389719824892176,
+      "floor_clearance_min_m": 0.00038484559430196005,
+      "floor_clearance_frame": 387,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0092.npz"
+    },
+    {
+      "episode_index": 93,
+      "seed": 2829136407,
+      "length": 456,
+      "duration_s": 9.119999999999715,
+      "initial_arm_qpos": [
+        -1.1026103691888078,
+        -0.1514788776651914,
+        0.7809252602965543,
+        0.04725694952910614,
+        2.071480539911856
+      ],
+      "initial_block_xy": [
+        0.18549799828331348,
+        0.00935526562742836
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22853631273564287,
+        0.0853294505466052,
+        0.012792749999999992
+      ],
+      "final_place_error_m": 0.01697332190189066,
+      "floor_clearance_min_m": 0.002137708075192977,
+      "floor_clearance_frame": 408,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0093.npz"
+    },
+    {
+      "episode_index": 94,
+      "seed": 2823885129,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -0.6360160836809239,
+        -0.10389588804751249,
+        1.2101191405382525,
+        0.06657853494859899,
+        1.9309781839947862
+      ],
+      "initial_block_xy": [
+        0.20375219966529198,
+        0.00013927304743058255
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22778232437589307,
+        0.0869547064918089,
+        0.01279275
+      ],
+      "final_place_error_m": 0.015190268444187296,
+      "floor_clearance_min_m": 0.0005173570302048278,
+      "floor_clearance_frame": 402,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 29,
+      "file": "episode_0094.npz"
+    },
+    {
+      "episode_index": 95,
+      "seed": 1057803436,
+      "length": 406,
+      "duration_s": 8.119999999999381,
+      "initial_arm_qpos": [
+        0.11478804838081169,
+        -0.3228452386299412,
+        0.8899427651791063,
+        0.14426514962514636,
+        2.194611564875182
+      ],
+      "initial_block_xy": [
+        0.1872039867474353,
+        -0.01914866401092641
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22902264097031705,
+        0.08750956924521995,
+        0.012792749999999985
+      ],
+      "final_place_error_m": 0.015408403892655437,
+      "floor_clearance_min_m": 0.0009160038064408207,
+      "floor_clearance_frame": 365,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 1,
+      "file": "episode_0095.npz"
+    },
+    {
+      "episode_index": 96,
+      "seed": 3603388822,
+      "length": 448,
+      "duration_s": 8.959999999999662,
+      "initial_arm_qpos": [
+        -0.5944465657914021,
+        -0.5173836684518711,
+        0.6126948882627137,
+        0.08648820241777873,
+        2.1495932897552614
+      ],
+      "initial_block_xy": [
+        0.23285621731762712,
+        -0.012659648201760909
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22442339042733933,
+        0.08606404274007289,
+        0.012792749999999986
+      ],
+      "final_place_error_m": 0.014621124704453916,
+      "floor_clearance_min_m": 0.0005613143246798128,
+      "floor_clearance_frame": 400,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0096.npz"
+    },
+    {
+      "episode_index": 97,
+      "seed": 3255225637,
+      "length": 423,
+      "duration_s": 8.459999999999495,
+      "initial_arm_qpos": [
+        0.12847019503050716,
+        -0.1915120998525865,
+        0.726663200776143,
+        0.1801724885859145,
+        2.021046547264064
+      ],
+      "initial_block_xy": [
+        0.19669323925536325,
+        -0.08278458763737954
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22614164778879536,
+        0.09246535689426245,
+        0.012792749999999967
+      ],
+      "final_place_error_m": 0.009720631887508824,
+      "floor_clearance_min_m": 0.0001856985297702049,
+      "floor_clearance_frame": 380,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 20,
+      "file": "episode_0097.npz"
+    },
+    {
+      "episode_index": 98,
+      "seed": 2036607505,
+      "length": 445,
+      "duration_s": 8.899999999999642,
+      "initial_arm_qpos": [
+        -0.050682746067425954,
+        -0.3910487716003036,
+        0.6643183758001627,
+        0.14878110548511916,
+        1.9019183707424174
+      ],
+      "initial_block_xy": [
+        0.1886652308921595,
+        -0.04579031949625227
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.22753524185391388,
+        0.08952190767479165,
+        0.012792750000000009
+      ],
+      "final_place_error_m": 0.012906211240041198,
+      "floor_clearance_min_m": 0.0011950788944527693,
+      "floor_clearance_frame": 399,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 8,
+      "file": "episode_0098.npz"
+    },
+    {
+      "episode_index": 99,
+      "seed": 759426896,
+      "length": 415,
+      "duration_s": 8.299999999999441,
+      "initial_arm_qpos": [
+        -0.15196507424512928,
+        0.07728526802746405,
+        0.5202444525565599,
+        0.16822449642336335,
+        2.246402938031806
+      ],
+      "initial_block_xy": [
+        0.2058379654947538,
+        0.009924215197147729
+      ],
+      "goal_xy": [
+        0.22,
+        0.1
+      ],
+      "final_block_xyz": [
+        0.2261013164146391,
+        0.08535665037124032,
+        0.01279274999999999
+      ],
+      "final_place_error_m": 0.0158635982785004,
+      "floor_clearance_min_m": 0.0024567737711629657,
+      "floor_clearance_frame": 372,
+      "floor_clearance_geom": "right_finger_pad",
+      "floor_clearance_required_m": 0.0,
+      "floor_valid": true,
+      "joint_limits_valid": true,
+      "finite_values": true,
+      "placement_valid": true,
+      "rejection_reasons": [],
+      "success": true,
+      "phase_names": [
+        "start",
+        "pre_pick_waypoint",
+        "pick_hover",
+        "pick_descend",
+        "grasp_close",
+        "lift",
+        "carry_waypoint",
+        "goal_hover",
+        "goal_align_1",
+        "goal_align_2",
+        "place_descend",
+        "place_correct_1",
+        "place_correct_2",
+        "release",
+        "retreat"
+      ],
+      "generation_attempt": 2,
+      "file": "episode_0099.npz"
+    }
+  ],
+  "success_count": 100,
+  "rejected_attempt_count": 399,
+  "total_candidate_count": 499,
+  "rejection_reason_counts": {
+    "floor_penetration": 390,
+    "joint_limit": 118,
+    "placement_error": 3
+  },
+  "episode_count": 100
+}

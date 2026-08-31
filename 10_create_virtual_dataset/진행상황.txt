@@ -1,0 +1,215 @@
+JDCobot200 이미테이션 러닝용 합성 데이터셋 작업 진행 상황
+작성일: 2026-08-31
+
+1. 작업 목표
+
+- MuJoCo의 JDCobot200 로봇암으로 빨간 블록 픽앤드플레이스 구현
+- 로봇 초기 관절 자세와 빨간 블록 출발 위치를 무작위화
+- 도착 위치는 world XY = [0.22, 0.10] m로 고정
+- 출발점에서 도착점까지 다양한 안전 경로 생성
+- CVAE, action chunking, temporal ensemble 등에 사용할 수 있는 고정 주기 시계열 저장
+- LeRobot 형식 변환은 추후 작업으로 남겨두고 현재는 합성 궤적만 생성
+
+2. 합성 궤적 생성기
+
+파일: generate_synthetic_trajectories.py
+
+구현 내용:
+
+- 에피소드마다 로봇 초기 관절 자세 무작위 생성
+- 에피소드마다 빨간 블록 XY 위치 무작위 생성
+- 접근 경유점, 픽업 높이, 운반 높이, 운반 경유점 및 구간 시간을 무작위화
+- minimum-jerk 보간을 사용하여 속도와 가속도가 부드러운 Cartesian 기준 경로 생성
+- MINK IK를 사용하여 Cartesian 목표를 5개 관절 위치 명령으로 변환
+- 50 Hz 고정 주기로 상태와 행동 기록
+- 시뮬레이션 grasp weld를 사용하여 블록 운반
+- 측정된 grasp offset을 보정하여 고정 목표 위치에 블록 배치
+- 실패한 후보를 자동 폐기하고 목표 개수에 도달할 때까지 재생성
+- seed를 이용한 재현 가능한 데이터 생성
+
+에피소드 NPZ 저장 항목:
+
+- timestamp: 시뮬레이션 시간
+- qpos: MuJoCo 전체 위치 상태
+- qvel: MuJoCo 전체 속도 상태
+- action: base, shoulder, elbow, wrist_pitch, wrist_roll, gripper 명령
+- ee_position: 실제 엔드이펙터 XYZ
+- desired_ee_position: 목표 엔드이펙터 XYZ
+- block_position: 빨간 블록 XYZ
+- block_quaternion: 빨간 블록 quaternion
+- phase: 작업 단계 번호
+
+3. 최초 합성 데이터셋
+
+폴더: synthetic_dataset
+
+결과:
+
+- 에피소드: 100개
+- 전체 프레임: 42,302개
+- 에피소드 길이: 387~457 프레임
+- 평균 최종 배치 오차: 약 11.0 mm
+- 최대 최종 배치 오차: 약 33.7 mm
+- 파일 크기: 약 13 MB
+- 모든 로봇 초기 자세와 블록 초기 위치가 서로 다름
+- NaN 또는 Inf 없음
+
+문제점:
+
+- jdcobot200.xml의 로봇 시각 메시에는 contype="0", conaffinity="0"이 설정되어 있음
+- 따라서 로봇 링크와 바닥 사이의 실제 접촉 충돌이 계산되지 않음
+- 일부 에피소드에서 팔 또는 손목 링크가 바닥을 통과하는 현상이 발견됨
+- TCP의 Z만 검사했을 때 100개 중 21개에서 Z가 0보다 낮은 프레임이 확인됨
+- TCP 검사만으로는 팔, 손목 및 그리퍼 본체의 바닥 침범을 모두 검출할 수 없음
+
+4. 헤드리스 안전 검사 및 rejection sampling
+
+사용자 제안:
+
+- 필요한 데이터보다 많은 후보 데이터를 생성
+- 모든 후보를 헤드리스로 검사
+- 바닥을 통과하는 에피소드는 제외
+
+적용한 개선 방식:
+
+- 초기 후보 예산은 요청 에피소드 수의 2배로 설정
+- 2배 후보로 안전 데이터가 부족하면 생성을 중단하지 않고 계속 생성
+- 최종적으로 안전한 에피소드가 정확히 요청 개수에 도달할 때까지 반복
+- 불합격 후보는 최종 데이터 폴더에 저장하지 않음
+- 모든 프레임에서 움직이는 로봇 링크의 전체 STL 메시 정점을 월드 좌표로 변환
+- 모든 로봇 메시 정점 중 최저 Z와 바닥 높이 사이의 거리를 계산
+- MuJoCo 접촉 마스크가 꺼져 있어도 메시 기반 바닥 침범 검사가 가능
+
+후보 폐기 조건:
+
+- 움직이는 로봇 메시가 요구 바닥 높이보다 낮아짐
+- 관절이 허용 범위를 벗어남
+- 상태나 명령에 NaN 또는 Inf가 포함됨
+- 빨간 블록의 최종 배치 오차가 허용 범위를 초과함
+
+manifest.json에 추가된 안전 정보:
+
+- floor_clearance_min_m
+- floor_clearance_frame
+- floor_clearance_geom
+- floor_clearance_required_m
+- floor_valid
+- joint_limits_valid
+- finite_values
+- placement_valid
+- rejection_reasons
+- generation_attempt
+- initial_candidate_budget
+- total_candidate_count
+- rejected_attempt_count
+- rejection_reason_counts
+
+5. 안전 검증 완료 데이터셋
+
+폴더: synthetic_dataset_safe
+메타데이터: synthetic_dataset_safe/manifest.json
+
+최종 결과:
+
+- 최종 합격 에피소드: 100개
+- 검사한 전체 후보: 499개
+- 폐기된 후보: 399개
+- 바닥 침범으로 폐기: 390회
+- 관절 제한 위반으로 폐기: 118회
+- 최종 배치 실패로 폐기: 3회
+- 하나의 후보가 복수 사유에 해당할 수 있으므로 폐기 사유 합은 폐기 후보 수보다 클 수 있음
+- 합격 에피소드의 최소 바닥 여유: 0.00000065~0.003448 m
+- 평균 최종 배치 오차: 약 14.20 mm
+- 최대 최종 배치 오차: 약 18.54 mm
+- 합격 데이터에서 바닥 침범 없음
+- 합격 데이터에서 관절 제한 위반 없음
+- 합격 데이터에서 NaN 또는 Inf 없음
+- 데이터 크기: 약 12.5 MB
+
+기존 synthetic_dataset은 삭제하거나 덮어쓰지 않고 보존함.
+안전 검증을 통과한 학습 데이터로는 synthetic_dataset_safe를 사용하는 것을 권장함.
+
+6. 궤적 시각화 및 MuJoCo 재생
+
+파일: visualize_trajectories.py
+
+현재 기본 동작:
+
+- synthetic_dataset_safe에서 10개 에피소드를 무작위 선택
+- 선택은 seed에 따라 재현 가능
+- 10개 경로 비교 PNG 생성
+- 선택된 에피소드 10개를 MuJoCo 창에서 순차 재생
+- MuJoCo 화면 왼쪽 위에 다음 정보 표시
+  * EPISODE n / 10
+  * 에피소드 파일명
+  * 현재 프레임 / 전체 프레임
+  * 재생 배속
+  * ESC 종료 안내
+- MuJoCo 창 제목에도 현재 에피소드 번호 표시
+
+그래프 색상:
+
+- 파란색: 엔드이펙터 XY 경로
+- 빨간색: 빨간 블록 XY 경로
+- 빨간 원: 블록 출발 위치
+- 초록 별: 고정 도착 위치
+
+7. 주요 실행 명령
+
+안전 데이터 100개 생성:
+
+python3 generate_synthetic_trajectories.py \
+  --episodes 100 \
+  --output-dir synthetic_dataset_safe \
+  --overwrite
+
+추가로 2 mm 바닥 여유를 요구하는 데이터 생성:
+
+python3 generate_synthetic_trajectories.py \
+  --episodes 100 \
+  --output-dir synthetic_dataset_safe_2mm \
+  --min-floor-clearance 0.002
+
+무작위 10개를 MuJoCo에서 기본 2배속으로 재생:
+
+/usr/bin/python3 visualize_trajectories.py
+
+1배속으로 재생:
+
+/usr/bin/python3 visualize_trajectories.py --speed 1
+
+다른 무작위 조합 선택:
+
+/usr/bin/python3 visualize_trajectories.py --seed 123
+
+MuJoCo를 열지 않고 PNG만 생성:
+
+/usr/bin/python3 visualize_trajectories.py --plot-only
+
+재생 중 종료:
+
+ESC 키
+
+8. 현재 파일 구성
+
+- generate_synthetic_trajectories.py: 합성 궤적 생성 및 헤드리스 안전 검사
+- visualize_trajectories.py: 무작위 궤적 선택, PNG 생성 및 MuJoCo 재생
+- jdcobot200_mink_solver.py: MINK 기반 differential IK
+- jdcobot200_pick_and_place.py: 기존 단일 픽앤드플레이스 데모
+- jdcobot200.xml: JDCobot200 MuJoCo 모델
+- scene.xml: 바닥, 빨간 블록, 목표 마커 및 grasp weld가 포함된 장면
+- README.md: 생성 및 시각화 사용법
+- synthetic_dataset/: 최초 데이터 100개
+- synthetic_dataset_safe/: 헤드리스 안전 검증 완료 데이터 100개
+- random_10_trajectories.png: 선택된 10개 에피소드 경로 이미지
+
+9. 추후 작업
+
+- synthetic_dataset_safe를 LeRobot Dataset 형식으로 변환
+- 카메라 RGB 또는 depth observation 추가
+- 실제 로봇 observation/action 단위와 정규화 방식 일치
+- CVAE 또는 ACT용 action chunk 생성
+- temporal ensemble 학습 및 추론 코드 구현
+- 필요할 경우 최소 바닥 여유를 1~2 mm로 강화한 데이터 추가 생성
+- 단순 STL 정점 검사뿐 아니라 capsule/box 충돌 프록시와 MINK CollisionAvoidanceLimit 적용 검토
+
