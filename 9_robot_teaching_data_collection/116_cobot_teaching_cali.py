@@ -16,7 +16,7 @@ class JdCobotTeachingUI:
         self.window.geometry("850x600")
         
         # --- 하드웨어 설정 ---
-        self.PORT = "/dev/ttyACM0"
+        self.PORT = "/dev/ttyACM1"
         self.BAUDRATE = 1000000
         self.MOTOR_IDS = [1, 2, 3, 4, 5, 6]
         self.DEG_TO_TICK = 4096.0 / 360.0
@@ -42,6 +42,8 @@ class JdCobotTeachingUI:
         self.is_moving = False        # 자동 모션 작동 중 플래그
         self.stop_requested = False   # 동작 취소 및 비상 정지 플래그
         self.torque_state = True      # 현재 토크 상태
+        self.feedback_paused = threading.Event()
+        self.command_lock = threading.RLock()
         
         # 초기화 동작 및 안전 가감속 프로파일 세팅 [cite: 36, 46]
         for m_id in self.MOTOR_IDS:
@@ -157,12 +159,13 @@ class JdCobotTeachingUI:
     def update_angle_feedback_loop(self):
         """ 수동 조작 상태일 때, 오프셋 원점을 기준으로 각도를 연산하여 화면에 업데이트합니다. """
         while self.feedback_running:
-            if self.is_connected:
-                for m_id in self.MOTOR_IDS:
-                    if not self.is_moving:
-                        pos = self.driver.get_position_filtered(m_id, samples=3) 
-                        if pos is not None:
-                            self.current_positions[m_id] = pos
+            if self.is_connected and not self.feedback_paused.is_set():
+                with self.command_lock:
+                    for m_id in self.MOTOR_IDS:
+                        if not self.is_moving:
+                            pos = self.driver.get_position_filtered(m_id, samples=3)
+                            if pos is not None:
+                                self.current_positions[m_id] = pos
             
             # 오프셋 원점(center_positions)을 기준으로 상대적 각도 계산 [cite: 6]
             for m_id in self.MOTOR_IDS:
@@ -175,26 +178,57 @@ class JdCobotTeachingUI:
             time.sleep(0.1)
 
     # --- 토크 제어 (수동 조작 스위칭) ---
-    def torque_off(self):
-        if self.is_moving: return
-        self.torque_state = False
+    def torque_off(self, force=False):
+        if self.is_moving and not force:
+            return
         print("[티칭] 프리 무브 활성화: 토크 OFF")
+        failed = []
         if self.is_connected:
-            for m_id in self.MOTOR_IDS:
-                self.driver.set_torque(m_id, False)
+            self.feedback_paused.set()
+            try:
+                with self.command_lock:
+                    for m_id in self.MOTOR_IDS:
+                        if not self.driver.set_torque_verified(m_id, False):
+                            failed.append(m_id)
+                        time.sleep(0.05)
+            finally:
+                self.feedback_paused.clear()
+        self.torque_state = False
+        if failed:
+            self.torque_state = True
+            messagebox.showerror(
+                "Torque OFF 실패",
+                f"토크 해제를 확인하지 못한 서보: {failed}\n"
+                "로봇을 강제로 움직이지 말고 연결 상태를 확인하세요.",
+            )
+            return
         self.btn_torque_off.config(relief=tk.SUNKEN, bg="#d35400")
         self.btn_torque_on.config(relief=tk.RAISED, bg="#34495e")
 
     def torque_on(self):
-        self.torque_state = True
         print("[티칭] 위치 고정 활성화: 토크 ON")
+        failed = []
         if self.is_connected:
-            for m_id in self.MOTOR_IDS:
-                pos = self.driver.get_position_filtered(m_id, samples=5) 
-                if pos is not None:
-                    self.driver.set_position(m_id, pos)
-                    self.current_positions[m_id] = pos
-                self.driver.set_torque(m_id, True)
+            self.feedback_paused.set()
+            try:
+                with self.command_lock:
+                    for m_id in self.MOTOR_IDS:
+                        pos = self.driver.get_position_filtered(m_id, samples=5)
+                        if pos is not None:
+                            self.driver.set_position(m_id, pos)
+                            self.current_positions[m_id] = pos
+                        if not self.driver.set_torque_verified(m_id, True):
+                            failed.append(m_id)
+                        time.sleep(0.05)
+            finally:
+                self.feedback_paused.clear()
+        self.torque_state = not failed
+        if failed:
+            messagebox.showerror(
+                "Torque ON 실패",
+                f"토크 활성화를 확인하지 못한 서보: {failed}",
+            )
+            return
         self.btn_torque_off.config(relief=tk.RAISED, bg="#e67e22")
         self.btn_torque_on.config(relief=tk.SUNKEN, bg="#2c3e50")
 
@@ -238,12 +272,13 @@ class JdCobotTeachingUI:
                 
             ratio = (1.0 - math.cos((step / steps) * math.pi)) / 2.0 
             
-            for m_id in self.MOTOR_IDS:
-                if m_id in target_ticks:
-                    current_target = start_ticks[m_id] + (target_ticks[m_id] - start_ticks[m_id]) * ratio
-                    current_target = max(0, min(4095, int(current_target)))
-                    self.driver.set_position(m_id, current_target)
-                    self.current_positions[m_id] = current_target
+            with self.command_lock:
+                for m_id in self.MOTOR_IDS:
+                    if m_id in target_ticks:
+                        current_target = start_ticks[m_id] + (target_ticks[m_id] - start_ticks[m_id]) * ratio
+                        current_target = max(0, min(4095, int(current_target)))
+                        self.driver.set_position(m_id, current_target)
+                        self.current_positions[m_id] = current_target
                     
             time.sleep(control_period)
         self.is_moving = False
@@ -305,7 +340,7 @@ class JdCobotTeachingUI:
     def emergency_stop(self):
         self.stop_requested = True
         print("\n🚨🚨🚨 비상 정지 명령 수신! 토크를 해제합니다. 🚨🚨🚨")
-        self.torque_off()
+        self.torque_off(force=True)
         messagebox.showwarning("비상 중지", "자동 구동이 정지되었으며, 관절의 토크가 해제되었습니다.\n로봇을 손으로 안전하게 이송할 수 있습니다.")
 
 if __name__ == "__main__":

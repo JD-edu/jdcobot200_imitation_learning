@@ -1,4 +1,5 @@
 import serial
+import threading
 import time
 
 class MiniFeetechDriver:
@@ -14,6 +15,8 @@ class MiniFeetechDriver:
 
     def __init__(self, port='/dev/ttyUSB0', baudrate=1000000):
         self.ser = serial.Serial(port, baudrate, timeout=0.05)
+        # pyserial transactions must not overlap across UI/feedback threads.
+        self._io_lock = threading.RLock()
         # 각 모터의 오프셋 값을 저장할 메모리 공간
         self.offsets = {}
 
@@ -50,12 +53,17 @@ class MiniFeetechDriver:
         return bytearray(packet)
     
     def _write_only(self, motor_id, instruction, parameters):
-        self.ser.write(self._make_packet(motor_id, instruction, parameters))
+        with self._io_lock:
+            self.ser.write(self._make_packet(motor_id, instruction, parameters))
+            # Especially on Windows, wait until the USB driver accepts all bytes.
+            self.ser.flush()
 
     def _write_and_read(self, motor_id, instruction, parameters, resp_bytes=8):
-        self.ser.reset_input_buffer()
-        self.ser.write(self._make_packet(motor_id, instruction, parameters))
-        return self.ser.read(resp_bytes)
+        with self._io_lock:
+            self.ser.reset_input_buffer()
+            self.ser.write(self._make_packet(motor_id, instruction, parameters))
+            self.ser.flush()
+            return self.ser.read(resp_bytes)
 
     # ---- EEPROM 잠금 해제 및 잠금 (핵심 추가) ----
     def unLockEprom(self, motor_id):
@@ -95,6 +103,18 @@ class MiniFeetechDriver:
             time.sleep(0.01)
 
         return None
+
+    def read_u8(self, motor_id, reg_addr, retries=3):
+        """Read one byte and validate the complete servo response packet."""
+        for _ in range(retries):
+            resp = self._write_and_read(
+                motor_id, 0x02, [reg_addr & 0xFF, 1], resp_bytes=7
+            )
+            if len(resp) == 7 and self._check_packet(resp, motor_id):
+                if resp[4] == 0:
+                    return resp[5]
+            time.sleep(0.02)
+        return None
     
     def _check_packet(self, resp, motor_id):
         if len(resp) < 6:
@@ -126,6 +146,21 @@ class MiniFeetechDriver:
     # ---- 제어 기능 ----
     def set_torque(self, motor_id, enable):
         self._write_only(motor_id, 0x03, [self.REG_TORQUE_ENABLE, 1 if enable else 0])
+
+    def get_torque_enabled(self, motor_id):
+        value = self.read_u8(motor_id, self.REG_TORQUE_ENABLE)
+        return None if value is None else bool(value)
+
+    def set_torque_verified(self, motor_id, enable, retries=3, delay=0.05):
+        """Set torque and confirm the register, retrying dropped USB packets."""
+        expected = bool(enable)
+        with self._io_lock:
+            for _ in range(retries):
+                self.set_torque(motor_id, expected)
+                time.sleep(delay)
+                if self.get_torque_enabled(motor_id) is expected:
+                    return True
+        return False
 
     def set_position(self, motor_id, position):
         self.write_u16(motor_id, self.REG_GOAL_POSITION, position)
