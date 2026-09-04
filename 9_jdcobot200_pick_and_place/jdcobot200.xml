@@ -81,7 +81,6 @@
               <body name="gripper_assembly" pos="0.0575 0 0" quat="0.677917 0.201067 -0.677918 -0.201067">
                 <inertial pos="0 0 0" mass="0.015" diaginertia="1e-09 1e-09 1e-09"/>
                 <joint name="wrist_roll" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-10 10"/>
-                <!-- Tool-center point between the two fingertips. -->
                 <site name="graspframe" pos="0 0 -0.08" size="0.006" rgba="1 0 0 1"/>
                 <geom pos="-0.0109248 0.0149298 -0.0300671" quat="0.672125 0.672127 0.219651 0.21965" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_base"/>
                 <geom pos="0.000413372 -0.00056491 -0.0300671" quat="0.219652 -0.219653 0.672127 -0.672124" type="mesh" rgba="0.247059 0.247059 0.247059 1" mesh="main"/>
@@ -91,24 +90,12 @@
                   <inertial pos="0 0 0" mass="0.015" diaginertia="1e-09 1e-09 1e-09"/>
                   <joint name="gripper_left" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" ref="-0.57"  actuatorfrcrange="-10 10"/>
                   <geom pos="0 0 0.0453" quat="1.32679e-06 -1 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_left"/>
-                  <!-- Parallel fingertip pad: unlike the visual mesh, this geom
-                       participates in collision and can physically grip objects. -->
-                  <geom name="left_finger_pad" type="box" size="0.001 0.008 0.012"
-                        pos="-0.01638219 -0.04978807 0.01956274"
-                        quat="0.76953395 -0.62337390 0.08929685 -0.10605922"
-                        contype="1" conaffinity="1" condim="4"
-                        friction="5.0 0.05 0.001" rgba="1 0.5 0.5 0.65"/>
                 </body>
                 <body name="gripper_right_assembly" pos="0.0270171 -0.0105891 -0.0300671" quat="0.672125 -0.672127 -0.219651 0.21965">
                   <inertial pos="0 0 0" mass="0.015" diaginertia="1e-09 1e-09 1e-09"/>
                   <joint name="gripper_right" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" ref="0.57" actuatorfrcrange="-10 10"/>
                   <geom pos="0 0 0.051019" quat="1.76038e-12 -1.32679e-06 -1 1.32679e-06" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right"/>
                   <geom pos="0.0509419 0 0" quat="1 0 0 0" type="mesh" rgba="0.627451 0.627451 0.627451 1" mesh="gripper_right_part"/>
-                  <geom name="right_finger_pad" type="box" size="0.001 0.008 0.012"
-                        pos="-0.02052139 0.05227357 0.02362731"
-                        quat="-0.17939548 0.14216555 -0.61347941 0.75581031"
-                        contype="1" conaffinity="1" condim="4"
-                        friction="5.0 0.05 0.001" rgba="0.5 0.5 1 0.65"/>
                 </body>
               </body>
             </body>

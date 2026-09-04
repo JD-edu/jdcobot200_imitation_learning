@@ -1,1 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/src/ros2_astra_camera/astra_camera_msgs/msg/DeviceInfo.msg

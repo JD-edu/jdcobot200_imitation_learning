@@ -1,7 +1,10 @@
 import serial
 import time
 import math
+from pathlib import Path
 from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명/클래스명을 조정하세요.
+
+CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
 def smoothstep(t):
     """
@@ -9,7 +12,7 @@ def smoothstep(t):
     """
     return t * t * (3 - 2 * t)
 
-def load_offsets_from_file(file_path="offsets.txt"):
+def load_offsets_from_file(file_path=CALIBRATION_FILE):
     """
     통합 조인트 오프셋 파일(offsets.txt)에서 1~6번(그리퍼 포함) 모터 오프셋 데이터를 로드합니다.
     """
@@ -50,7 +53,7 @@ if __name__ == "__main__":
     print("==================================================================")
 
     # 1. 단일 offsets.txt 파일로부터 1~6번 오프셋 딕셔너리 확보
-    all_motor_offsets = load_offsets_from_file("offsets.txt")
+    all_motor_offsets = load_offsets_from_file(CALIBRATION_FILE)
 
     # --- 드라이버 초기화 및 통신 연결 ---
     driver = MiniFeetechDriver(port=PORT, baudrate=BAUDRATE) 

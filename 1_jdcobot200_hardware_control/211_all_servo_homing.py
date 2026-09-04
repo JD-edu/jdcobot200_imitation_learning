@@ -1,7 +1,10 @@
 import serial
 import time
 import math
+from pathlib import Path
 from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명/클래스명을 조정하세요. [cite: 106]
+
+CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
 def smoothstep(t):
     """
@@ -9,7 +12,7 @@ def smoothstep(t):
     """
     return t * t * (3 - 2 * t)
 
-def load_offsets_from_file(file_path="offsets.txt"):
+def load_offsets_from_file(file_path=CALIBRATION_FILE):
     """
     텍스트 파일에서 모터 ID와 오프셋 매핑 데이터를 읽어옵니다. [cite: 131, 132]
     파일 포맷 예시: 1=62 
@@ -49,7 +52,7 @@ if __name__ == "__main__":
     print("==================================================")
 
     # 1. 파일에서 오프셋 딕셔너리 가져오기
-    motor_offsets = load_offsets_from_file("offsets.txt")
+    motor_offsets = load_offsets_from_file(CALIBRATION_FILE)
     if not motor_offsets:
         exit()
 
@@ -140,4 +143,4 @@ if __name__ == "__main__":
         input()
 
     except KeyboardInterrupt:
-        print("\n⚠️ 사용자에 의해 프로그램이 중단되었습니다. 로봇암 제어를 멈춥니다.") 
+        print("\n⚠️ 사용자에 의해 프로그램이 중단되었습니다. 로봇암 제어를 멈춥니다.")

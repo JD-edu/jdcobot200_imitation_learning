@@ -1,0 +1,23 @@
+{
+  "samples": 50000,
+  "seed": 7,
+  "safe_count": 39712,
+  "unsafe_count": 10288,
+  "safe_ratio": 0.79424,
+  "collision_margin_mm": 5.0,
+  "floor_margin_mm": 10.0,
+  "unsafe_reasons": {
+    "floor_margin": 7845,
+    "self_collision_margin": 4873
+  },
+  "safe_tcp_min_m": [
+    -0.40475121036748135,
+    -0.4055070899242553,
+    0.03504356409527158
+  ],
+  "safe_tcp_max_m": [
+    0.40569363348181997,
+    0.403895709192964,
+    0.5229569216014665
+  ]
+}

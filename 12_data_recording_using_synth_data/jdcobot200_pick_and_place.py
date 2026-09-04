@@ -1,0 +1,322 @@
+#!/usr/bin/env python3
+"""Contact-based red-block pick-and-place demo for JDCobot200."""
+
+from __future__ import annotations
+
+import argparse
+import sys
+import time
+from dataclasses import dataclass
+from pathlib import Path
+
+import mujoco
+import numpy as np
+from mujoco.glfw import glfw
+
+from jdcobot200_mink_solver import SO101MinkSolver
+from jdcobot200_mujoco_glfw import GLFWCameraController
+
+
+ROOT = Path(__file__).resolve().parent
+DEFAULT_XML = ROOT / "scene.xml"
+CONTROL_DT = 0.01
+IK_ITERATIONS = 5
+GRIPPER_OPEN = 0.45
+GRIPPER_CLOSED = -0.20
+# Manual pick orientation.  At this wrist-roll angle the finger contact faces
+# are parallel to the red block's Y-facing sides (the block yaw in scene.xml is
+# fixed at zero).  Keep this value identical on the real robot calibration.
+# Calibrated from the actual left/right pad centers at the closed pick pose.
+# Their center line is aligned with the world Y axis (-90 deg), so the jaws are
+# parallel to the axis-aligned red block rather than merely aligning graspframe.
+WRIST_ROLL_PARALLEL = 0.34988
+# At the robot's XML start pose, the arm frame has a different yaw offset than
+# it has at the pick pose. This value makes the initial gripper world yaw 0.
+START_WRIST_ROLL = 2.14746
+BLOCK_HALF_HEIGHT = 0.015
+PICK_XY = np.array([0.22, -0.10])
+PLACE_XY = np.array([0.22, 0.10])
+GRASP_Z = BLOCK_HALF_HEIGHT + 0.003
+HOVER_Z = 0.16
+
+
+@dataclass(frozen=True)
+class Phase:
+    name: str
+    target: np.ndarray
+    gripper: float
+    minimum_time: float
+
+
+PHASES = (
+    Phase("픽 위치 위로 이동", np.r_[PICK_XY, HOVER_Z], GRIPPER_OPEN, 0.5),
+    Phase("물체로 하강", np.r_[PICK_XY, GRASP_Z], GRIPPER_OPEN, 0.5),
+    Phase("그리퍼 닫기", np.r_[PICK_XY, GRASP_Z], GRIPPER_CLOSED, 1.0),
+    Phase("물체 들어 올리기", np.r_[PICK_XY, HOVER_Z], GRIPPER_CLOSED, 0.5),
+    Phase("플레이스 위치로 이동", np.r_[PLACE_XY, HOVER_Z], GRIPPER_CLOSED, 0.5),
+    Phase("물체 내려놓기", np.r_[PLACE_XY, GRASP_Z], GRIPPER_CLOSED, 0.5),
+    Phase("그리퍼 열기", np.r_[PLACE_XY, GRASP_Z], GRIPPER_OPEN, 0.7),
+    Phase("위로 후퇴", np.r_[PLACE_XY, HOVER_Z], GRIPPER_OPEN, 0.5),
+)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="빨간 블록 자동 픽 앤드 플레이스")
+    parser.add_argument("--xml", type=Path, default=DEFAULT_XML)
+    parser.add_argument("--headless", action="store_true", help="창 없이 검증 실행")
+    parser.add_argument("--max-time", type=float, default=35.0)
+    return parser.parse_args()
+
+
+def require_id(model: mujoco.MjModel, kind: mujoco.mjtObj, name: str) -> int:
+    object_id = mujoco.mj_name2id(model, kind, name)
+    if object_id < 0:
+        raise ValueError(f"MuJoCo model does not contain {kind.name} '{name}'.")
+    return int(object_id)
+
+
+class PickAndPlace:
+    def __init__(self, model: mujoco.MjModel, data: mujoco.MjData) -> None:
+        self.model = model
+        self.data = data
+        self.arm_actuators = np.array([
+            require_id(model, mujoco.mjtObj.mjOBJ_ACTUATOR, name)
+            for name in SO101MinkSolver.ARM_JOINT_NAMES
+        ])
+        arm_joints = np.array([
+            require_id(model, mujoco.mjtObj.mjOBJ_JOINT, name)
+            for name in SO101MinkSolver.ARM_JOINT_NAMES
+        ])
+        self.arm_qpos = model.jnt_qposadr[arm_joints]
+        self.wrist_roll_arm_index = SO101MinkSolver.ARM_JOINT_NAMES.index(
+            "wrist_roll"
+        )
+        self.gripper_actuator = require_id(
+            model, mujoco.mjtObj.mjOBJ_ACTUATOR, "gripper_motor"
+        )
+        self.tool_site = require_id(model, mujoco.mjtObj.mjOBJ_SITE, "graspframe")
+        self.gripper_body = require_id(
+            model, mujoco.mjtObj.mjOBJ_BODY, "gripper_assembly"
+        )
+        self.pad_geoms = np.array([
+            require_id(model, mujoco.mjtObj.mjOBJ_GEOM, name)
+            for name in ("left_finger_pad", "right_finger_pad")
+        ])
+        self.block_body = require_id(model, mujoco.mjtObj.mjOBJ_BODY, "red_block")
+        self.grasp_weld = require_id(
+            model, mujoco.mjtObj.mjOBJ_EQUALITY, "red_block_grasp"
+        )
+
+        # Start with the jaws already at the calibrated world yaw of the block.
+        # Without this initialization, wrist_roll starts at zero and rotates to
+        # WRIST_ROLL_PARALLEL during the first phase.
+        data.qpos[self.arm_qpos[self.wrist_roll_arm_index]] = START_WRIST_ROLL
+        mujoco.mj_forward(model, data)
+        data.ctrl[self.arm_actuators] = data.qpos[self.arm_qpos]
+        data.ctrl[self.gripper_actuator] = GRIPPER_OPEN
+        self.solver = SO101MinkSolver(model, end_effector_site="graspframe")
+        self.solver.reset(data.qpos.copy())
+        self.phase_index = 0
+        self.phase_started = data.time
+        self.complete = False
+        self._set_phase(0)
+
+    @property
+    def phase(self) -> Phase:
+        return PHASES[self.phase_index]
+
+    def _activate_grasp_weld(self) -> None:
+        """Weld the current relative pose without snapping either body."""
+        gripper_pos = self.data.xpos[self.gripper_body]
+        gripper_mat = self.data.xmat[self.gripper_body].reshape(3, 3)
+        block_pos = self.data.xpos[self.block_body]
+        gripper_quat = self.data.xquat[self.gripper_body]
+        block_quat = self.data.xquat[self.block_body]
+
+        relative_pos = gripper_mat.T @ (block_pos - gripper_pos)
+        inverse_gripper_quat = np.array([
+            gripper_quat[0],
+            -gripper_quat[1],
+            -gripper_quat[2],
+            -gripper_quat[3],
+        ])
+        relative_quat = np.empty(4)
+        mujoco.mju_mulQuat(relative_quat, inverse_gripper_quat, block_quat)
+
+        weld_data = self.model.eq_data[self.grasp_weld]
+        weld_data[0:3] = 0.0          # anchor in block coordinates
+        weld_data[3:6] = relative_pos # same anchor in gripper coordinates
+        weld_data[6:10] = relative_quat
+        self.data.eq_active[self.grasp_weld] = 1
+
+    def _world_aligned_wrist_target(self) -> float:
+        """Keep the line between the pads parallel to the world Y axis."""
+        pad_line = (
+            self.data.geom_xpos[self.pad_geoms[1]]
+            - self.data.geom_xpos[self.pad_geoms[0]]
+        )
+        current_yaw = np.arctan2(pad_line[1], pad_line[0])
+        target_yaw = -np.pi / 2
+        yaw_error = np.arctan2(
+            np.sin(target_yaw - current_yaw),
+            np.cos(target_yaw - current_yaw),
+        )
+        current_wrist = self.data.qpos[
+            self.arm_qpos[self.wrist_roll_arm_index]
+        ]
+        wrist_actuator = self.arm_actuators[self.wrist_roll_arm_index]
+        lower, upper = self.model.actuator_ctrlrange[wrist_actuator]
+        return float(np.clip(current_wrist + yaw_error, lower, upper))
+
+    def _set_phase(self, index: int) -> None:
+        self.phase_index = index
+        self.phase_started = self.data.time
+        self.solver.set_target_position(self.phase.target)
+        self.data.ctrl[self.gripper_actuator] = self.phase.gripper
+        if self.phase.name == "물체 들어 올리기":
+            self._activate_grasp_weld()
+        elif self.phase.name == "그리퍼 열기":
+            self.data.eq_active[self.grasp_weld] = 0
+        print(f"[{index + 1}/{len(PHASES)}] {self.phase.name}: {self.phase.target}")
+
+    def control_step(self) -> None:
+        result = self.solver.solve_step(self.data.qpos.copy(), CONTROL_DT, IK_ITERATIONS)
+        arm_command = result.arm_qpos.copy()
+        # Position-only IK does not constrain tool yaw.  Override wrist roll so
+        # the jaws approach the manually axis-aligned block face-on.
+        arm_command[self.wrist_roll_arm_index] = self._world_aligned_wrist_target()
+        self.data.ctrl[self.arm_actuators] = arm_command
+        self.data.ctrl[self.gripper_actuator] = self.phase.gripper
+
+        elapsed = self.data.time - self.phase_started
+        actual_error = np.linalg.norm(
+            self.phase.target - self.data.site_xpos[self.tool_site]
+        )
+        # The real actuator force limits and gravity leave roughly 20 mm of
+        # Cartesian static error at some poses, so 25 mm is the phase tolerance.
+        reached = actual_error < 0.025 and elapsed >= self.phase.minimum_time
+        timed_out = elapsed > 6.0
+        if not (reached or timed_out):
+            return
+        if timed_out:
+            print(f"  경고: 목표 오차 {actual_error * 1000:.1f} mm에서 다음 단계 진행")
+        if self.phase_index + 1 == len(PHASES):
+            self.complete = True
+            return
+        self._set_phase(self.phase_index + 1)
+
+    def physics_step(self) -> None:
+        substeps = max(1, round(CONTROL_DT / self.model.opt.timestep))
+        for _ in range(substeps):
+            mujoco.mj_step(self.model, self.data)
+
+
+def run_headless(controller: PickAndPlace, max_time: float) -> None:
+    while not controller.complete and controller.data.time < max_time:
+        controller.control_step()
+        controller.physics_step()
+
+
+def run_glfw(controller: PickAndPlace, max_time: float) -> None:
+    """Render and run the controller with the low-level MuJoCo GLFW API."""
+    if not glfw.init():
+        raise RuntimeError("GLFW initialization failed.")
+
+    window = glfw.create_window(1200, 900, "JDCobot200 Pick and Place", None, None)
+    if window is None:
+        glfw.terminate()
+        raise RuntimeError("GLFW window creation failed.")
+
+    glfw.make_context_current(window)
+    glfw.swap_interval(1)
+    scene = mujoco.MjvScene(controller.model, maxgeom=10000)
+    context = mujoco.MjrContext(
+        controller.model, mujoco.mjtFontScale.mjFONTSCALE_150.value
+    )
+    camera = GLFWCameraController(controller.model, scene)
+    camera.camera.azimuth = 150
+    camera.camera.elevation = -25
+    camera.camera.distance = 0.9
+    camera.camera.lookat[:] = [0.15, 0.0, 0.15]
+
+    glfw.set_mouse_button_callback(window, camera.mouse_button)
+    glfw.set_cursor_pos_callback(window, camera.cursor_position)
+    glfw.set_scroll_callback(window, camera.scroll)
+
+    def key_callback(window, key, scancode, action, mods) -> None:
+        if action == glfw.PRESS and key == glfw.KEY_ESCAPE:
+            glfw.set_window_should_close(window, True)
+
+    glfw.set_key_callback(window, key_callback)
+    completed_at: float | None = None
+
+    try:
+        while not glfw.window_should_close(window):
+            tick = time.perf_counter()
+            if not controller.complete and controller.data.time < max_time:
+                controller.control_step()
+                controller.physics_step()
+            elif controller.complete and completed_at is None:
+                completed_at = tick
+                print("픽 앤드 플레이스 완료. 5초 후 창을 닫습니다.")
+
+            if completed_at is not None and tick - completed_at >= 5.0:
+                break
+            if not controller.complete and controller.data.time >= max_time:
+                break
+
+            actual = controller.data.site_xpos[controller.tool_site]
+            error_mm = np.linalg.norm(controller.phase.target - actual) * 1000.0
+            glfw.set_window_title(
+                window,
+                f"JDCobot200 Pick and Place | {controller.phase.name} | "
+                f"error={error_mm:.1f} mm",
+            )
+            width, height = glfw.get_framebuffer_size(window)
+            viewport = mujoco.MjrRect(0, 0, width, height)
+            mujoco.mjv_updateScene(
+                controller.model,
+                controller.data,
+                camera.option,
+                None,
+                camera.camera,
+                mujoco.mjtCatBit.mjCAT_ALL.value,
+                scene,
+            )
+            mujoco.mjr_render(viewport, scene, context)
+            glfw.swap_buffers(window)
+            glfw.poll_events()
+            time.sleep(max(0.0, CONTROL_DT - (time.perf_counter() - tick)))
+    finally:
+        context.free()
+        scene.free()
+        glfw.destroy_window(window)
+        glfw.terminate()
+
+
+def main() -> None:
+    args = parse_args()
+    model = mujoco.MjModel.from_xml_path(str(args.xml.resolve()))
+    data = mujoco.MjData(model)
+    controller = PickAndPlace(model, data)
+    if args.headless:
+        run_headless(controller, args.max_time)
+    else:
+        run_glfw(controller, args.max_time)
+
+    block_position = data.xpos[controller.block_body].copy()
+    place_error = float(np.linalg.norm(block_position[:2] - PLACE_XY))
+    print(f"최종 블록 위치: {block_position}")
+    print(f"배치 XY 오차: {place_error * 1000:.1f} mm")
+    if not controller.complete:
+        raise RuntimeError("제한 시간 안에 픽 앤드 플레이스를 완료하지 못했습니다.")
+    if place_error > 0.03:
+        raise RuntimeError("블록이 목표 위치에 놓이지 않았습니다.")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as exc:
+        print(f"오류: {exc}", file=sys.stderr)
+        raise

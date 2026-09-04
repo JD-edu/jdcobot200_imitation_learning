@@ -4,7 +4,10 @@ import os
 import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
+from pathlib import Path
 from motor_control import MiniFeetechDriver
+
+CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
 class JdCobotTeachingUI:
     def __init__(self, window):
@@ -66,7 +69,7 @@ class JdCobotTeachingUI:
         self.feedback_thread = threading.Thread(target=self.update_angle_feedback_loop, daemon=True)
         self.feedback_thread.start()
 
-    def load_offsets_from_file(self, file_path="offsets.txt"):
+    def load_offsets_from_file(self, file_path=CALIBRATION_FILE):
         """ 텍스트 파일에서 모터 ID와 오프셋 매핑 데이터를 로드합니다. """ 
         if not os.path.exists(file_path):
             print(f"⚠️ [{file_path}] 파일이 없어 기본 오프셋(0)을 사용합니다.")

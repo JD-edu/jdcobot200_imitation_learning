@@ -157,7 +157,15 @@ class SO101MinkFKSolver:
 
     def get_end_effector_quaternion(self) -> np.ndarray:
         """4-vector quaternion (w, x, y, z) in world frame."""
-        return self.configuration.data.site_quat[self._site_id].copy()
+        # MjData exposes a site's world orientation as ``site_xmat`` but
+        # (unlike bodies) has no ``site_quat`` field. Convert that matrix
+        # with MuJoCo's own convention to obtain a wxyz quaternion.
+        quaternion = np.empty(4, dtype=float)
+        mujoco.mju_mat2Quat(
+            quaternion,
+            self.configuration.data.site_xmat[self._site_id],
+        )
+        return quaternion
 
     # ------------------------------------------------------------------ #
     # One-shot FK evaluation

@@ -1,0 +1,6 @@
+# Canonical JDCobot200 servo calibration offsets (raw home tick - 2048)
+1=8
+2=47
+3=6
+4=6
+5=6

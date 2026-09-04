@@ -1,7 +1,10 @@
 import time
 import os
 import serial
+from pathlib import Path
 from motor_control import MiniFeetechDriver  # 사용자 환경에 맞는 파일명/클래스명
+
+CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
 def calibrate_gripper_and_save():
     # ==========================================
@@ -11,7 +14,7 @@ def calibrate_gripper_and_save():
     BAUDRATE = 1000000             # 통신 속도 (1Mbps)
     GRIPPER_MOTOR_ID = 6           # 그리퍼 서보모터 ID [cite: 57]
     THEORETICAL_CENTER = 2048      # STS3215의 이론상 정중앙 기준점 [cite: 50]
-    SAVE_FILE_NAME = "offsets.txt" # 통합 관리할 조인트 오프셋 파일명 [cite: 59]
+    SAVE_FILE_NAME = CALIBRATION_FILE
 
     # 1. 드라이버 초기화
     driver = MiniFeetechDriver(port=PORT, baudrate=BAUDRATE)
@@ -57,6 +60,7 @@ def calibrate_gripper_and_save():
         existing_offsets[GRIPPER_MOTOR_ID] = gripper_offset
         
         # 6. 정렬된 데이터를 정렬(ID 순)하여 offsets.txt에 최종 저장
+        SAVE_FILE_NAME.parent.mkdir(parents=True, exist_ok=True)
         with open(SAVE_FILE_NAME, "w", encoding="utf-8") as f:
             f.write("# jdcobot200 Servo Motor Calibration Offsets\n")
             for m_id in sorted(existing_offsets.keys()):

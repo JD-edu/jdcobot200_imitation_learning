@@ -1,0 +1,263 @@
+JDCobot200 합성 Pick-and-Place LeRobot 데이터셋 작업 정리
+============================================================
+
+1. 작업 목적
+------------
+
+기존 generate_synthetic_trajectories.py가 생성하는 JDCobot200 합성
+pick-and-place 궤적을 LeRobot imitation learning에서 사용할 수 있는 데이터셋으로
+변환한다.
+
+학습 입력과 출력의 의미는 다음과 같다.
+
+- 입력: 현재 시점 t의 로봇 관절값과 RGB 카메라 이미지
+- 출력: t+1부터 t+50까지의 미래 로봇 관절값
+- 로봇 관절: 팔 관절 5개와 그리퍼 관절 1개, 총 6개
+
+
+2. 작성된 파일
+--------------
+
+- convert_to_lerobot.py
+  기존 NPZ 합성 궤적을 MuJoCo에서 재생 및 렌더링하고 LeRobot 데이터셋으로
+  저장하는 변환 스크립트
+
+- README_lerobot.md
+  데이터 생성, 변환 및 로딩 방법을 설명하는 문서
+
+- lerobot_dataset_작업정리.txt
+  지금까지 진행한 작업과 검증 내용을 정리한 현재 문서
+
+
+3. LeRobot 데이터 저장 구조
+--------------------------
+
+LeRobot의 표준 학습 파이프라인과 호환되도록 각 데이터 프레임은 다음과 같이
+저장된다.
+
+- observation.state
+  현재 시점 t의 실제 관절값
+  shape: (6,)
+  순서: base, shoulder, elbow, wrist_pitch, wrist_roll, gripper
+
+- observation.images.camera
+  현재 시점 t의 MuJoCo RGB 렌더링 이미지
+  기본 shape: (3, 480, 640)
+  LeRobot이 사용하는 CHW 형식으로 로딩됨
+
+- action
+  다음 시점 t+1의 실제 관절값
+  shape: (6,)
+
+원본 데이터 파일에는 표준 LeRobot 형식에 맞춰 한 시점의 action만 저장한다.
+학습 시 delta_timestamps를 사용하면 action[t]부터 action[t+49]까지가 묶이며,
+action[t]가 state[t+1]이므로 최종 결과는 state[t+1]부터 state[t+50]까지의
+관절값이 된다.
+
+로딩 결과는 다음과 같다.
+
+- action shape: (50, 6)
+- action_is_pad shape: (50,)
+
+에피소드 마지막에서 미래 프레임이 부족한 부분의 패딩과 action_is_pad는
+LeRobot 로더가 자동으로 처리한다.
+
+
+4. Conda LeRobot 환경
+--------------------
+
+~/.bashrc에 다음 alias가 등록되어 있다.
+
+alias ai_env='eval "$(/home/robo/anaconda3/bin/conda shell.bash hook)" && conda activate base'
+
+일반 터미널에서는 다음 명령으로 LeRobot 환경에 진입한다.
+
+ai_env
+conda activate lerobot
+
+비대화형 bash에서 alias를 사용하려면 interactive shell을 열어야 한다.
+
+bash -ic 'ai_env && conda activate lerobot && python ...'
+
+확인된 환경은 다음과 같다.
+
+- Conda environment: lerobot
+- Python: 3.10.12
+- LeRobot: 0.4.4
+- PyTorch: 2.10.0+cu128
+- MuJoCo: 3.10.0
+- LeRobot editable source: /home/robo/lerobot
+
+LeRobot 0.4.4에서 사용하는 import 경로는 다음과 같다.
+
+from lerobot.datasets.lerobot_dataset import LeRobotDataset
+
+이 버전에서는 아래와 같은 package-level import가 지원되지 않는다.
+
+from lerobot.datasets import LeRobotDataset
+
+
+5. 합성 궤적 생성
+-----------------
+
+현재 작업 폴더의 scene.xml은 jdcobot200.xml을 include하지만 해당 파일이 현재
+폴더에 없다. 동일한 모델 파일이 ../10_create_virtual_dataset에 있으므로 다음과
+같이 XML 경로를 지정한다.
+
+ai_env
+conda activate lerobot
+
+python generate_synthetic_trajectories.py \
+  --episodes 100 \
+  --control-hz 50 \
+  --xml ../10_create_virtual_dataset/scene.xml \
+  --output-dir synthetic_dataset
+
+jdcobot200.xml을 현재 폴더에 복사할 경우 --xml 옵션을 생략하고 현재 폴더의
+scene.xml을 사용할 수 있다.
+
+
+6. LeRobot 데이터셋 변환
+-----------------------
+
+합성 NPZ 궤적을 LeRobot 데이터셋으로 변환하는 명령은 다음과 같다.
+
+ai_env
+conda activate lerobot
+
+python convert_to_lerobot.py \
+  --input-dir synthetic_dataset \
+  --output-dir lerobot_dataset \
+  --horizon 50 \
+  --video-backend pyav
+
+주요 기본 설정은 다음과 같다.
+
+- action horizon: 50
+- image width: 640
+- image height: 480
+- video storage: 사용
+- video backend: pyav
+- robot type: jdcobot200
+- repo id: local/jdcobot200_pick_place
+
+카메라 구도는 다음 옵션으로 변경할 수 있다.
+
+- --azimuth
+- --elevation
+- --distance
+- --lookat X Y Z
+
+출력 폴더가 비어 있지 않다면 실수로 기존 데이터를 덮어쓰지 않도록 오류가
+발생한다. 의도적으로 교체하려면 --overwrite를 사용한다.
+
+
+7. 데이터셋 로딩 예제
+---------------------
+
+from lerobot.datasets.lerobot_dataset import LeRobotDataset
+
+fps = 50
+dataset = LeRobotDataset(
+    repo_id="local/jdcobot200_pick_place",
+    root="lerobot_dataset",
+    video_backend="pyav",
+    delta_timestamps={
+        "action": [step / fps for step in range(50)],
+    },
+)
+
+sample = dataset[0]
+
+print(sample["observation.state"].shape)          # (6,)
+print(sample["observation.images.camera"].shape) # (3, 480, 640)
+print(sample["action"].shape)                    # (50, 6)
+print(sample["action_is_pad"].shape)             # (50,)
+
+
+8. 변환 과정
+------------
+
+convert_to_lerobot.py는 다음 순서로 동작한다.
+
+1) synthetic_dataset/manifest.json에서 control_hz를 읽는다.
+2) episode_*.npz 파일들을 순서대로 읽는다.
+3) 전체 MuJoCo qpos에서 팔 5개와 그리퍼 1개의 실제 관절값을 추출한다.
+4) action[t]를 state[t+1]로 구성한다.
+5) 에피소드 마지막 action에는 마지막 관절 상태를 반복한다.
+6) 저장된 전체 qpos를 MuJoCo 모델에 적용한다.
+7) 동일 시점의 RGB 카메라 이미지를 EGL headless 방식으로 렌더링한다.
+8) LeRobotDataset.add_frame()으로 프레임을 추가한다.
+9) 에피소드마다 LeRobotDataset.save_episode()을 호출한다.
+10) 모든 에피소드 처리 후 LeRobotDataset.finalize()를 호출한다.
+11) 완성된 데이터셋을 delta_timestamps와 함께 다시 연다.
+12) action shape가 (50, 6)인지 확인한다.
+
+재로딩 검증에 실패하면 변환 스크립트가 정상 종료하지 않으므로 손상되거나
+호환되지 않는 결과물을 바로 확인할 수 있다.
+
+
+9. 실제 검증 결과
+-----------------
+
+Conda lerobot 환경에서 다음 종단 테스트를 수행했다.
+
+- 합성 궤적 1개 생성
+- 총 184개 프레임 생성
+- MuJoCo RGB 이미지 렌더링
+- LeRobot Parquet 데이터 기록
+- AV1 비디오 인코딩
+- save_episode 및 finalize 수행
+- 완성된 데이터셋 재로딩
+- 미래 50개 action 로딩 및 패딩 확인
+
+실제 재로딩 결과:
+
+frames: 184
+observation.state:         (6,)        torch.float32
+observation.images.camera: (3,120,160) torch.float32
+action:                    (50,6)      torch.float32
+action_is_pad:             (50,)       torch.bool
+LeRobot end-to-end reload: OK
+
+테스트에서는 처리 시간을 줄이기 위해 이미지 크기를 160x120, 제어 주기를 20 Hz로
+사용했다. 기본 실행은 640x480 및 원본 manifest의 control_hz를 사용한다.
+
+
+10. 비디오 백엔드 주의사항
+-------------------------
+
+현재 Conda 환경의 PyTorch 2.10.0+cu128과 TorchCodec 0.2.1 사이에 바이너리
+호환성 문제가 있어 TorchCodec 기본 디코더는 libtorchcodec을 로드하지 못했다.
+
+따라서 변환 및 로딩 코드의 기본 video_backend를 pyav로 설정했다.
+
+video_backend="pyav"
+
+PyAV 백엔드에서는 RGB 비디오를 포함한 데이터셋 재로딩이 정상적으로 통과했다.
+
+
+11. 샌드박스 캐시 주의사항
+-------------------------
+
+테스트 환경에서는 /home/robo/.cache가 읽기 전용이어서 Hugging Face datasets가
+lock 파일을 만들 수 없었다. 이 경우 다음처럼 쓰기 가능한 캐시 경로를 지정하면
+된다.
+
+HF_HOME=/tmp/hf_home \
+HF_DATASETS_CACHE=/tmp/hf_datasets \
+python convert_to_lerobot.py ...
+
+일반 사용자 터미널에서 ~/.cache에 쓰기 권한이 있다면 이 설정은 필요 없다.
+
+
+12. 최종 상태
+-------------
+
+- LeRobotDataset 클래스를 실제 설치 버전에 맞는 경로에서 명시적으로 import함
+- 표준 LeRobot 단일-step action 저장 방식을 사용함
+- delta_timestamps로 t+1부터 t+50까지의 관절값을 제공함
+- 현재 관절 상태와 RGB 이미지가 동일한 MuJoCo 프레임에서 기록됨
+- LeRobot 0.4.4 환경에서 생성, 인코딩, finalize 및 재로딩까지 검증 완료
+- ACT 및 Diffusion Policy 같은 LeRobot imitation-learning 파이프라인에서 사용할
+  수 있는 기본 데이터 구조를 생성함

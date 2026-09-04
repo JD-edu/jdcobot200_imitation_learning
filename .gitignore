@@ -1,0 +1,81 @@
+# PyTorch / machine-learning model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.torchscript
+checkpoints/
+outputs/
+runs/
+wandb/
+lightning_logs/
+tensorboard/
+
+# Generated training and robot datasets
+lerobot_dataset/
+synthetic_dataset/
+synthetic_dataset_*/
+*.npz
+*.npy
+*.parquet
+*.arrow
+*.h5
+*.hdf5
+*.bag
+*.db3
+*.mcap
+*.mp4
+*.avi
+*.mov
+
+# Python cache, environments, and packaging output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# ROS / colcon generated directories
+install/
+log/
+.colcon/
+
+# Logs and temporary runtime files
+*.log
+*.LOG
+MUJOCO_LOG.TXT
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Local IDE and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local secrets and machine-specific environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Jupyter-generated state
+.ipynb_checkpoints/

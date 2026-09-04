@@ -1,0 +1,26 @@
+<mujoco model="jdcobot200_dual_camera_scene">
+  <include file="jdcobot200.xml"/>
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <global azimuth="160" elevation="-20"/>
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+  <worldbody>
+    <light pos="0 0 3.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane"/>
+    <camera name="front_camera" pos="-0.38 -0.30 0.42" xyaxes="0.62 -0.78 0 0.46 0.37 0.81" fovy="52"/>
+    <body name="red_block" pos="0.22 -0.10 0.016" euler="0 0 0">
+      <freejoint name="red_block_freejoint"/>
+      <geom name="red_block_geom" type="box" size="0.025 0.015 0.015" rgba="0.9 0.05 0.05 1" mass="0.01" friction="3.0 0.01 0.001"/>
+      <site name="red_block_center" type="sphere" size="0.004" rgba="1 1 0 0.8"/>
+    </body>
+    <site name="place_marker" type="cylinder" pos="0.22 0.10 0.001" size="0.035 0.001" rgba="0.1 0.8 0.2 0.45"/>
+  </worldbody>
+  <equality>
+    <weld name="red_block_grasp" body1="gripper_assembly" body2="red_block" active="false" solref="0.01 1"/>
+  </equality>
+</mujoco>

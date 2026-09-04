@@ -1,9 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:msg/DeviceInfo.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:msg/Extrinsics.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:msg/Metadata.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/GetDeviceInfo.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/GetCameraInfo.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/GetCameraParams.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/GetInt32.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/GetString.idl
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_adapter/astra_camera_msgs:srv/SetInt32.idl

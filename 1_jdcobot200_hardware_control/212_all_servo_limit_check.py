@@ -1,5 +1,6 @@
 import os
 import time
+from pathlib import Path
 from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명을 수정하세요
 
 # ==========================================
@@ -9,7 +10,7 @@ PORT = "/dev/ttyACM0"      # 시리얼 포트 경로
 BAUDRATE = 1000000         # 통신 속도 (1Mbps)
 MOTOR_IDS = [1, 2, 3, 4, 5]  # 순차적으로 측정할 전체 모터 ID 리스트
 BUFFER_VALUE = 50          # 안전을 위한 가동범위 마진 (버퍼) 값
-OFFSET_FILE = "offsets.txt"
+OFFSET_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 LIMIT_FILE = "joint_limits.txt"
 # ==========================================
 

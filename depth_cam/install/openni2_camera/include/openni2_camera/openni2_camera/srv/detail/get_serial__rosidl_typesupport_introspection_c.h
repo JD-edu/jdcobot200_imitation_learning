@@ -1,1 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/rosidl_typesupport_introspection_c/openni2_camera/srv/detail/get_serial__rosidl_typesupport_introspection_c.h

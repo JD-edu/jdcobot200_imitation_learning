@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/robo/jdcobot200_imitation_learning/depth_cam/build/openni2_camera/openni2_camera_driver" "TARGETS" "openni2_camera_driver" "DESTINATION" "lib/openni2_camera")

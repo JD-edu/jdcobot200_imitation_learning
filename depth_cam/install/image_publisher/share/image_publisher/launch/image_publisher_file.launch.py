@@ -1,1 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/src/image_pipeline/image_publisher/launch/image_publisher_file.launch.py

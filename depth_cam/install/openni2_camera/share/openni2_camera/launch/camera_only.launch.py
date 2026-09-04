@@ -1,1 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/src/openni2_camera/openni2_camera/launch/camera_only.launch.py

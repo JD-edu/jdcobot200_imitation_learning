@@ -1,1 +1,0 @@
-/home/robo/jdcobot200_imitation_learning/depth_cam/build/astra_camera_msgs/rosidl_cmake/srv/SetInt32_Response.msg

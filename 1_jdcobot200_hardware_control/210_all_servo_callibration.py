@@ -1,6 +1,9 @@
 import time
 import os
+from pathlib import Path
 from motor_control import MiniFeetechDriver
+
+CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
 def calibrate_all_servos():
     PORT = "/dev/ttyACM0"
@@ -9,7 +12,7 @@ def calibrate_all_servos():
     
     # 교정할 로봇암의 전체 서보 ID 리스트 (환경에 맞게 수정 가능)
     MOTOR_IDS = [1, 2, 3, 4, 5]
-    OUTPUT_FILE = "offsets.txt"
+    OUTPUT_FILE = CALIBRATION_FILE
 
     driver = MiniFeetechDriver(PORT, BAUDRATE)
     
@@ -75,10 +78,25 @@ def calibrate_all_servos():
         print("모든 모터 교정 완료! 파일 저장을 시작합니다.")
         print("=" * 70)
 
-        # 직관적인 ID=오프셋 포맷으로 텍스트 파일 쓰기
+        # Preserve offsets for motors not calibrated by this script (for
+        # example ID 6, the gripper), then update IDs 1~5 atomically as one
+        # shared calibration set.
+        saved_offsets = {}
+        if OUTPUT_FILE.exists():
+            for line in OUTPUT_FILE.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    motor_id, value = line.split("=", 1)
+                    saved_offsets[int(motor_id)] = int(value)
+        for m_id in MOTOR_IDS:
+            saved_offsets[m_id] = -calibrated_offsets[m_id]
+
+        OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            for m_id in MOTOR_IDS:
-                f.write(f"{m_id}={-1*calibrated_offsets[m_id]}\n")
+            f.write("# Canonical JDCobot200 servo calibration offsets "
+                    "(raw home tick - 2048)\n")
+            for m_id in sorted(saved_offsets):
+                f.write(f"{m_id}={saved_offsets[m_id]}\n")
 
         print(f"오프셋 저장 완료: '{os.path.abspath(OUTPUT_FILE)}'")
         print("저장된 파일 내용 미리보기:")
