@@ -1,10 +1,12 @@
 import time
 import math
 import os
+import json
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 import threading
 from pathlib import Path
+from serial.tools import list_ports
 from motor_control import MiniFeetechDriver
 
 CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
@@ -13,10 +15,10 @@ class JdCobotTeachingUI:
     def __init__(self, window):
         self.window = window
         self.window.title("jdcobot200 수동 티칭 및 플레이백 시스템 (칼리브레이션 적용)")
-        self.window.geometry("850x600")
+        self.window.geometry("900x720")
         
         # --- 하드웨어 설정 ---
-        self.PORT = "/dev/ttyACM1"
+        self.PORT = ""
         self.BAUDRATE = 1000000
         self.MOTOR_IDS = [1, 2, 3, 4, 5, 6]
         self.DEG_TO_TICK = 4096.0 / 360.0
@@ -27,13 +29,8 @@ class JdCobotTeachingUI:
         self.offsets = {m_id: 0 for m_id in self.MOTOR_IDS}
         self.load_offsets_from_file() # 프로그램 시작 시 offsets.txt 읽기 [cite: 5]
         
-        try:
-            self.driver = MiniFeetechDriver(self.PORT, self.BAUDRATE)
-            self.is_connected = True
-        except Exception as e:
-            print(f"로봇 연결 실패: {e}")
-            self.is_connected = False
-            messagebox.showerror("연결 오류", f"로봇 연결 실패! 시뮬레이션 모드로 진행합니다.\n({e})")
+        self.driver = None
+        self.is_connected = False
 
         # --- 제어 변수 ---
         self.center_positions = {}    # 칼리브레이션 원점 (2048 + 오프셋) [cite: 6]
@@ -42,6 +39,8 @@ class JdCobotTeachingUI:
         self.is_moving = False        # 자동 모션 작동 중 플래그
         self.stop_requested = False   # 동작 취소 및 비상 정지 플래그
         self.torque_state = True      # 현재 토크 상태
+        self.playback_running = False
+        self.continuous_playback = False
         self.feedback_paused = threading.Event()
         self.command_lock = threading.RLock()
         
@@ -52,19 +51,9 @@ class JdCobotTeachingUI:
             self.center_positions[m_id] = software_home
             self.current_positions[m_id] = software_home
             
-            if self.is_connected:
-                # 7번 샘플링 필터링으로 초기 오차 노이즈 제거 [cite: 24]
-                pos = self.driver.get_position_filtered(m_id, samples=7)
-                if pos is not None:
-                    self.current_positions[m_id] = pos
-                self.driver.set_torque(m_id, True)
-                
-                # 서보 내부 하드웨어 가감속 적용 (튀는 현상 및 진동 방지) [cite: 36, 46]
-                if hasattr(self.driver, 'set_acceleration'): self.driver.set_acceleration(m_id, 40)
-                if hasattr(self.driver, 'set_speed'): self.driver.set_speed(m_id, 1000)
-
         # --- UI 레이아웃 생성 ---
         self.create_widgets()
+        self.refresh_serial_ports(show_message=False)
         
         # 실시간 각도 피드백을 위한 데몬 스레드 시작
         self.feedback_running = True
@@ -90,7 +79,108 @@ class JdCobotTeachingUI:
         except Exception as e:
             print(f"❌ 오프셋 파일 로드 중 오류 발생: {e}")
 
+    def refresh_serial_ports(self, show_message=True):
+        """Scan Windows COM ports and Linux/macOS serial devices."""
+        previous_device = self.PORT
+        ports = sorted(list_ports.comports(), key=lambda item: item.device)
+        self.port_devices = {
+            f"{port.device} — {port.description}": port.device for port in ports
+        }
+        labels = list(self.port_devices)
+        self.port_combo["values"] = labels
+        selected = next(
+            (label for label, device in self.port_devices.items()
+             if device == previous_device),
+            labels[0] if labels else "",
+        )
+        self.port_combo.set(selected)
+        if not labels and show_message:
+            messagebox.showwarning(
+                "포트 없음",
+                "사용 가능한 시리얼 포트를 찾지 못했습니다.\n"
+                "USB 연결과 장치 드라이버를 확인한 후 새로고침하세요.",
+            )
+        print("[시리얼 포트]", [port.device for port in ports])
+
+    def connect_selected_port(self):
+        if self.is_connected:
+            if self.is_moving or self.playback_running:
+                messagebox.showwarning("연결 해제 불가", "로봇 동작을 먼저 정지하세요.")
+                return
+            self.feedback_paused.set()
+            try:
+                self.driver.close()
+            finally:
+                self.driver = None
+                self.is_connected = False
+                self.lbl_connection.config(text="연결 안 됨", fg="#c0392b")
+                self.btn_connect.config(text="🔌 연결", bg="#2980b9")
+                self.feedback_paused.clear()
+            print(f"[연결 해제] {self.PORT}")
+            return
+
+        label = self.port_combo.get()
+        port = self.port_devices.get(label)
+        if not port:
+            messagebox.showwarning("연결 불가", "먼저 시리얼 포트를 선택하세요.")
+            return
+
+        self.feedback_paused.set()
+        candidate = None
+        try:
+            candidate = MiniFeetechDriver(port, self.BAUDRATE)
+            # Read every servo first. A partial bus connection is not accepted.
+            positions = {}
+            for motor_id in self.MOTOR_IDS:
+                position = candidate.get_position_filtered(motor_id, samples=3)
+                if position is None:
+                    raise RuntimeError(f"서보 ID {motor_id}의 응답이 없습니다.")
+                positions[motor_id] = position
+
+            # Prevent a jump: write each measured pose before enabling torque.
+            for motor_id in self.MOTOR_IDS:
+                candidate.set_position(motor_id, positions[motor_id])
+                if not candidate.set_torque_verified(motor_id, True):
+                    raise RuntimeError(f"서보 ID {motor_id}의 Torque ON 확인 실패")
+                if hasattr(candidate, "set_acceleration"):
+                    candidate.set_acceleration(motor_id, 40)
+                if hasattr(candidate, "set_speed"):
+                    candidate.set_speed(motor_id, 1000)
+                time.sleep(0.05)
+        except Exception as exc:
+            if candidate is not None:
+                candidate.close()
+            messagebox.showerror("연결 실패", f"{port}에 연결하지 못했습니다.\n{exc}")
+            print(f"[연결 실패] {port}: {exc}")
+            return
+        finally:
+            self.feedback_paused.clear()
+
+        self.driver = candidate
+        self.PORT = port
+        self.current_positions.update(positions)
+        self.is_connected = True
+        self.torque_state = True
+        self.lbl_connection.config(text=f"연결됨: {port}", fg="#27ae60")
+        self.btn_connect.config(text="연결 해제", bg="#7f8c8d")
+        print(f"[연결 성공] {port}, baudrate={self.BAUDRATE}")
+
     def create_widgets(self):
+        connection_frame = tk.LabelFrame(self.window, text=" 시리얼 포트 연결 ", padx=8, pady=6)
+        connection_frame.pack(fill=tk.X, padx=10, pady=(8, 0))
+        self.port_combo = ttk.Combobox(connection_frame, state="readonly", width=22)
+        self.port_combo.pack(side=tk.LEFT, padx=4)
+        tk.Button(
+            connection_frame, text="🔄 포트 새로고침", command=self.refresh_serial_ports
+        ).pack(side=tk.LEFT, padx=4)
+        self.btn_connect = tk.Button(
+            connection_frame, text="🔌 연결", bg="#2980b9", fg="white",
+            command=self.connect_selected_port,
+        )
+        self.btn_connect.pack(side=tk.LEFT, padx=4)
+        self.lbl_connection = tk.Label(connection_frame, text="연결 안 됨", fg="#c0392b")
+        self.lbl_connection.pack(side=tk.LEFT, padx=10)
+
         # 상단 제어 바 (홈 / 비상중지)
         top_frame = tk.Frame(self.window, pady=10)
         top_frame.pack(fill=tk.X)
@@ -152,8 +242,33 @@ class JdCobotTeachingUI:
         btn_clear = tk.Button(right_frame, text="🗑️ 티칭 리스트 전체 삭제", bg="#7f8c8d", fg="white", command=self.clear_sequence)
         btn_clear.pack(fill=tk.X, pady=2)
         
-        self.btn_play = tk.Button(right_frame, text="🔁 저장된 티칭 시퀀스 재생 (Play)", bg="#f1c40f", fg="black", font=('Arial', 12, 'bold'), pady=8, command=self.start_playback_thread)
-        self.btn_play.pack(fill=tk.X, pady=10)
+        file_frame = tk.Frame(right_frame)
+        file_frame.pack(fill=tk.X, pady=3)
+        tk.Button(
+            file_frame, text="💾 지금 시퀀스 저장하기", bg="#2980b9", fg="white",
+            command=self.save_sequence_to_file,
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(0, 3))
+        tk.Button(
+            file_frame, text="📂 저장된 시퀀스 불러오기", bg="#16a085", fg="white",
+            command=self.load_sequence_from_file,
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(3, 0))
+
+        self.btn_play = tk.Button(
+            right_frame, text="▶ 저장된 시퀀스 1회 재생", bg="#f1c40f", fg="black",
+            font=('Arial', 11, 'bold'), pady=6, command=self.start_playback_thread,
+        )
+        self.btn_play.pack(fill=tk.X, pady=(10, 3))
+
+        continuous_frame = tk.Frame(right_frame)
+        continuous_frame.pack(fill=tk.X, pady=3)
+        tk.Button(
+            continuous_frame, text="🔁 연속 재생", bg="#27ae60", fg="white",
+            font=('Arial', 10, 'bold'), command=self.start_continuous_playback,
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(0, 3))
+        tk.Button(
+            continuous_frame, text="⏹ 연속 재생 정지", bg="#c0392b", fg="white",
+            font=('Arial', 10, 'bold'), command=self.stop_continuous_playback,
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(3, 0))
 
     # --- 실시간 수동 위치 데이터 수집 루프 ---
     def update_angle_feedback_loop(self):
@@ -249,9 +364,79 @@ class JdCobotTeachingUI:
         print(f"[티칭 저장] P{idx:02d} 완료")
 
     def clear_sequence(self):
+        if self.playback_running:
+            messagebox.showwarning("삭제 불가", "재생을 먼저 정지하세요.")
+            return
         self.saved_sequence.clear()
         self.listbox.delete(0, tk.END)
         print("[티칭 리스트] 초기화 완료")
+
+    def refresh_sequence_listbox(self):
+        self.listbox.delete(0, tk.END)
+        for index, angles in enumerate(self.saved_sequence, 1):
+            angle_text = ", ".join(f"{angle:+.1f}°" for angle in angles)
+            self.listbox.insert(tk.END, f"포인트 {index:02d} ➡️ [{angle_text}]")
+
+    def save_sequence_to_file(self):
+        if not self.saved_sequence:
+            messagebox.showwarning("저장 불가", "저장할 티칭 시퀀스가 없습니다.")
+            return
+        path = filedialog.asksaveasfilename(
+            title="티칭 시퀀스 저장", defaultextension=".json",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+            initialfile="jdcobot200_teaching_sequence.json",
+        )
+        if not path:
+            return
+        payload = {
+            "format": "jdcobot200_teaching_sequence", "version": 1,
+            "motor_ids": self.MOTOR_IDS, "unit": "degree",
+            "sequence": self.saved_sequence,
+        }
+        try:
+            Path(path).write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+        except OSError as exc:
+            messagebox.showerror("저장 실패", f"파일을 저장하지 못했습니다.\n{exc}")
+            return
+        print(f"[시퀀스 저장] {path}")
+        messagebox.showinfo("저장 완료", f"{len(self.saved_sequence)}개 포인트를 저장했습니다.")
+
+    def load_sequence_from_file(self):
+        if self.playback_running or self.is_moving:
+            messagebox.showwarning("불러오기 불가", "재생을 먼저 정지하세요.")
+            return
+        path = filedialog.askopenfilename(
+            title="티칭 시퀀스 불러오기",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+        )
+        if not path:
+            return
+        try:
+            payload = json.loads(Path(path).read_text(encoding="utf-8"))
+            if not isinstance(payload, dict) or payload.get("format") != "jdcobot200_teaching_sequence":
+                raise ValueError("JDCobot200 티칭 시퀀스 파일이 아닙니다.")
+            if payload.get("motor_ids") != self.MOTOR_IDS:
+                raise ValueError(f"motor_ids가 {self.MOTOR_IDS}와 일치하지 않습니다.")
+            raw_sequence = payload.get("sequence")
+            if not isinstance(raw_sequence, list) or not raw_sequence:
+                raise ValueError("sequence가 비어 있거나 배열이 아닙니다.")
+            loaded = []
+            for index, point in enumerate(raw_sequence, 1):
+                if not isinstance(point, list) or len(point) != len(self.MOTOR_IDS):
+                    raise ValueError(f"포인트 {index}에 관절각 6개가 필요합니다.")
+                values = [float(value) for value in point]
+                if not all(math.isfinite(value) for value in values):
+                    raise ValueError(f"포인트 {index}에 유효하지 않은 숫자가 있습니다.")
+                loaded.append(values)
+        except (OSError, json.JSONDecodeError, TypeError, ValueError) as exc:
+            messagebox.showerror("불러오기 실패", str(exc))
+            return
+        self.saved_sequence = loaded
+        self.refresh_sequence_listbox()
+        print(f"[시퀀스 불러오기] {path} ({len(loaded)}개 포인트)")
+        messagebox.showinfo("불러오기 완료", f"{len(loaded)}개 포인트를 불러왔습니다.")
 
     # --- 모션 구동 엔진 (정현파 가감속) ---
     def drive_smooth_motion(self, target_ticks, duration=1.5):
@@ -297,35 +482,91 @@ class JdCobotTeachingUI:
         threading.Thread(target=self.drive_smooth_motion, args=(target_dict, 0.4), daemon=True).start()
 
     def start_playback_thread(self):
-        if self.is_moving: return
+        if self.is_moving or self.playback_running:
+            return
         if not self.saved_sequence:
             messagebox.showwarning("재생 불가", "저장된 티칭 포인트 데이터가 비어 있습니다.")
             return
-            
-        self.torque_on()
-        self.stop_requested = False
-        threading.Thread(target=self.run_playback_sequence, daemon=True).start()
 
-    def run_playback_sequence(self):
-        print("[플레이백] 티칭 시퀀스 자동 재생을 시작합니다.")
-        for idx, angles in enumerate(self.saved_sequence):
-            if self.stop_requested:
-                break
-                
-            self.listbox.selection_clear(0, tk.END)
-            self.listbox.selection_set(idx)
-            
-            # 저장된 각도 데이터를 오프셋 보정 원점 기준으로 역산하여 틱 배열로 생성 [cite: 6]
-            target_ticks = {}
-            for i, m_id in enumerate(self.MOTOR_IDS):
-                deg = angles[i]
-                target_ticks[m_id] = self.center_positions[m_id] + int(deg * self.DEG_TO_TICK)
-            
-            self.drive_smooth_motion(target_ticks, duration=1.6)
-            time.sleep(0.4)
-            
-        print("[플레이백] 모든 티칭 시퀀스 재현을 종료했습니다.")
+        self.torque_on()
+        if not self.torque_state:
+            return
+        self.stop_requested = False
+        self.continuous_playback = False
+        self.playback_running = True
+        threading.Thread(
+            target=self.run_playback_sequence, args=(False,), daemon=True
+        ).start()
+
+    def start_continuous_playback(self):
+        if self.is_moving or self.playback_running:
+            messagebox.showwarning("재생 중", "이미 시퀀스를 재생하고 있습니다.")
+            return
+        if not self.saved_sequence:
+            messagebox.showwarning("재생 불가", "저장된 티칭 포인트 데이터가 비어 있습니다.")
+            return
+        self.torque_on()
+        if not self.torque_state:
+            return
+        self.stop_requested = False
+        self.continuous_playback = True
+        self.playback_running = True
+        threading.Thread(
+            target=self.run_playback_sequence, args=(True,), daemon=True
+        ).start()
+
+    def stop_continuous_playback(self):
+        if not self.playback_running:
+            print("[연속 재생] 현재 실행 중인 재생이 없습니다.")
+            return
+        self.continuous_playback = False
+        self.stop_requested = True
+        print("[연속 재생] 정지 요청: 현재 위치에서 정지합니다.")
+
+    def select_playback_point(self, index=None):
         self.listbox.selection_clear(0, tk.END)
+        if index is not None and index < self.listbox.size():
+            self.listbox.selection_set(index)
+            self.listbox.see(index)
+
+    def run_playback_sequence(self, continuous=False):
+        mode = "연속" if continuous else "1회"
+        print(f"[플레이백] {mode} 재생을 시작합니다.")
+        repeat_count = 0
+        try:
+            while not self.stop_requested:
+                # Playback uses a snapshot so UI-side edits cannot alter a running cycle.
+                sequence_snapshot = [point[:] for point in self.saved_sequence]
+                for idx, angles in enumerate(sequence_snapshot):
+                    if self.stop_requested:
+                        break
+                    self.window.after(0, self.select_playback_point, idx)
+
+                    target_ticks = {}
+                    for i, m_id in enumerate(self.MOTOR_IDS):
+                        deg = angles[i]
+                        target_ticks[m_id] = (
+                            self.center_positions[m_id] + int(deg * self.DEG_TO_TICK)
+                        )
+                    self.drive_smooth_motion(target_ticks, duration=1.6)
+                    if self.stop_requested:
+                        break
+                    # Interruptible dwell between teaching points.
+                    for _ in range(20):
+                        if self.stop_requested:
+                            break
+                        time.sleep(0.02)
+
+                repeat_count += 1
+                if not continuous or not self.continuous_playback:
+                    break
+                print(f"[연속 재생] {repeat_count}회 완료")
+        finally:
+            self.playback_running = False
+            self.continuous_playback = False
+            self.is_moving = False
+            self.window.after(0, self.select_playback_point, None)
+            print(f"[플레이백] {mode} 재생을 종료했습니다. ({repeat_count}회 완료)")
 
     def go_home(self):
         """ 모든 매커니즘 정지 후 로드된 칼리브레이션 소프트웨어 원점 위치로 복귀합니다. """ 
@@ -349,6 +590,7 @@ if __name__ == "__main__":
     
     def on_closing():
         app.feedback_running = False
+        app.continuous_playback = False
         app.stop_requested = True
         if app.is_connected:
             app.driver.close()
