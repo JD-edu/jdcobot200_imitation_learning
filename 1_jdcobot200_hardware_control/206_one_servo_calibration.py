@@ -1,5 +1,5 @@
 import time
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 def calibrate_single_servo():
     PORT = "/dev/ttyACM0"

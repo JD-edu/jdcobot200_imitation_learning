@@ -1,6 +1,6 @@
 import serial
 import time
-from motor_control import MiniFeetechDriver 
+from motor_drive import MiniFeetechDriver
 
 
 def main():
@@ -16,12 +16,12 @@ def main():
 
     # 1. 모든 모터 릴리스 (Torque Off)
     print("Releasing servo...")
-    
+
     if MOTOR_ID is not None:
         driver.set_torque(MOTOR_ID, True)
     else:
         print("서보 번호가 잘못 되었습니다.")
-       
+
     print("Servo is freezed.")
 
     pos = driver.get_position(MOTOR_ID)

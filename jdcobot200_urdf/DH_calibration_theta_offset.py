@@ -3,7 +3,7 @@ import time
 import tty
 import termios
 import numpy as np
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 # ==========================================
 # 1. Standard DH 매트릭스 및 FK 수식 정의

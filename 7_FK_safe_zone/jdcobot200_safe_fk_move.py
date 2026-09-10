@@ -21,7 +21,7 @@ LIMIT_PATH = HARDWARE_ROOT / "joint_limits.txt"
 sys.path.insert(0, str(HARDWARE_ROOT))
 sys.path.insert(0, str(SAFE_ZONE_ROOT))
 
-from motor_control import MiniFeetechDriver  # noqa: E402
+from motor_drive import MiniFeetechDriver  # noqa: E402
 from safety_model import ARM_JOINT_NAMES, JDCobotSafetyModel  # noqa: E402
 
 

@@ -3,7 +3,7 @@ import math
 import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 class JdCobotTeachingUI:
     def __init__(self, window):

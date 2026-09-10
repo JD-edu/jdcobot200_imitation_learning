@@ -1,6 +1,6 @@
 import time
 import math
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 def smoothstep(t):
     """

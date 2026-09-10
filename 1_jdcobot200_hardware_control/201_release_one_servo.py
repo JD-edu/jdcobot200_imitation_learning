@@ -1,6 +1,6 @@
 import serial
 import time
-from motor_control import MiniFeetechDriver 
+from motor_drive import MiniFeetechDriver
 
 
 def main():
@@ -16,12 +16,12 @@ def main():
 
     # 1. 모터 릴리스 (Torque Off)
     print("Releasing servo...")
-    
+
     if MOTOR_ID is not None:
         driver.set_torque(MOTOR_ID, False)
     else:
         print("서보 번호가 잘못 되었습니다.")
-       
+
     print("Servo is released. You can move the robot by hand.")
 
     # 2. 현재 위치 실시간 모니터링 (Ctrl+C로 종료)
@@ -34,7 +34,7 @@ def main():
             else:
                 print("error", end="\r")
             time.sleep(0.1)  # 10Hz 업데이트
-            
+
     except KeyboardInterrupt:
         print("\n\nMonitoring stopped by user.")
     finally:

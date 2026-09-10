@@ -4,7 +4,7 @@ import threading
 import os
 import mujoco as mj
 from mujoco.glfw import glfw
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 # --- 하드웨어 및 파일 경로 구성 설정 ---
 CALIB_FILE = "./calibration.json"

@@ -1,6 +1,6 @@
 import time
 import serial
-from motor_control import MiniFeetechDriver  # 사용자 환경에 맞는 파일명/클래스명
+from motor_drive import MiniFeetechDriver  # 사용자 환경에 맞는 파일명/클래스명
 
 def move_gripper_to_pure_2048():
     # ==========================================

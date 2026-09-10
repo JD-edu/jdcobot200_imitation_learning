@@ -7,7 +7,7 @@ from tkinter import ttk, messagebox, filedialog
 import threading
 from pathlib import Path
 from serial.tools import list_ports
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 
@@ -24,6 +24,10 @@ class JdCobotTeachingUI:
         self.DEG_TO_TICK = 4096.0 / 360.0
         self.TICK_TO_DEG = 360.0 / 4096.0
         self.THEORETICAL_CENTER = 2048 # STS3215의 이론상 물리적 중심점 [cite: 60]
+        # Conservative defaults reduce vibration on both Linux and Windows.
+        self.SERVO_ACCELERATION = 20
+        self.SERVO_SPEED = 600
+        self.CONTROL_PERIOD = 0.025
         
         # --- 칼리브레이션 오프셋 데이터 공간 ---
         self.offsets = {m_id: 0 for m_id in self.MOTOR_IDS}
@@ -143,9 +147,9 @@ class JdCobotTeachingUI:
                 if not candidate.set_torque_verified(motor_id, True):
                     raise RuntimeError(f"서보 ID {motor_id}의 Torque ON 확인 실패")
                 if hasattr(candidate, "set_acceleration"):
-                    candidate.set_acceleration(motor_id, 40)
+                    candidate.set_acceleration(motor_id, self.SERVO_ACCELERATION)
                 if hasattr(candidate, "set_speed"):
-                    candidate.set_speed(motor_id, 1000)
+                    candidate.set_speed(motor_id, self.SERVO_SPEED)
                 time.sleep(0.05)
         except Exception as exc:
             if candidate is not None:
@@ -438,7 +442,7 @@ class JdCobotTeachingUI:
         print(f"[시퀀스 불러오기] {path} ({len(loaded)}개 포인트)")
         messagebox.showinfo("불러오기 완료", f"{len(loaded)}개 포인트를 불러왔습니다.")
 
-    # --- 모션 구동 엔진 (정현파 가감속) ---
+    # --- 모션 구동 엔진 (5차 minimum-jerk S-curve) ---
     def drive_smooth_motion(self, target_ticks, duration=1.5):
         if not self.is_connected or self.stop_requested:
             for m_id, t_tick in target_ticks.items():
@@ -447,26 +451,40 @@ class JdCobotTeachingUI:
 
         self.is_moving = True
         start_ticks = {m_id: self.current_positions[m_id] for m_id in self.MOTOR_IDS}
-        
-        control_period = 0.02
-        steps = int(duration / control_period)
-        
-        for step in range(steps + 1):
-            if self.stop_requested:
-                break
-                
-            ratio = (1.0 - math.cos((step / steps) * math.pi)) / 2.0 
-            
-            with self.command_lock:
-                for m_id in self.MOTOR_IDS:
-                    if m_id in target_ticks:
-                        current_target = start_ticks[m_id] + (target_ticks[m_id] - start_ticks[m_id]) * ratio
-                        current_target = max(0, min(4095, int(current_target)))
-                        self.driver.set_position(m_id, current_target)
-                        self.current_positions[m_id] = current_target
-                    
-            time.sleep(control_period)
-        self.is_moving = False
+        final_ticks = {
+            m_id: max(0, min(4095, int(target_ticks[m_id])))
+            for m_id in target_ticks
+        }
+        last_sent = {m_id: None for m_id in final_ticks}
+        started = time.perf_counter()
+        next_update = started
+
+        try:
+            while not self.stop_requested:
+                now = time.perf_counter()
+                progress = min(1.0, (now - started) / duration)
+                # Quintic minimum-jerk S-curve: zero velocity and acceleration
+                # at both ends, avoiding the torque step of simpler profiles.
+                ratio = progress ** 3 * (10.0 - 15.0 * progress + 6.0 * progress ** 2)
+
+                with self.command_lock:
+                    for m_id, final_tick in final_ticks.items():
+                        command = round(
+                            start_ticks[m_id] + (final_tick - start_ticks[m_id]) * ratio
+                        )
+                        command = max(0, min(4095, command))
+                        # Re-sending an unchanged integer target can excite servo chatter.
+                        if command != last_sent[m_id]:
+                            self.driver.set_position(m_id, command)
+                            self.current_positions[m_id] = command
+                            last_sent[m_id] = command
+
+                if progress >= 1.0:
+                    break
+                next_update += self.CONTROL_PERIOD
+                time.sleep(max(0.0, next_update - time.perf_counter()))
+        finally:
+            self.is_moving = False
 
     def jog_joint(self, motor_id, deg_delta):
         if self.is_moving: return

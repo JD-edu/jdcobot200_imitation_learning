@@ -1,6 +1,6 @@
 import serial
 import time
-from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명을 수정하세요
+from motor_drive import MiniFeetechDriver  # 환경에 맞게 파일명을 수정하세요
 
 # ==========================================
 # [설정 영역] 테스트할 모터 ID와 포트 설정

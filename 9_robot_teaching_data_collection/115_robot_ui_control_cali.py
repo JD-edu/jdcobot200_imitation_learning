@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
 from pathlib import Path
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 

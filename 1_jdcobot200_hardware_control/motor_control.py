@@ -195,7 +195,7 @@ class MiniFeetechDriver:
 
 
 import time
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 
 if __name__ == "__main__":

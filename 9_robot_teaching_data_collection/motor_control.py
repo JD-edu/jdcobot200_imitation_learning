@@ -13,6 +13,9 @@ class MiniFeetechDriver:
     REG_LOCK = 55            # EEPROM 쓰기 잠금 레지스터
     REG_PRESENT_POSITION = 56
 
+    BROADCAST_ID = 0xFE
+    INST_SYNC_WRITE = 0x83
+
     def __init__(self, port='/dev/ttyUSB0', baudrate=1000000):
         self.ser = serial.Serial(port, baudrate, timeout=0.05)
         # pyserial transactions must not overlap across UI/feedback threads.
@@ -165,6 +168,28 @@ class MiniFeetechDriver:
     def set_position(self, motor_id, position):
         self.write_u16(motor_id, self.REG_GOAL_POSITION, position)
 
+    def set_positions_sync(self, positions):
+        """여러 서보의 목표 위치를 하나의 Sync Write 패킷으로 전송합니다.
+
+        positions는 ``{motor_id: goal_position}`` 형태입니다. Sync Write는
+        브로드캐스트 명령이므로 서보의 상태 응답을 기다리지 않습니다.
+        """
+        if not positions:
+            return
+
+        # Parameters: start address, bytes per servo, [id, low, high] ...
+        parameters = [self.REG_GOAL_POSITION, 2]
+        for motor_id, position in sorted(positions.items()):
+            motor_id = int(motor_id)
+            position = int(position)
+            if not 0 <= motor_id < self.BROADCAST_ID:
+                raise ValueError(f"Invalid motor ID: {motor_id}")
+            if not 0 <= position <= 4095:
+                raise ValueError(f"Position out of range for ID {motor_id}: {position}")
+            parameters.extend([motor_id, position & 0xFF, (position >> 8) & 0xFF])
+
+        self._write_only(self.BROADCAST_ID, self.INST_SYNC_WRITE, parameters)
+
     def get_position(self, motor_id):
         pos = self.read_u16(motor_id, self.REG_PRESENT_POSITION)
 
@@ -230,7 +255,7 @@ class MiniFeetechDriver:
 
 
 import time
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 
 if __name__ == "__main__":

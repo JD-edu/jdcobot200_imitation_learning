@@ -1,6 +1,6 @@
 import time
 import numpy as np
-from motor_control import MiniFeetechDriver
+from motor_drive import MiniFeetechDriver
 
 # ==========================================
 # 1. Standard DH FK

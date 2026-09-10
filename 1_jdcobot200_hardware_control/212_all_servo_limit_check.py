@@ -1,7 +1,7 @@
 import os
 import time
 from pathlib import Path
-from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명을 수정하세요
+from motor_drive import MiniFeetechDriver  # 환경에 맞게 파일명을 수정하세요
 
 # ==========================================
 # [설정 영역] 포트 및 마진(버퍼) 설정

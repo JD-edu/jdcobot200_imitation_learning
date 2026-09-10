@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jdcobot200-motor-drive"
+version = "0.1.0"
+description = "Shared serial motor driver for JDCobot200"
+requires-python = ">=3.8"
+dependencies = ["pyserial>=3.5"]
+
+[tool.setuptools]
+py-modules = ["motor_drive"]

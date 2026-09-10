@@ -2,7 +2,7 @@ import serial
 import time
 import math
 from pathlib import Path
-from motor_control import MiniFeetechDriver  # 환경에 맞게 파일명/클래스명을 조정하세요. [cite: 106]
+from motor_drive import MiniFeetechDriver  # 환경에 맞게 파일명/클래스명을 조정하세요. [cite: 106]
 
 CALIBRATION_FILE = Path(__file__).resolve().parents[1] / "config" / "jdcobot200" / "offsets.txt"
 

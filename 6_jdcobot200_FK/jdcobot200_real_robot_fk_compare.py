@@ -24,7 +24,7 @@ from jdcobot200_mink_fk_solver import SO101MinkFKSolver
 ROOT = Path(__file__).resolve().parent
 HARDWARE_ROOT = ROOT.parent / "1_jdcobot200_hardware_control"
 sys.path.insert(0, str(HARDWARE_ROOT))
-from motor_control import MiniFeetechDriver  # noqa: E402
+from motor_drive import MiniFeetechDriver  # noqa: E402
 
 
 XML_PATH = ROOT / "scene.xml"

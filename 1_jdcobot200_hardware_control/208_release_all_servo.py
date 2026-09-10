@@ -1,6 +1,6 @@
 import serial
 import time
-from motor_control import MiniFeetechDriver 
+from motor_drive import MiniFeetechDriver
 
 
 def main():
@@ -35,11 +35,11 @@ def main():
                     pos_list.append(f"ID{m_id:02d}: {pos:4d}")
                 else:
                     pos_list.append(f"ID{m_id:02d}: Error")
-            
+
             # 한 줄에 출력 (\r을 사용하여 줄바꿈 없이 갱신)
             print(" | ".join(pos_list), end="\r")
             time.sleep(0.1)  # 10Hz 업데이트
-            
+
     except KeyboardInterrupt:
         print("\n\nMonitoring stopped by user.")
     finally:
