@@ -1,0 +1,63 @@
+schema_version: 1
+name: jdcobot200
+dof: 5
+serial:
+  port: /dev/ttyACM0
+  baudrate: 1000000
+  timeout_seconds: 0.05
+encoder:
+  resolution: 4096
+  logical_center_tick: 2048
+  home_offset_convention: logical_center_minus_raw_home
+poses:
+  ready_degrees:
+  - 0.0
+  - 20.0
+  - -40.0
+  - 20.0
+  - 0.0
+joints:
+- name: base
+  motor_id: 1
+  role: arm
+  direction: 1
+  home_offset_tick: -56
+  min_tick: 226
+  max_tick: 3936
+- name: shoulder
+  motor_id: 2
+  role: arm
+  direction: 1
+  home_offset_tick: -36
+  min_tick: 876
+  max_tick: 3213
+- name: elbow
+  motor_id: 3
+  role: arm
+  direction: 1
+  home_offset_tick: 22
+  min_tick: 734
+  max_tick: 3429
+- name: wrist_pitch
+  motor_id: 4
+  role: arm
+  direction: -1
+  home_offset_tick: 1
+  min_tick: 843
+  max_tick: 3188
+- name: wrist_roll
+  motor_id: 5
+  role: arm
+  direction: 1
+  home_offset_tick: -4
+  min_tick: 484
+  max_tick: 3786
+- name: gripper
+  motor_id: 6
+  role: gripper
+  direction: 1
+  home_offset_tick: -312
+  min_tick: 1830
+  max_tick: 2804
+  open_tick: 2804
+  closed_tick: 1830

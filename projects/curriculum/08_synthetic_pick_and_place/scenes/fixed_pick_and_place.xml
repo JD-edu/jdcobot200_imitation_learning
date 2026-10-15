@@ -1,0 +1,41 @@
+<mujoco model="jdcobot200_fixed_pick_and_place">
+  <include file="../../../../robot_description/mjcf/jdcobot200.xml"/>
+  <compiler meshdir="../../../../robot_description/meshes"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"
+          cone="elliptic" iterations="100" tolerance="1e-10"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <global azimuth="155" elevation="-25"/>
+  </visual>
+
+  <worldbody>
+    <light pos="0 0 2" dir="0 0 -1" directional="true"/>
+    <geom name="floor" type="plane" size="0 0 0.05" rgba="0.18 0.22 0.25 1"/>
+
+    <body name="block" pos="0 0.18 0.025">
+      <freejoint name="block_free"/>
+      <geom name="block_geom" type="box" size="0.035 0.020 0.025"
+            mass="0.04" contype="1" conaffinity="1" condim="4"
+            friction="4.0 0.03 0.003" solref="0.004 1"
+            solimp="0.95 0.99 0.001" margin="0.0005"
+            rgba="0.9 0.15 0.1 1"/>
+    </body>
+
+    <body name="place_target" pos="0.14 0.10 0.001">
+      <geom name="target_marker" type="box" size="0.040 0.025 0.001"
+            contype="0" conaffinity="0" rgba="0.1 0.8 0.2 0.45"/>
+    </body>
+
+    <camera name="dataset_camera" pos="0.55 -0.55 0.55"
+            xyaxes="0.707 0.707 0 -0.408 0.408 0.816" fovy="48"/>
+  </worldbody>
+
+  <!-- 양쪽 손가락은 같은 그리퍼 메커니즘의 부품이다. 서로의 convex hull은
+       실제 링크 형상보다 약간 커서 겹치므로 self-contact만 제외한다. 블록과의
+       contact는 그대로 활성화되어 normal force와 마찰로 파지한다. -->
+  <contact>
+    <exclude body1="gripper_left_assembly" body2="gripper_right_assembly"/>
+  </contact>
+</mujoco>

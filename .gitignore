@@ -7,6 +7,7 @@
 *.torchscript
 checkpoints/
 outputs/
+artifacts/
 runs/
 wandb/
 lightning_logs/
@@ -59,6 +60,7 @@ log/
 MUJOCO_LOG.TXT
 *.tmp
 *.temp
+*.bak
 *.swp
 *.swo
 *~
